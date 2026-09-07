@@ -177,17 +177,113 @@ The city should visually communicate more than population size. Possible visual 
 - Exact ruling chamber layout.
 - Exact town visual-stage system.
 
-## 6. Next Design System
+## 6. Decision 004 — Population and Workforce
 
-### System 04 — Population
+**Status: Accepted at system level; exact numerical balance remains open.**
 
-Questions to resolve:
-- Is population represented as individual people, households, abstract groups, or a hybrid?
-- Who counts as available workforce?
-- Are children, elderly people, and dependents simulated?
-- How are births and deaths handled?
-- How does immigration work?
-- Does population have social classes?
-- Are professions tracked directly?
-- Can workers retrain between professions?
-- How much demographic complexity improves strategy versus creating unnecessary bookkeeping?
+Population is represented through **aggregate population groups rather than individually simulated citizens**.
+
+The player-facing demographic model uses three groups:
+
+- Children
+- Working-age adults
+- Elderly
+
+Working-age adults form the normal workforce. Children and elderly people are normally dependents, though later policies may allow a limited percentage of either group to work with reduced efficiency and meaningful drawbacks.
+
+Population changes through:
+
+- births;
+- immigration;
+- deaths;
+- emigration.
+
+Individual households and families are not simulated.
+
+Social classes are intentionally postponed for a later system.
+
+### Aging
+
+The visible model remains limited to the three age groups, but the simulation should keep enough hidden age/cohort information to prevent unrealistic transitions.
+
+A newborn child must not be able to become an adult immediately simply because an aggregate annual transition roll occurs.
+
+Preferred approach:
+
+- population is stored internally in age or birth cohorts;
+- the UI still shows only the three broad groups;
+- members must reach an eligible age/window before they can transition to the next visible group;
+- transitions may then use annual probabilities, potentially with a forced maximum age to prevent implausible long-term outliers;
+- natural mortality probabilities may differ by age group or hidden cohort.
+
+Exact ages and transition percentages are unresolved.
+
+### Workforce model
+
+General and specialized workers remain part of the same overall labor pool.
+
+**General workers** are flexible and should operate at normal efficiency in most ordinary jobs.
+
+**Specialists** gain a substantial efficiency bonus in their trained profession but can still be reassigned to other ordinary work at reduced efficiency.
+
+Provisional conceptual example only:
+
+- General worker in ordinary work: 100%
+- Matching specialist in specialty: approximately 200%
+- Specialist outside specialty: approximately 50%
+
+Exact percentages are not accepted balance values yet.
+
+This allows specialists to remain useful during emergencies while making their proper employment highly valuable.
+
+### Qualified professions
+
+Some advanced systems may require at least one appropriately trained specialist to perform their core function effectively.
+
+Examples may include:
+
+- physicians;
+- researchers/scholars;
+- priests or clergy;
+- engineers;
+- other advanced professions added later.
+
+The preferred model is not a universal hard lock. Instead, advanced workplaces may contain a **qualified core function plus assistive labor**.
+
+Examples:
+
+- an infirmary can employ general workers as attendants, but advanced medical treatment or epidemic control requires a physician;
+- a research institution can employ assistants, but meaningful research output requires a scholar/researcher;
+- a religious institution may accept general labor for maintenance while specialist clergy provide its unique social/religious effects.
+
+This preserves the possibility of catastrophic specialist shortages without making every non-specialist completely useless.
+
+Specialist training, retraining, and exact profession rules are unresolved.
+
+### Child and elderly labor
+
+Future policies may allow part of the child or elderly population to enter the workforce.
+
+Such labor should generally be less efficient than normal adult labor and create tradeoffs such as:
+
+- increased injury or mortality;
+- reduced health;
+- reduced education or future specialist potential for children;
+- increased medical burden;
+- legitimacy, unrest, or social consequences where appropriate.
+
+Exact policies and penalties are unresolved.
+
+## 7. Next Design System
+
+### System 05 — Resources and Economy
+
+Topics to resolve include:
+
+- Which resources exist at the beginning of a run?
+- Which resources appear only later?
+- Which are stockpiled versus abstract capacities?
+- How are food, wood, stone, coin, and specialized goods produced?
+- How much production-chain complexity is desirable?
+- How do shortages affect the town?
+- How can different settlements specialize economically without creating mandatory build paths?
