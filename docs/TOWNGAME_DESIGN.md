@@ -1042,3 +1042,151 @@ Randomness should primarily determine which events occur, when they occur, exter
 Some individual events may still use probabilistic outcomes where uncertainty is itself thematically or strategically valuable.
 
 The exact boundary between deterministic and probabilistic event resolution remains open for later refinement.
+
+
+
+## Decision 010 — Run Objectives, Milestones, Scoring, and Meta Rewards
+
+**Status: Accepted at system level; exact formulas, reward values, and milestone thresholds remain open.**
+
+### Primary run objective
+
+The central objective of a run is:
+
+> **Build and sustain the greatest settlement possible under increasingly difficult conditions before inevitable collapse.**
+
+Population milestones remain the clearest headline objectives during a run, but the final measure of success is broader than population alone. Pure survival time is not the primary objective and should not be heavily rewarded by itself.
+
+### Population milestones
+
+Population milestones provide **immediate run-specific rewards**.
+
+These rewards may steer the settlement toward different strategies or specializations later in the same run.
+
+Possible reward categories include temporary production bonuses, new policies, specialist access, infrastructure acceleration, Legitimacy gains, special project options, economic specialization choices, and run-specific modifiers.
+
+Population milestones may also permanently unlock new gameplay systems, buildings, statistics and records features, map-table functionality, event-interface conveniences, progression screens, credits or presentation features, and later Challenge Tier content.
+
+Some interface or meta features may intentionally be hidden behind early milestones so the game itself unfolds as the player progresses.
+
+### Monthly score accumulation
+
+Score is primarily accumulated **every month**.
+
+The guiding principle is:
+
+> **How much civilization did you sustain, under how much pressure, and for how long?**
+
+Monthly score should therefore depend on settlement scale and development, multiplied by externally imposed difficulty.
+
+Conceptually:
+
+- larger and more developed settlements produce more score;
+- surviving in harder Challenge Tiers produces more score;
+- sustaining a difficult settlement for multiple months produces more score than briefly touching a high milestone and immediately collapsing.
+
+Exact formulas remain open.
+
+### Anti-exploit scoring rule
+
+The scoring system must not reward the player for intentionally creating bad internal conditions.
+
+Self-inflicted problems such as food shortages, high Unrest, disease caused by neglect, housing collapse, or deliberately broken infrastructure must not directly increase the difficulty multiplier.
+
+Difficulty-related score should be based primarily on **external or progression-based pressure**, such as Challenge Tier, World Pressure, active event severity, run modifiers, milestone difficulty, and other non-player-created challenge factors.
+
+Good management should allow the player to earn more score by surviving difficult circumstances, not by manufacturing misery.
+
+### Crisis scoring
+
+Events and crises may grant score according to difficulty when successfully survived or resolved.
+
+Crisis score should scale with event tier, severity, duration, escalation stage, and compound conditions where appropriate.
+
+Event memory should help prevent farming identical easy crises.
+
+Repeated versions of the same event may give reduced score, evolve into more severe forms, create greater Unrest or political consequences, reference earlier outcomes, or become part of longer story arcs.
+
+### Ambitions
+
+Optional run-specific goals are called **Ambitions**.
+
+Ambitions encourage different strategic approaches and may include economic, demographic, infrastructure, specialist, or survival-related goals.
+
+Ambitions should generally reward **Legacy Points** and may contribute to achievements or larger unlocks.
+
+Completing all Ambitions in a set, category, or run may grant achievements, special unlocks, new content, cosmetic rewards, or larger meta-progression milestones.
+
+### Score versus Legacy Points
+
+**Score** measures the success of the current run.
+
+**Legacy Points** are the most abundant repeatable meta-progression currency.
+
+Legacy Points may be earned primarily from final score, Ambitions, selected thresholds, and significant accomplishments.
+
+The exact conversion from score to Legacy Points is unresolved and should be tuned to discourage trivial farming.
+
+### Legacy talent progression
+
+Legacy Points purchase relatively small, permanent cross-run bonuses.
+
+Examples may include:
+
+- +1% Wood production;
+- +1% Food production;
+- small construction efficiency bonuses;
+- specialist training improvements;
+- +1 AP in a specific month, such as March;
+- delayed Challenge Tier or World Pressure milestones;
+- other carefully bounded bonuses.
+
+The cost of repeated or stronger talents should rise sharply, potentially close to exponentially, so progressively deeper optimization requires substantially more successful runs.
+
+Extremely powerful bonuses such as additional Action Points require much stricter pricing than ordinary percentage improvements.
+
+### Major unlocks
+
+Large gameplay features should generally **not** be purchased simply by accumulating enough Legacy Points.
+
+Instead, first-time milestones, achievements, records, Challenge Tier breakthroughs, and other meaningful accomplishments unlock major content.
+
+This creates two distinct forms of meta progression:
+
+1. **Legacy Points** provide frequent, granular permanent improvement.
+2. **Achievements and first-time accomplishments** unlock broader gameplay possibilities.
+
+### Personal records and statistics
+
+The game should maintain a persistent statistics and records page.
+
+Potential records include highest peak population, highest final score, highest Challenge Tier reached, longest successful maintenance of a major population threshold, largest monthly production values, most severe crisis survived, Ambitions completed, total runs, total population governed, and other notable run statistics.
+
+### Survival as a goal
+
+"Survive as long as possible" is not the primary normal-run objective.
+
+Early in the player's experience, simple survival may naturally feel like the immediate goal.
+
+Later, Ambitions, specialization, score optimization, milestone hunting, and Challenge Tier progression provide more specific objectives.
+
+Only in the extreme endgame, once most other progression is exhausted, may maximum survival time become a meaningful ultimate challenge.
+
+
+
+## Next Design System
+
+### System 11 — Meta Progression Structure
+
+Topics to resolve:
+
+- How is the Legacy talent tree organized?
+- Are talents linear, branching, seasonal, or category-based?
+- How steeply should talent costs scale?
+- Which bonuses are safe as repeatable percentage upgrades?
+- Which bonuses must be capped?
+- How are month-specific AP talents structured?
+- How are milestone-delay upgrades represented?
+- Which progression is purchased with Legacy Points versus unlocked through achievements?
+- Should players be able to respec Legacy talents?
+- How much permanent power should a fully progressed player have compared with a new player?
