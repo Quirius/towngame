@@ -688,3 +688,357 @@ Topics to resolve:
 - Which event responses cost resources, legitimacy, workers, or Action Points?
 - How much randomness should be visible in advance?
 - How should compound crises form without feeling unfair?
+
+
+## Decision 009 — Events and Persistent Crises
+
+**Status: Accepted at system level; exact event tables, probabilities, and outcome-randomness rules remain open.**
+
+Events are a core source of unpredictability, narrative, and pressure. They should emerge from the state of the settlement and the current Challenge Tier rather than behave as isolated random popups.
+
+### Event timing
+
+Events are generated and presented **at the beginning of the monthly planning phase**.
+
+This allows the player to understand the month's immediate problems before allocating workers, changing policies, assigning resources, or spending Action Points.
+
+Events should generally not appear after the player has already committed the month unless they are explicitly designed as consequences of the resolved simulation.
+
+### Event presentation
+
+Events should normally be represented diegetically through the ruling chamber.
+
+Possible presentation methods include:
+
+- messengers arriving near the chamber entrance;
+- peasants or townspeople requesting aid;
+- merchants;
+- priests;
+- guards;
+- physicians;
+- craftsmen;
+- advisors;
+- representatives of groups or institutions.
+
+The event interface may appear when the player interacts with the arriving NPC.
+
+The physical NPC is presentation. The underlying event system must remain independent of first-person movement so events can be tested and prototyped through conventional UI.
+
+### Event categories
+
+Events should be divided into several broad types.
+
+#### Immediate events
+
+Resolved through a decision during the current planning phase.
+
+Examples:
+
+- merchant dispute;
+- minor fire;
+- theft;
+- local petition;
+- injured workers;
+- unexpected visitors.
+
+These usually resolve immediately after the player chooses an option.
+
+#### Persistent crises
+
+Conditions that remain active for multiple months.
+
+Examples:
+
+- epidemic;
+- drought;
+- regional grain shortage;
+- trade-route disruption;
+- prolonged severe winter;
+- crime wave;
+- infrastructure failure.
+
+Persistent crises modify the simulation each month until they expire, are resolved, or worsen.
+
+#### Escalating crises
+
+Persistent conditions that may develop through stages.
+
+Example:
+
+Local sickness
+→ spreading outbreak
+→ epidemic
+→ severe epidemic
+
+Player decisions and settlement preparation can influence whether the crisis improves or escalates.
+
+#### Opportunity events
+
+Not every event should be negative.
+
+Examples:
+
+- talented specialist arrives;
+- merchant caravan offers favorable trade;
+- unusually good harvest;
+- refugee group offers valuable skills;
+- temporary political support;
+- discovery of useful resources.
+
+Positive events should still create decisions rather than function only as free rewards.
+
+### Event choices and costs
+
+Normal event choices should not automatically consume Action Points.
+
+Possible costs may include:
+
+- Coin;
+- resources;
+- workers;
+- specialists;
+- Legitimacy;
+- temporary production;
+- long-term consequences;
+- accepting risk;
+- changing policy;
+- refusing assistance.
+
+Particularly powerful responses may spend Action Points as a premium option.
+
+Events may also temporarily increase or reduce Action Point availability.
+
+### Event generation
+
+Events should be influenced by current settlement state.
+
+Examples:
+
+- poor sanitation increases disease-event weight;
+- wood-heavy construction increases fire-related vulnerability;
+- weak food reserves increase famine-related event severity;
+- high trade dependence increases exposure to trade disruption;
+- low Legitimacy increases political-event danger;
+- poor infrastructure increases failure-event probability.
+
+This makes events feel like consequences of the player's settlement rather than completely arbitrary punishment.
+
+Purely external events may still occur, especially at higher World Pressure.
+
+### Tiered event pools
+
+Challenge Tier influences event availability and severity.
+
+Higher tiers may:
+
+- unlock more severe events;
+- unlock longer persistent crises;
+- increase the probability of escalation;
+- allow multiple related crises to overlap;
+- unlock compound events.
+
+Lower-tier events may remain possible at high tiers.
+
+Challenge Tier should shift with meta-progression according to Decision 008.
+
+### Event frequency
+
+The game should avoid overwhelming the player with too many separate event popups.
+
+A useful target is for notable events to remain meaningful rather than becoming routine clutter.
+
+Higher difficulty should increasingly come from:
+
+- persistent conditions;
+- overlapping pressures;
+- escalating consequences;
+
+rather than simply increasing the number of NPCs arriving every month.
+
+Exact event frequency is unresolved.
+
+### Compound crises
+
+Late-game danger should increasingly come from interactions between active systems.
+
+Examples:
+
+Severe winter
++ regional grain shortage
++ damaged granary
+→ famine risk
+
+Epidemic
++ physician shortage
++ overcrowding
+→ catastrophic mortality
+
+Trade disruption
++ paper shortage
++ administrative bureaucracy
+→ loss of governing capacity
+
+Compound crises should normally arise from combinations of individually understandable conditions rather than opaque scripted punishment.
+
+### Forecasting and fairness
+
+The game should give the player enough information to prepare for broad categories of risk without revealing exact future events.
+
+Possible forecasts include:
+
+- severe winter expected;
+- disease pressure high;
+- trade instability rising;
+- drought risk elevated.
+
+Some events may have visible warning stages.
+
+Examples:
+
+Minor sickness
+→ outbreak risk
+
+Low rainfall
+→ drought risk
+
+Public complaints
+→ protest risk
+
+This creates strategic preparation while preserving uncertainty.
+
+### Persistent crisis interaction
+
+Persistent crises should appear as active conditions on the map-table interface.
+
+For each active crisis, the player should be able to see:
+
+- current effect;
+- estimated or possible duration;
+- escalation risk where appropriate;
+- known mitigation methods;
+- relevant assigned resources or workers.
+
+Not every duration must be exactly predictable.
+
+### Failure and recovery
+
+Events should not normally create unavoidable instant defeat from a healthy settlement.
+
+Severe events may be devastating, especially at high Challenge Tiers, but the player should usually be able to identify why the settlement was vulnerable.
+
+At very high World Pressure, compound crises may become effectively impossible to manage, fulfilling the eventual-collapse goal.
+
+### Event memory
+
+Major event outcomes may leave lasting consequences.
+
+Examples:
+
+- surviving an epidemic changes Legitimacy;
+- seizing merchant goods affects future trade;
+- refusing refugees affects future population or political events;
+- rebuilding after a major fire may unlock or create modifiers.
+
+This allows individual runs to develop their own history.
+
+Exact memory duration and event-chain systems are unresolved.
+
+### Meta-progression and events
+
+Meta-progression may influence events by:
+
+- delaying specific Challenge Tier milestones;
+- unlocking new positive or neutral events;
+- providing new response options;
+- unlocking institutions that mitigate event categories;
+- improving preparation tools.
+
+Meta-progression should generally not make broad event categories permanently harmless.
+
+
+
+## Next Design System
+
+### System 10 — Population Goals, Scoring, and Run Objectives
+
+Topics to resolve:
+
+- What is the player's explicit objective during a run?
+- Are population milestones the main goals or one of several goal types?
+- How are milestone rewards delivered during the run?
+- How is final score calculated?
+- Should survival time, peak population, prosperity, crisis survival, and difficulty all contribute?
+- Which achievements grant immediate run rewards versus meta-progression rewards?
+- How do objectives encourage growth without rewarding reckless population rushing?
+- Should runs contain optional secondary goals?
+
+
+### Event frequency and pacing
+
+The default pacing target is approximately **one notable new event per season on average**.
+
+This is not a fixed schedule. Event frequency may change due to Challenge Tier, World Pressure, settlement vulnerabilities, active crises, run modifiers, and specific event chains.
+
+Difficulty should not primarily increase by spawning more and more separate events. Persistent crises, escalating conditions, and compound systemic pressure should carry much of the late-game difficulty.
+
+### Event-driven death spirals
+
+Because event weights respond to settlement conditions, the event system must be carefully balanced to avoid unfair positive feedback loops.
+
+A weakened settlement may legitimately become more vulnerable to related events, but poor conditions should not automatically cause repeated punishment with no realistic chance to recover.
+
+Useful safeguards may include diminishing repeated-event weighting, temporary cooldowns, active-crisis awareness, event-pressure budgeting, limits on redundant crisis categories, and warning states before severe escalation where appropriate.
+
+The objective is to create understandable cascading failure, not arbitrary event spam.
+
+### Event Pressure Budget
+
+An invisible **Event Pressure Budget** is the preferred balancing model.
+
+Challenge Tier, World Pressure, current settlement state, active crises, and other modifiers determine how much event pressure is available.
+
+The event system then spends that pressure on suitable events or crisis escalation.
+
+A high-pressure period may therefore produce one severe crisis, several smaller related problems, escalation of an existing crisis, or a compound event.
+
+### Messenger and interaction rules
+
+A new event may be introduced by a relevant NPC arriving near the ruling-chamber entrance.
+
+The messenger is generally **one-off**.
+
+If the event becomes persistent, its ongoing management moves primarily to the map table, relevant AP-spending stations, and relevant advisors or specialists.
+
+The messenger may return when the event escalates, a major new decision becomes available, the crisis changes state, or the event concludes in a significant way.
+
+Not every event response must be completed inside the initial dialogue. Most events should connect back into normal management systems.
+
+### Action Points as premium event responses
+
+Within events, Action Points act as a **premium intervention resource**.
+
+Ordinary responses generally use normal resources, policies, workers, risk acceptance, or Legitimacy.
+
+Spending AP may often solve the problem outright, prevent escalation, unlock the strongest outcome, greatly reduce losses, or create a special long-term benefit.
+
+AP should not be mandatory for every serious event, but it should frequently represent the Lord personally devoting exceptional governing attention to the problem.
+
+### Information transparency
+
+Known consequences should normally be shown numerically.
+
+The interface may later simplify or summarize values if excessive detail harms readability, but the simulation should retain explicit underlying numbers.
+
+Uncertain outcomes should be clearly identified as uncertain.
+
+### Event outcome randomness
+
+The current preferred direction is **mostly deterministic event resolution**.
+
+When the player chooses an option, the outcome should usually follow predictably from the chosen response, resources committed, workers or specialists assigned, relevant town conditions, and current modifiers.
+
+Randomness should primarily determine which events occur, when they occur, external conditions, and crisis severity or starting state.
+
+Some individual events may still use probabilistic outcomes where uncertainty is itself thematically or strategically valuable.
+
+The exact boundary between deterministic and probabilistic event resolution remains open for later refinement.
