@@ -576,3 +576,115 @@ Topics to resolve:
 - Can a highly developed but low-population settlement still face increasing pressure?
 - How predictable should future difficulty be?
 - Which escalation mechanics feel systemic rather than arbitrary?
+
+
+## Decision 008 — Difficulty Escalation and Expectations
+
+**Status: Accepted at system level; exact formulas and tier thresholds remain open.**
+
+Every run contains three major sources of escalating difficulty:
+
+1. **Time Pressure**
+2. **Scale Pressure**
+3. **Expectation Pressure**
+
+These systems work together to ensure that no settlement can remain permanently safe simply by keeping population low or overbuilding infrastructure.
+
+### Time Pressure
+
+An irreversible world-pressure system increases as the settlement ages.
+
+World Pressure does not directly add Unrest or universally reduce production. Instead, it changes what the world can throw at the player by increasing event severity, event complexity, overlapping crises, persistent regional problems, environmental volatility, trade disruption, disease pressure, and other external threats.
+
+Broad future danger should be forecastable even though exact events remain uncertain.
+
+### Scale Pressure
+
+Population creates direct systemic demand.
+
+Peak population may also influence certain long-term pressures so that a settlement that once supported a large population does not instantly become equivalent to a historically tiny village after population loss.
+
+### Expectation Pressure
+
+Citizen expectations rise with settlement development, prosperity, historical standards, population scale, and time.
+
+Expectations are partly historical and should not immediately fall when the settlement loses infrastructure or prosperity.
+
+Importantly, expectations may also run **slightly ahead of actual development**.
+
+A growing town may begin expecting the effects of infrastructure before that infrastructure already exists. For example, water-access expectations may increase before an aqueduct is built, creating a proactive incentive to construct it rather than merely reacting after a hard requirement is exceeded.
+
+This makes infrastructure useful for staying ahead of rising standards rather than merely crossing off requirements.
+
+### Dynamic Challenge Tiers
+
+The game uses descriptive **Challenge Tiers** to communicate overall run danger.
+
+Example conceptual tiers:
+
+- Frontier
+- Established
+- Strained
+- Crisis Age
+- Terminal
+
+These names are provisional.
+
+Challenge Tiers must be **dynamic rather than permanent fixed end stages**. The game is intended to support stronger future runs through meta-progression, so later runs should not spend most of their duration stuck in the same final tier.
+
+Tier thresholds may shift with meta-progression, difficulty, run modifiers, or future progression systems. New higher tiers may eventually become reachable, and event pools may continue scaling beyond the prototype's original endgame.
+
+### Tiered and Compound Events
+
+Events are drawn from tiered pools.
+
+Higher tiers unlock more dangerous events and combinations while lower-tier events may remain possible.
+
+Late-game difficulty should increasingly come from multiple simultaneous pressures competing for limited labor, resources, specialists, and Action Points.
+
+Persistent crises may last multiple months so late-game difficulty does not require constant popup spam.
+
+### Meta-progression and World Pressure
+
+Meta-progression should not simply reduce World Pressure by a permanent percentage.
+
+However, **discrete delays to escalation are acceptable and potentially desirable**.
+
+Examples:
+
+- World Pressure begins increasing one season later.
+- A tier threshold is delayed by one season.
+- The first annual World Pressure increase occurs one year later.
+- A specific escalation milestone is postponed.
+
+This differs from a permanent multiplier such as `World Pressure growth -20%`.
+
+A fixed delay gives the player more development time while preserving the long-term shape and inevitability of escalation. Such bonuses must still be balanced carefully because extra safe time compounds into significant economic advantage.
+
+Meta-progression may also improve the player's ability to cope with pressure through stronger systems, new buildings, specialists, starting options, or rare AP improvements.
+
+### Anti-stagnation principle
+
+The player should not be able to survive indefinitely by freezing population growth, remaining deliberately primitive, overbuilding infrastructure, or lowering development to reset expectations.
+
+### Design rule
+
+> **Unrest measures collapse risk. World Pressure and Expectations create the conditions that make collapse increasingly likely.**
+
+These systems remain conceptually separate.
+
+
+## Next Design System
+
+### System 09 — Events and Persistent Crises
+
+Topics to resolve:
+
+- How are monthly events selected?
+- How many events can occur at once?
+- Which events are one-off decisions versus multi-month conditions?
+- How do event tiers interact with World Pressure and Challenge Tier?
+- How are event choices presented through NPC visitors?
+- Which event responses cost resources, legitimacy, workers, or Action Points?
+- How much randomness should be visible in advance?
+- How should compound crises form without feeling unfair?
