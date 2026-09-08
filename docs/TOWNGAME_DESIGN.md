@@ -177,6 +177,48 @@ The city should visually communicate more than population size. Possible visual 
 - Exact ruling chamber layout.
 - Exact town visual-stage system.
 
+
+## 5. Decision 005 — Resources and Economy
+
+**Status: Accepted at system level; exact balance and later resources remain open.**
+
+The economy uses a **layered strategic resource model**. Early gameplay begins with a small core set:
+
+- Food
+- Wood
+- Stone
+- Coin
+
+Additional resources may unlock later, such as Iron, Tools, Cloth, Paper, Medicine, Weapons, and Luxury Goods. Resources should only be added when they create meaningful strategic decisions. Production chains should generally remain short.
+
+### Food
+Food remains **one abstract resource** for now. Grain, meat, preserved food, luxury food, and similar categories are not separately tracked unless later design work gives a strong reason to split them.
+
+### Economic abstraction
+The player directly manages the settlement's strategically relevant stockpiles. A detailed private household economy is not simulated.
+
+The presentation may imply that households and private producers conduct ordinary production and consumption in the background. The quantities visible to the player can therefore be understood as the **net stockpile available to the Lord and settlement administration after ordinary household activity**.
+
+This preserves the feeling of a wider economy without making household commerce a management burden.
+
+### Stockpiles and capacities
+Physical goods are generally stored as quantities. Systems such as Housing, Administration, Medical capability, and Security should generally be represented as capacities or system values rather than generic resources.
+
+### Map-table forecasting
+A central UI principle is:
+
+> **Show predicted outcomes before commitment.**
+
+Before advancing the month, the map table should show expected production, consumption, project demand, upkeep, shortages, and other major predictable changes resulting from the current plan. Random events do not need to be forecast.
+
+### Shortages
+Shortages normally do not block the player from advancing the month. Instead they create consequences such as stalled projects, insufficient heating, reduced production, delayed repairs, declining health, unrest, or famine.
+
+### Trade and specialization
+Trade should allow towns to compensate for local weaknesses and support different economic identities. Imports should remain costly or vulnerable enough that local production still matters.
+
+Starting conditions, geography, run modifiers, and development choices may encourage specializations such as farming, forestry, mining, metalworking, trade, or administration.
+
 ## 6. Decision 004 — Population and Workforce
 
 **Status: Accepted at system level; exact numerical balance remains open.**
@@ -276,14 +318,14 @@ Exact policies and penalties are unresolved.
 
 ## 7. Next Design System
 
-### System 05 — Resources and Economy
+### System 06 — Buildings and Infrastructure
 
-Topics to resolve include:
-
-- Which resources exist at the beginning of a run?
-- Which resources appear only later?
-- Which are stockpiled versus abstract capacities?
-- How are food, wood, stone, coin, and specialized goods produced?
-- How much production-chain complexity is desirable?
-- How do shortages affect the town?
-- How can different settlements specialize economically without creating mandatory build paths?
+Topics to resolve:
+- What does a building represent when the player never places structures manually?
+- Which buildings are individual major projects versus abstract settlement capacity?
+- How are ordinary homes and housing handled?
+- Do production buildings use worker slots, workforce capacity, or both?
+- How do upgrades, maintenance, damage, and deterioration work?
+- Which buildings unlock new systems rather than only increasing output?
+- How should roads, sanitation, water supply, walls, and similar infrastructure differ from normal buildings?
+- How closely should functional construction determine the visible town stage?
