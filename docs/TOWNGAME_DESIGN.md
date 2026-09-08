@@ -383,3 +383,196 @@ Topics to resolve:
 - How do neglected problems escalate rather than immediately cause collapse?
 - Which pressures scale naturally with population and town age?
 - How do multiple weak systems combine into crises and eventual death spirals?
+
+
+## Decision 007 — Unrest, Legitimacy, and Collapse Pressure
+
+**Status: Accepted at system level; exact formulas and advanced endgame crisis mechanics remain open.**
+
+### Unrest
+
+**Unrest is the primary value indicating how close the settlement is to political collapse.**
+
+Unrest is not a resource and should not be directly improved by talents, meta-progression, or permanent bonuses. It must always be **derived from other systems and conditions**.
+
+Potential contributors include:
+
+- food insecurity;
+- housing shortages;
+- disease;
+- poor sanitation;
+- high taxation;
+- crime;
+- unemployment or underemployment;
+- infrastructure failure;
+- prolonged hardship;
+- unpopular decisions;
+- failed events;
+- unmet expectations;
+- losses of legitimacy;
+- other systemic pressures.
+
+Unrest has **lagging inertia**. Fixing the immediate cause of anger should not instantly erase accumulated political pressure.
+
+A town at 98% Unrest may remain in severe danger even after a major problem is solved. Recovery should take time, and at sufficiently high levels it may be practically impossible to reverse collapse before the next major shock.
+
+### Initial defeat rule
+
+For the first playable implementation:
+
+> **Unrest reaching 100% ends the run immediately.**
+
+At 100% Unrest, the mob storms the ruling seat, the guards abandon or turn against the Lord, and the Lord loses control of the settlement.
+
+There is no recovery after the threshold has been reached in the initial version.
+
+### Later endgame refinement
+
+A future version may replace the instant threshold with a terminal political-crisis sequence.
+
+Possible escalation:
+
+- Dissatisfied
+- Agitated
+- Protests
+- Riots
+- Revolt
+- Final uprising
+
+A late-game uprising may create a brief opportunity to regain control, but survival should only delay the underlying danger rather than permanently remove it. Eventually a sufficiently strained settlement should collapse.
+
+This advanced crisis system should be treated as a later refinement rather than a requirement for the first prototype.
+
+### Legitimacy
+
+**Legitimacy** is a separate long-term political value representing how willing the population is to accept the Lord's rule.
+
+Unrest describes immediate anger and pressure.
+
+Legitimacy describes the regime's accumulated political credibility.
+
+The two values interact.
+
+A highly legitimate Lord may withstand substantial hardship before unrest becomes revolutionary, while a Lord with weak legitimacy may face severe political danger from comparatively smaller crises.
+
+Legitimacy may be affected by:
+
+- past decisions;
+- successful crisis management;
+- broken promises;
+- coercive measures;
+- fair or unfair policies;
+- prosperity;
+- major achievements;
+- event outcomes.
+
+Exact formulas are unresolved.
+
+### Political state
+
+A separate numeric Stability resource is not used.
+
+Instead, **Political State / Stability** is a derived descriptive state based primarily on Unrest, Legitimacy, and potentially other political conditions.
+
+Examples:
+
+- Stable
+- Strained
+- Unstable
+- Volatile
+- Near Collapse
+
+### Cascading failure
+
+Settlement problems should interact and create cascading failures rather than operate as isolated penalties.
+
+Example chain:
+
+Housing shortage
+→ overcrowding
+→ sanitation strain
+→ disease
+→ worker loss
+→ lower production
+→ food shortage
+→ unrest
+→ emigration
+→ lower tax income
+→ maintenance failure
+→ infrastructure deterioration
+→ further unrest
+
+Collapse should often emerge from these interconnected systems.
+
+### Growth and expectations
+
+Population growth alone must not be the only source of pressure.
+
+A player should not be encouraged to keep population artificially low while endlessly improving infrastructure in order to create a permanently stable town.
+
+As the settlement becomes more advanced, **expectations and systemic requirements should rise as well**.
+
+Potential drivers include:
+
+- population;
+- settlement age;
+- prosperity;
+- technological development;
+- infrastructure level;
+- unlocked institutions;
+- social complexity;
+- previous standards of living;
+- historical milestones;
+- run-specific difficulty modifiers.
+
+A primitive village may tolerate conditions that an established town will no longer accept.
+
+This means advancement itself creates new obligations.
+
+### Difficulty escalation
+
+The game requires an additional long-term escalation system beyond normal population pressure.
+
+Its purpose is to ensure that even an exceptionally well-managed town faces increasingly difficult conditions and cannot survive forever by simply remaining small or overdeveloped.
+
+This escalation should preferably operate through believable systems rather than arbitrary hidden penalties.
+
+Possible mechanisms to explore later include:
+
+- rising citizen expectations;
+- increasingly severe weather variation;
+- disease evolution;
+- regional scarcity;
+- trade disruption;
+- administrative complexity;
+- political faction pressure;
+- aging infrastructure;
+- reduced tolerance for poor conditions;
+- increasingly difficult event pools;
+- run-wide pressure that rises with time and development.
+
+The exact model will be designed separately.
+
+### War
+
+War and external military defeat are preserved as a future expansion idea.
+
+A lost war could eventually end a run through occupation, destruction of the settlement, or execution of the Lord.
+
+Military systems are **not part of the initial core design** and may be better suited to a later major expansion or DLC-style system.
+
+
+## Next Design System
+
+### System 08 — Difficulty Escalation and Expectations
+
+Topics to resolve:
+
+- What guarantees that every run eventually becomes unsustainable?
+- How much difficulty should come from time versus population versus development?
+- How should citizen expectations rise?
+- Should there be a visible global pressure level?
+- How should event severity evolve?
+- Can a highly developed but low-population settlement still face increasing pressure?
+- How predictable should future difficulty be?
+- Which escalation mechanics feel systemic rather than arbitrary?
