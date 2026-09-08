@@ -316,16 +316,70 @@ Such labor should generally be less efficient than normal adult labor and create
 
 Exact policies and penalties are unresolved.
 
+
+## Decision 006 — Buildings and Infrastructure
+
+**Status: Accepted.**
+
+Settlement development is divided into **organic development, functional buildings, and infrastructure**.
+
+### Organic development
+
+Ordinary homes and minor buildings develop automatically rather than being individually placed or commissioned. Housing is represented as settlement capacity.
+
+Organic housing construction uses real settlement resources and labor in the background. The population effectively builds ordinary housing for itself when conditions permit. The player does not manually order individual houses.
+
+During monthly planning, the map table should forecast the expected effect of this organic development, for example:
+
+- Household construction: -28 Wood
+- Household construction labor: 14 worker-equivalents
+- Expected Housing: +14
+
+Organic housing development may depend on population pressure, available materials, available labor, prosperity, infrastructure, policies, and other settlement conditions.
+
+The Lord can influence housing indirectly through major actions and policies such as opening new residential land, subsidizing construction, or allowing denser development.
+
+### Functional buildings
+
+Functional buildings are deliberately commissioned projects. Individual functional buildings are tracked separately, may employ workers directly, consume resources and upkeep, and provide specific production or systemic functions.
+
+Completed buildings normally begin unstaffed. The player assigns workers through the map table.
+
+Buildings have practical workforce limits. General and specialized workers contribute according to their effective productivity.
+
+Buildings may have a small number of meaningful upgrades, but endless numerical levels are avoided. Some buildings may instead be constructed multiple times, while major institutions may be unique.
+
+### Infrastructure
+
+Infrastructure such as roads, sanitation, water systems, walls, drainage, and similar town-wide networks is represented through settlement-wide developmental stages rather than manually placed segments.
+
+Infrastructure stages should preferably use thematic names rather than generic numerical levels.
+
+Infrastructure has capacity relative to settlement size. Population growth can outpace existing infrastructure, creating increasing penalties and pressure.
+
+### Maintenance and damage
+
+Important buildings and infrastructure require ongoing maintenance. Maintenance is part of the predicted monthly economy and should not require repetitive manual repair commands under normal conditions.
+
+If upkeep cannot be supplied, condition gradually deteriorates and system performance worsens. Events may damage specific buildings, infrastructure, or organic housing capacity.
+
+### Visual town development
+
+The visible town should reflect its functional development, infrastructure, prosperity, condition, and population rather than population alone. Two settlements with similar population may therefore look substantially different.
+
+### Design rule
+
+> **Organic growth represents what the population builds for itself. Functional buildings represent deliberate institutions. Infrastructure represents settlement-wide systems the Lord must keep ahead of population growth.**
+
 ## 7. Next Design System
 
-### System 06 — Buildings and Infrastructure
+### System 07 — Needs, Stability, and Pressure
 
 Topics to resolve:
-- What does a building represent when the player never places structures manually?
-- Which buildings are individual major projects versus abstract settlement capacity?
-- How are ordinary homes and housing handled?
-- Do production buildings use worker slots, workforce capacity, or both?
-- How do upgrades, maintenance, damage, and deterioration work?
-- Which buildings unlock new systems rather than only increasing output?
-- How should roads, sanitation, water supply, walls, and similar infrastructure differ from normal buildings?
-- How closely should functional construction determine the visible town stage?
+- Which town needs matter continuously?
+- Which values are direct resources versus derived conditions?
+- How do food security, housing pressure, health, sanitation, safety, and legitimacy interact?
+- Should happiness and unrest be separate systems?
+- How do neglected problems escalate rather than immediately cause collapse?
+- Which pressures scale naturally with population and town age?
+- How do multiple weak systems combine into crises and eventual death spirals?
