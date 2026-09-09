@@ -1127,6 +1127,26 @@ Legacy Points may be earned primarily from final score, Ambitions, selected thre
 
 The exact conversion from score to Legacy Points is unresolved and should be tuned to discourage trivial farming.
 
+
+### Legacy Point score conversion
+
+Legacy Point gain from final score should use a **diminishing conversion** rather than a linear one.
+
+This prevents repeated farming of an easy, optimized score range from remaining the most efficient long-term strategy.
+
+Higher score should always grant more Legacy Points, but each additional block of score should be worth proportionally fewer LP unless the player also increases difficulty or completes additional objectives.
+
+Difficulty settings and Ambitions may apply proportional multipliers or bonuses to Legacy Point rewards.
+
+This means:
+
+- harder runs can remain LP-efficient;
+- Ambitions provide meaningful additional progression;
+- merely repeating an easy safe strategy becomes progressively less attractive;
+- pushing into higher Challenge Tiers and harder modifiers remains rewarding.
+
+Exact conversion curves and multipliers remain open.
+
 ### Legacy talent progression
 
 Legacy Points purchase relatively small, permanent cross-run bonuses.
@@ -1190,3 +1210,846 @@ Topics to resolve:
 - Which progression is purchased with Legacy Points versus unlocked through achievements?
 - Should players be able to respec Legacy talents?
 - How much permanent power should a fully progressed player have compared with a new player?
+
+
+
+## System 11 — Meta Progression Structure
+
+**Status: Accepted. See Decision 011 below for the authoritative structure.**
+
+Topics to resolve:
+
+- overall structure of the Legacy talent system;
+- categories of permanent bonuses;
+- caps and diminishing returns;
+- month-specific Action Point talents;
+- Challenge Tier and World Pressure delay talents;
+- specialization-related meta unlocks;
+- achievement-gated content;
+- whether talents are freely selectable or branch-gated;
+- respec rules;
+- expected power difference between a new profile and a heavily progressed profile.
+
+
+## Decision 011 — Meta Progression Structure
+
+**Status: Accepted at system level; exact talent list, costs, caps, and pacing remain open.**
+
+### Overall structure
+Legacy progression uses an **open constellation with investment gates** rather than a rigid linear skill tree.
+
+Talents are grouped into broad thematic domains, provisionally:
+- Production
+- Development
+- Population
+- Administration
+- Preparedness
+- Experience / Challenge
+
+Within each domain, basic talents are relatively freely selectable. Deeper talents unlock after sufficient Legacy Point investment in that domain. Powerful nodes may additionally require achievements, milestones, or prior experience with the relevant system.
+
+### Investment gates
+Progression depth is controlled mainly through total investment thresholds rather than strict prerequisite chains.
+
+### Cross-domain talents
+A limited number of talents may sit between two domains and require investment in both. These should remain relatively rare and visually clear.
+
+### Talent density and compaction
+Most permanent bonuses should use **ranked talents** rather than separate nodes for every small increase. As new talents are designed, overlapping or overly narrow nodes should be merged where possible.
+
+### Talent classes
+Talents use three broad classes:
+
+1. **Ranked incremental talents** — small repeatable bonuses with hard caps and rising costs.
+2. **Single-rank utility talents** — one-time permanent conveniences or narrow systemic benefits.
+3. **Keystone talents** — expensive, powerful, often achievement-gated upgrades such as month-specific AP bonuses or delayed escalation milestones.
+
+### Permanent commitment
+Normal positive Legacy Talents are **permanent once purchased**.
+
+They cannot be refunded or respecced during ordinary play. A full hard reset may eventually exist as a separate save-level action, but ordinary progression is intentionally committed.
+
+### Variant or tradeoff talents
+Future talents that deliberately provide both advantages and disadvantages may be freely changed between runs because their purpose is to alter playstyle rather than provide unconditional power.
+
+Likewise, if a future mutually-exclusive specialization system needs refundable positive choices, only those specific talents may be changed before the next run begins.
+
+These are exceptions; the default rule is permanent commitment.
+
+### No Legacy loadout system
+There is currently **no talent activation capacity or loadout limit**.
+
+Purchased permanent talents remain active in every future run.
+
+The player is expected to eventually purchase every ordinary Legacy Talent and unlock every major feature.
+
+### Completion pacing
+Talent quantity, rank caps, rising costs, difficulty multipliers, Ambition rewards, achievement gates, and later unlock layers should be tuned so that full completion represents a substantial long-term goal.
+
+The intended casual-player time to 100% progression remains open.
+
+### Action Point progression
+Month-specific AP bonuses remain expensive Administration keystones.
+
+Each calendar month may initially have one permanent AP talent, such as `+1 AP every March`.
+
+A second tier of month-specific AP bonuses may exist only in much deeper progression if balance permits.
+
+A general permanent `+1 AP every month` should not be an early or ordinary talent.
+
+### Difficulty-delay progression
+Meta progression may delay **specific** World Pressure or Challenge Tier milestones rather than applying generic percentage reductions.
+
+Many such talents should require the player to first encounter, reach, or survive the relevant threat.
+
+### Legacy Point economy
+Final score converts into Legacy Points using a **diminishing-return function**.
+
+Difficulty settings may apply proportional LP multipliers, and Ambitions may provide additional LP or proportional bonuses.
+
+### Major unlocks remain separate
+Legacy Points buy incremental permanent power.
+
+Major gameplay systems and broader content are unlocked primarily through first-time milestones, achievements, records, Challenge Tier breakthroughs, Ambitions, and other meaningful accomplishments.
+
+### Meta-progression design principle
+> **Legacy progression is permanent accumulation, not a pre-run build system.**
+
+The player gradually becomes stronger across every run until the full progression system is eventually completed.
+
+
+## Next Design System
+
+### System 12 — Specialization and Run Identity
+
+Topics to resolve:
+- How does a settlement become specialized during a run?
+- Which choices are permanent for the run?
+- Should population milestones offer specialization choices?
+- Can a town mix several specializations?
+- How strongly should geography and starting modifiers influence specialization?
+- What bonuses and drawbacks distinguish farming, trade, mining, administration, research, and other town identities?
+- How should Ambitions interact with specialization?
+- Should specialization affect available events, buildings, resources, or visual town development?
+
+
+
+## Decision 012 — Specialization and Run Identity
+
+**Status: Accepted at system level; exact thresholds, specialization content, and visual implementation remain open.**
+
+### Emergent specialization
+
+Settlement specialization is primarily an emergent run-level system driven by starting geography and run modifiers, population-milestone choices, actual workforce allocation, constructed buildings and institutions, production and trade patterns, Ambitions, and event history.
+
+The game may internally track specialization affinities without exposing a visible XP bar.
+
+### Primary specialization
+
+A settlement may accumulate progress toward several specialization identities, but the **first specialization to cross the major recognition threshold becomes the run's Primary Specialization**.
+
+The player should be clearly notified when this happens.
+
+The Primary Specialization is locked for purposes such as specialization-specific achievements, first-time meta unlocks, run records, and specialization tier tracking.
+
+This prevents players from deliberately pivoting a mature city simply to collect several specialization achievements in one run.
+
+The Primary Specialization may itself have multiple tiers that can all be achieved during the same run.
+
+### Secondary affinities
+
+Other specialization affinities continue to be tracked after the Primary Specialization locks.
+
+A large city may therefore have one strong Primary Specialization and one or more meaningful secondary affinities.
+
+Secondary affinities may influence milestone-choice weighting, event weighting, hybrid milestone options, statistics and post-run analysis, visual town identity, and smaller situational effects.
+
+They do not normally grant the same first-time achievement/meta reward as becoming the Primary Specialization.
+
+### Hybrid specialization choices
+
+Cross-specialization should primarily appear through **hybrid choices**, not by permanently defining every possible combination as its own separate specialization class.
+
+Examples:
+- Agriculture + Trade/Craft affinity -> Grain Exchange / Agricultural Market options
+- Mining + Craft affinity -> Metalworking Center options
+- Scholarship + Administration -> Bureaucratic Academy / Learned Administration options
+
+Hybrid options may become more likely or unlock only when the relevant secondary affinity is sufficiently strong.
+
+### Milestone structure
+
+Population milestones are divided conceptually into two levels.
+
+#### Minor milestones
+Occur relatively often, potentially around 10–15 times in a substantial run.
+
+They provide smaller, more generic or tactical run rewards such as temporary production boosts, Legitimacy, project acceleration, resource grants, minor policy options, or small specialist benefits.
+
+Minor milestone choices may be rerollable.
+
+#### Major identity milestones
+Occur much less frequently, provisionally around 2–3 times in a substantial run.
+
+These offer larger strategic choices that strongly shape settlement identity and specialization.
+
+Their choice pools should react to current specialization affinity, but should not be fully exclusive. Generic or off-path options may still appear so the player is not completely railroaded.
+
+Major milestone choices may deepen the Primary Specialization, open a new secondary direction, unlock hybrid choices, or add institutions, policies, specialists, event types, or economic options.
+
+Exact milestone counts and thresholds remain open.
+
+### Weighted milestone pools
+
+Current specialization affinity should influence the probability of relevant milestone choices appearing.
+
+This weighting may be invisible.
+
+A strongly agricultural town should see agricultural and agriculture-adjacent options more often, while still occasionally receiving generic or alternative choices.
+
+This same affinity system may also influence event weighting.
+
+### Milestone rerolls
+
+Milestone choices may have a limited reroll system.
+
+The player begins with **0 or 1 reroll** provisionally.
+
+Additional rerolls may be unlocked through Legacy Talents or other progression.
+
+Rerolls should be limited enough that players cannot simply fish for a perfect predetermined build.
+
+Minor milestones are the most natural place for rerolls.
+
+Major identity milestones may have stricter reroll rules or require a rarer meta upgrade if rerolls are allowed at all.
+
+### Organic downside principle
+
+Specializations should primarily create natural opportunity costs and vulnerabilities rather than arbitrary paired penalties.
+
+### Religion
+
+Religion should exist in some form because it fits the setting and can interact with Legitimacy, Unrest, charity, burial and mortality, festivals, education, social cohesion, and events.
+
+Whether Religion becomes a full Primary Specialization is still open, but it should not be omitted merely because it is not selected as a specialization.
+
+### Trade and manufacturing
+
+Trade alone may be too dependent on geography or external conditions to function as a universally viable Primary Specialization.
+
+Possible later structures include merging manufacturing and trade into a broader Commerce/Craft identity, keeping Craft/Manufacturing as a primary specialization while treating Trade as a cross-cutting affinity, or allowing pure Trade specialization only when geography or starting conditions support it.
+
+The final specialization list remains open.
+
+### Ambitions
+
+Ambitions are a major driver of run identity.
+
+They may encourage the player toward particular specializations or deliberately oppose favorable geography/run modifiers for greater challenge.
+
+Difficult or contradictory Ambition combinations may justify greater score multipliers, greater Legacy Point rewards, achievements, or unique unlocks.
+
+### Specialization design principle
+
+> **A town should become known for what it actually became, not merely for what the player selected from a menu.**
+
+The system should recognize player behavior, then use that identity to shape later opportunities without completely removing flexibility.
+
+
+### Specialization lock warning
+
+Accidental Primary Specialization lock-in must be easy to avoid.
+
+Before a specialization crosses the final lock threshold, the player should receive a clear **recognition warning state**.
+
+Example presentation:
+
+> **Your town is becoming known as a Mining Center.**
+>
+> Mining is close to becoming this settlement's Primary Specialization.
+> If this continues, specialization achievements and primary specialization progression for this run will lock to Mining.
+
+The warning should appear early enough that the player can deliberately change direction if they are pursuing another specialization.
+
+Possible supporting UI:
+- a map-table notice showing which specialization is currently closest to recognition;
+- descriptive states such as Emerging / Recognized / Primary;
+- a confirmation-style warning on the final action that would clearly push the town across the threshold, where practical;
+- post-run records explaining why the specialization was recognized.
+
+The player should never accidentally discover several months later that an invisible threshold permanently locked the run.
+
+Exact thresholds and warning timing remain open.
+
+### Initial Primary Specialization roster
+
+The initial specialization roster contains five Primary Specializations:
+
+1. **Agricultural Center**
+2. **Trading & Crafting Center**
+3. **Mining Center**
+4. **Scholar / University Center**
+5. **Religious Center**
+
+These names are provisional.
+
+Each specialization should have:
+- multiple recognition tiers;
+- distinct milestone weighting;
+- relevant event weighting;
+- institutions and specialist opportunities;
+- natural opportunity costs;
+- possible hybrid choices with secondary affinities.
+
+The roster may expand later, but the first version should be designed around these five identities.
+
+### Town visual system
+
+The earlier concept of representing every settlement state through fully static city images is no longer considered suitable as the long-term solution.
+
+With multiple:
+- population sizes;
+- Primary Specializations;
+- secondary affinities;
+- infrastructure levels;
+- prosperity states;
+- seasonal states;
+- unrest/collapse states;
+
+the number of required pre-rendered images would grow into the hundreds or thousands.
+
+The visual system should therefore eventually use a more composable approach.
+
+Possible future directions include:
+- layered 2D town components;
+- modular pre-rendered districts;
+- procedural sprite/mesh placement;
+- low-detail 3D town generation;
+- hybrid 2D/3D rendering.
+
+The exact technology is intentionally deferred until the core simulation is prototyped.
+
+The design requirement is:
+
+> **The town visual must be able to reflect population, specialization, development, and condition without requiring a unique handcrafted image for every combination.**
+
+
+
+## Decision 013 — Policies, Laws, and Ongoing Management
+
+**Status: Accepted at system level; exact policy values, inertia formulas, and reform content remain open.**
+
+### Three levels of governance
+
+Ongoing governance should distinguish between three types of decisions:
+
+1. **Routine policy settings**
+   - adjusted from the map table;
+   - normally do not cost AP;
+   - represent ordinary administrative direction;
+   - usually resolve through the normal monthly simulation.
+
+2. **Major laws and reforms**
+   - significant structural changes;
+   - normally cost AP to enact, repeal, or fundamentally replace;
+   - may unlock new policy settings, institutions, or long-term effects.
+
+3. **Emergency decrees**
+   - immediate, powerful, temporary interventions;
+   - usually cost AP;
+   - may override normal policy rules for a crisis;
+   - often carry Legitimacy, resource, economic, or long-term political consequences.
+
+### Policy interface
+
+Policies should generally use a small number of discrete stances rather than fine-grained sliders.
+
+Example:
+
+Taxation:
+- Low
+- Moderate
+- High
+- Severe
+
+This keeps decisions readable and reduces monthly micro-optimization.
+
+Known effects should be forecast numerically before Advance Month.
+
+### Policy inertia
+
+Routine policy changes are free in AP terms, but should not be costless to reverse constantly.
+
+Possible anti-optimization mechanisms include:
+
+- implementation delay;
+- transition periods;
+- reduced effectiveness immediately after a change;
+- Legitimacy impact from frequent reversals;
+- administrative disruption;
+- minimum commitment periods for selected policies.
+
+The preferred model should punish erratic governance rather than simply placing arbitrary cooldowns on every setting.
+
+### Initial policy families
+
+Potential core policy categories include:
+
+- Taxation
+- Food distribution / rationing
+- Immigration
+- Labor
+- Public order
+- Welfare / charity
+- Religion
+- possibly housing/development policy where appropriate
+
+Not every category needs to exist in the first prototype.
+
+### Taxation
+
+Tax policy controls the balance between Coin income and pressure on the population.
+
+Higher taxation may:
+- increase Coin income;
+- lower household prosperity;
+- raise Unrest pressure;
+- reduce immigration attractiveness;
+- damage Legitimacy when excessive or unstable.
+
+Lower taxation may support growth and legitimacy at the cost of the Lord's treasury.
+
+Exact formulas remain open.
+
+### Food distribution and rationing
+
+Food policy determines how scarcity or surplus is distributed.
+
+Possible stances may include:
+- generous distribution;
+- normal ration;
+- strict ration;
+- emergency rationing.
+
+Rationing may stretch stockpiles while harming health, productivity, Legitimacy, or Unrest.
+
+Emergency rationing may require AP or unlock only during shortage conditions.
+
+### Immigration policy
+
+Immigration policy controls how actively the settlement accepts or attracts newcomers.
+
+Possible stances:
+- restricted;
+- controlled;
+- open;
+- actively encouraged.
+
+Effects may include:
+- immigration rate;
+- housing pressure;
+- labor supply;
+- food demand;
+- specialist-arrival chance;
+- Legitimacy or event effects.
+
+### Labor policy
+
+Labor policy may govern extraordinary use of the population rather than ordinary workforce allocation.
+
+Possible later examples:
+- child labor;
+- elderly labor;
+- work-hour intensity;
+- compulsory labor for emergencies;
+- specialist exemptions.
+
+These policies should have natural health, education, mortality, productivity, or political consequences.
+
+### Public order
+
+Public-order policy determines the balance between policing/coercion and political tolerance.
+
+Possible effects:
+- crime control;
+- protest escalation;
+- Legitimacy;
+- event outcomes;
+- guard requirements;
+- Unrest behavior.
+
+Direct permanent Unrest reduction should remain avoided; public-order policy should instead influence underlying causes, escalation, or consequences.
+
+### Welfare and charity
+
+Welfare/charity policy may consume Food, Coin, institutions, or labor in exchange for:
+- hardship mitigation;
+- health;
+- Legitimacy;
+- reduced consequences of poverty or crises.
+
+Religion may interact strongly with this system.
+
+### Religion
+
+Religion exists as an ordinary settlement system even when the town is not a Religious Center.
+
+Policy questions may include:
+- degree of institutional support;
+- festivals;
+- charitable obligations;
+- clergy funding;
+- religious education;
+- burial practices.
+
+The exact theological/religious representation remains open and should be designed later with the broader Religion system.
+
+### Reforms and laws
+
+Major laws/reforms should create structural changes rather than operate as ordinary monthly toggles.
+
+Examples:
+- establish a formal tax bureaucracy;
+- legalize/ban child labor;
+- create public granaries;
+- establish poor relief;
+- formalize merchant privileges;
+- create religious institutions;
+- introduce compulsory sanitation rules.
+
+These may:
+- cost AP;
+- require institutions or specialists;
+- take time to implement;
+- unlock new policy stances;
+- create permanent event/Legitimacy consequences.
+
+### Emergency decrees
+
+Emergency decrees represent the Lord using exceptional authority.
+
+Examples:
+- seize private grain;
+- impose emergency rationing;
+- conscript labor for a fire/flood response;
+- close markets during epidemic;
+- suspend normal taxes after disaster.
+
+They should usually be strong and immediate, but costly politically or economically.
+
+### Specialization and Ambitions
+
+Policy choices should interact with specialization without hard-locking policy access.
+
+Examples:
+- Agricultural towns may gain specialized food-policy options.
+- Trading-Crafting towns may unlock merchant or tariff reforms.
+- Religious Centers may gain more sophisticated charity/festival policies.
+- Scholar towns may unlock public education or medical regulations.
+
+Ambitions may require unusual or difficult policy combinations.
+
+### Design principle
+
+> **Routine governance should be flexible; structural reform should require commitment; emergency power should be strong but costly.**
+
+Policies should create long-term consequences and recognizable governing styles without becoming a monthly slider-optimization puzzle.
+
+
+
+### Seasonal policy cadence
+
+Routine policies are free to change, but each policy should normally be adjustable only **once per season**.
+
+This prevents players from switching policy stances every month to exploit short-term conditions while remaining simple to understand.
+
+Different policies may eventually have exceptions, but seasonal adjustment is the default rule.
+
+### Rate-of-change penalties
+
+Policy consequences should depend not only on the current stance but also on **how quickly the policy changed**.
+
+Example:
+
+Moving taxation from Minimum to Maximum over one year should create substantially more disruption, Legitimacy pressure, and Unrest-generating conditions than reaching the same tax level gradually over three years.
+
+The current policy level still matters; a severe tax rate remains burdensome even if introduced slowly.
+
+This creates two separate effects:
+
+1. **Level effect** — the consequences of the policy itself.
+2. **Transition shock** — additional consequences caused by rapid change.
+
+The exact formula remains open.
+
+### Historical expectations and acquired standards
+
+Population expectations should remember previously experienced standards.
+
+Removing an established benefit, tolerance, subsidy, service, or level of prosperity should generally create more political pressure than never providing it in the first place.
+
+Examples:
+
+- people accustomed to low taxes react strongly to a rapid tax increase;
+- merchants accustomed to privileges resist their removal;
+- citizens accustomed to generous food support resent abrupt rationing;
+- established welfare or religious support becomes politically harder to withdraw.
+
+This connects policy history with the broader Expectations system from Decision 008.
+
+The principle is:
+
+> **Wanting an improvement is usually less destabilizing than losing a standard people already consider normal.**
+
+### Gradual reform-system introduction
+
+Major laws and reforms should be introduced slowly to avoid feature overload.
+
+Early runs may contain only a very small reform set.
+
+Additional reform categories, laws, and structural policy options may be unlocked through:
+
+- meta progression;
+- population milestones;
+- achievements;
+- institutions;
+- specialization;
+- research.
+
+This allows the governance system itself to expand as the player becomes more experienced.
+
+### Prototype simplification
+
+The first implementation may use simpler rules:
+
+- routine policy changes are free;
+- each policy may be changed once per season;
+- effects apply at the next monthly resolution;
+- transition penalties can use a simple recent-change measure;
+- only a small number of laws/reforms exist initially;
+- emergency decrees remain AP-driven.
+
+More detailed implementation delays and institutional friction can be added later if needed.
+
+
+## Next Design System
+
+### System 14 — Research, Knowledge & Technology
+
+Topics to resolve:
+- How research is generated and progressed.
+- Role of Scholars, Schools, Universities and Paper.
+- Whether technologies unlock buildings, policies, specialists or efficiencies.
+- How research avoids becoming a generic linear tech tree.
+- How Scholar/University specialization interacts with research.
+- Which research knowledge resets each run versus what meta progression permanently unlocks.
+
+
+
+## Decision 014 — Research, Knowledge, and Technology
+
+**Status: Accepted at system level; exact catalogue, prerequisites, costs, institutions, and research pacing remain open.**
+
+### Core principle
+
+Research should represent the settlement deliberately developing useful knowledge, practices, institutions, and techniques.
+
+It should not become a large generic technology tree that the player mechanically clears in roughly the same order every run.
+
+The preferred direction is **selective research projects within broad knowledge domains**.
+
+### Research projects
+
+Research uses the same broad project philosophy as construction and reforms.
+
+A research project:
+- takes multiple months;
+- requires Scholar capacity;
+- may consume Coin, Paper, or other resources;
+- may accept ordinary assistants but requires qualified Scholars for core research;
+- can be paused by assigning insufficient staff/resources;
+- produces a defined discovery or institutional capability when completed.
+
+Research progress should be forecast on the map table.
+
+### Research capacity
+
+Scholars and research institutions create **Research Capacity** rather than a permanently stockpiled Research Point currency.
+
+Research Capacity represents how much research work can be performed in the current month.
+
+Unused Research Capacity normally disappears at month resolution rather than accumulating forever.
+
+This prevents the player from banking years of abstract science points and instantly purchasing a chain of discoveries later.
+
+### Research institutions
+
+Possible institutional progression:
+- educated individual / court scholar;
+- School or Scriptorium;
+- Academy;
+- University.
+
+Exact buildings remain open.
+
+Early research should be possible on a small scale without requiring a full University.
+
+Advanced research may require:
+- specific institutions;
+- multiple Scholars;
+- Paper;
+- Coin;
+- previous discoveries;
+- relevant settlement experience.
+
+### Knowledge domains
+
+Research should be grouped into broad domains rather than one rigid tree.
+
+Provisional domains may include:
+- Agriculture
+- Engineering / Construction
+- Medicine
+- Administration
+- Craft / Commerce
+- Social / Religious knowledge
+
+Additional domains can be added later if needed.
+
+Domains are organizational structures, not necessarily linear progression tracks.
+
+### Contextual availability
+
+Research options should become available based on what exists in the settlement and what it has experienced.
+
+Examples:
+- repeated mine accidents may make Mine Safety Methods available;
+- epidemic experience may unlock advanced medical research;
+- large agricultural production may reveal irrigation or crop-management projects;
+- administrative institutions may unlock census/accounting methods;
+- trade activity may unlock commercial standards or warehousing methods.
+
+This makes research react to the town rather than exist as a detached checklist.
+
+### Research choices
+
+The player should normally choose which available research project to pursue.
+
+Research options may be influenced by:
+- current buildings;
+- specialists;
+- Primary and secondary specialization affinities;
+- population milestones;
+- events and crisis history;
+- previous discoveries;
+- geography;
+- meta-progression unlocks.
+
+Exact presentation remains open.
+
+### Research outcomes
+
+Research should primarily unlock **new capabilities and options**.
+
+Possible rewards:
+- new functional buildings;
+- infrastructure stages;
+- laws/reforms;
+- policy stances;
+- specialists;
+- crisis-response options;
+- new production chains;
+- improved forecasting;
+- specialized projects;
+- modest efficiency improvements.
+
+Pure numerical upgrades are allowed but should not dominate the system.
+
+### Scholar / University specialization
+
+Research must remain useful for every settlement.
+
+Scholar / University specialization should deepen the system rather than simply grant a large flat research-speed bonus.
+
+Possible specialization advantages include:
+- more simultaneous research projects;
+- better access to advanced discoveries;
+- lower institutional requirements;
+- additional research choices;
+- unique academic institutions;
+- special hybrid research;
+- stronger event/research interactions;
+- ability to pursue theoretical or prestige knowledge that ordinary towns cannot justify.
+
+Exact advantages remain open.
+
+### Parallel research
+
+Ordinary settlements may begin with only **one active research project** at a time.
+
+Advanced institutions or Scholar specialization may allow multiple projects to run simultaneously.
+
+Each project still requires its own workers and resources, so parallel research creates a real economic cost.
+
+### Paper and advanced scholarship
+
+Paper is a promising advanced resource for research and administration.
+
+Early basic research should not depend heavily on Paper so the system can function before advanced production chains exist.
+
+Later research and larger institutions may consume Paper monthly.
+
+### Meta progression and research
+
+Meta progression should usually **unlock research possibilities**, not automatically grant every discovery at the start of each run.
+
+Example:
+- an achievement permanently unlocks Advanced Medicine as a possible future research branch;
+- a later settlement still needs appropriate Scholars, institutions, and research effort to obtain it.
+
+Some deep Legacy upgrades may eventually allow selected foundational discoveries to begin already known, reducing repetitive early-run research.
+
+This should be used sparingly.
+
+### Research and run variety
+
+A settlement should not realistically research everything during an ordinary run.
+
+Limited time, Scholar labor, resources, institutional requirements, specialization, and World Pressure should force prioritization.
+
+A Scholar-specialized late-game city may approach a much broader research catalogue, but ordinary settlements should finish with meaningful gaps.
+
+### Discovery memory and events
+
+Research history may interact with Event Memory.
+
+Examples:
+- surviving an epidemic can expose a medical research path;
+- researching sanitation can change future disease-event responses;
+- studying a mine collapse may unlock safety practices;
+- religious scholarship may affect doctrinal or social events.
+
+Research therefore becomes another way the history of the settlement changes its future possibilities.
+
+### Design principle
+
+> **Research should answer problems and ambitions the settlement actually has, not exist as an isolated checklist of upgrades.**
+
+The player develops knowledge because it changes what the town can do, and choosing one research direction means delaying another.
+
+
+
+### Meta progression and score efficiency
+
+Meta progression may also improve how effectively a developed settlement converts strong play into score-generating capability.
+
+This may happen indirectly through:
+- earlier access to productive or institutional options;
+- better research throughput;
+- improved ability to sustain higher Challenge Tiers;
+- stronger milestone rewards;
+- other bounded progression bonuses.
+
+This can accelerate future Legacy Point gain, while the diminishing score-to-Legacy conversion prevents unlimited linear snowballing.
+
+The system should reinforce the incremental/prestige loop without making low-difficulty farming permanently optimal.
