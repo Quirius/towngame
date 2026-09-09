@@ -2262,3 +2262,412 @@ Trading-Crafting-oriented finance may include merchant banking, loans, commercia
 The full banking/monetary system is deferred to a dedicated future design system.
 
 A modern stock market is not assumed; merchant ventures, partnerships, bonds/debt instruments, or shares can provide similar gameplay in a more fitting form.
+
+
+
+## Decision 016 — Ambitions, Difficulty, and Run Setup
+
+**Status: Accepted at system level; exact multipliers, Ambition tiers, slot unlock requirements, and completion pacing remain open.**
+
+### Core principle
+
+Run setup should give the player a meaningful reason to approach each settlement differently without becoming a complicated pre-run build system.
+
+The preferred structure is a hybrid:
+
+1. a clear **base Difficulty** setting;
+2. a small number of optional **Ambitions**;
+3. later, geography/region and other unlocked run conditions.
+
+### First-run simplicity
+
+The first run should have little or no setup complexity.
+
+Possible first-run structure:
+- fixed/default region;
+- Standard difficulty;
+- no Ambition choice, or one simple introductory Ambition.
+
+Additional difficulty levels, Ambition slots, rerolls, regions, and challenge combinations can unlock through meta progression and achievements.
+
+### Base difficulty
+
+Difficulty is a global run-level setting rather than dozens of mandatory sliders.
+
+Provisional examples:
+- Standard
+- Challenging
+- Hard
+- Severe
+- Extreme
+
+Names and number of levels remain open.
+
+Higher difficulty should primarily increase **external/progression pressure**, such as:
+- earlier World Pressure milestones;
+- faster Challenge Tier progression;
+- larger Event Pressure Budgets;
+- more severe crisis eligibility;
+- harsher regional conditions;
+- weaker forecasting;
+- tighter starting conditions;
+- less forgiving market availability.
+
+Difficulty should avoid arbitrary universal penalties such as `Food production -30%` unless a specific mode is intentionally built around that constraint.
+
+### Difficulty rewards
+
+Difficulty increases Legacy Point rewards **after** the diminishing score-to-LP conversion.
+
+Conceptually:
+
+Score
+→ diminishing base Legacy Points
+→ difficulty multiplier
+→ Ambition rewards/modifiers
+
+Higher difficulty may also affect score itself if needed for records, but score and Legacy reward multipliers should remain separately tunable.
+
+### Ambitions
+
+Ambitions are optional commitments that give a run a specific secondary objective.
+
+Examples:
+- Breadbasket — achieve a major Food surplus at a target population.
+- City of Scholars — maintain a large Scholar population / University capability.
+- Open Gates — accept refugee/immigration opportunities while reaching a population target.
+- Stone and Iron — reach Mining specialization tiers and export a target amount.
+- Pious City — maintain major religious institutions and social support.
+- Commercial Hub — reach high trade volume or regional market influence.
+
+Ambitions should primarily reward Legacy Points, with additional achievements, unlocks, or score modifiers for difficult sets.
+
+### Ambition selection
+
+The preferred initial structure is an **Ambition draft** rather than unrestricted catalogue selection.
+
+At run setup, the game offers a small random set of Ambitions from the unlocked pool.
+
+The player chooses one or more depending on progression.
+
+This reduces repetitive farming of the mathematically easiest Ambition while still giving meaningful agency.
+
+Meta progression may unlock:
+- more Ambition choices in the draft;
+- additional active Ambition slots;
+- a limited Ambition reroll;
+- more advanced Ambition categories.
+
+Exact numbers remain open.
+
+### Ambition slots
+
+A new player should begin with only a small number of active Ambitions, provisionally one.
+
+Later progression may allow two or three simultaneous Ambitions.
+
+Taking more Ambitions creates more potential reward but also more competing objectives.
+
+The maximum should remain small enough that the player remembers them without constantly checking a checklist.
+
+### Ambition commitment
+
+Selected Ambitions are locked when the run begins.
+
+They cannot normally be swapped mid-run.
+
+Failing an Ambition does not end the run; it only forfeits that Ambition's reward.
+
+This keeps them optional goals rather than victory conditions.
+
+### Ambition difficulty
+
+Ambition rewards should scale according to how difficult the goal is under the current run conditions.
+
+Factors may include:
+- base difficulty;
+- geography;
+- starting modifiers;
+- other active Ambitions;
+- Primary Specialization conflict;
+- World Pressure settings.
+
+A Breadbasket Ambition in fertile farmland should be worth less than the same Ambition in rocky highlands.
+
+The exact calculation can remain hidden or summarized as an Ambition reward multiplier.
+
+### Contradictory Ambitions
+
+Deliberately difficult combinations should be valid and potentially highly rewarding.
+
+Examples:
+- Breadbasket in poor farmland;
+- Scholar city with limited trade/Paper access;
+- population-growth Ambition under restrictive migration conditions.
+
+Especially difficult combinations may grant:
+- greater Legacy rewards;
+- score multipliers;
+- achievements;
+- unique unlocks.
+
+### Ambitions and specialization
+
+Ambitions should strongly influence player goals without hard-locking specialization.
+
+A Farming Ambition makes Agriculture attractive, but the player may still solve it through trade, research, hybrid development, or an unusual strategy if the requirements allow it.
+
+Some Ambitions may explicitly require a specialization tier.
+
+### Repeat Ambitions
+
+Repeating an already-completed easy Ambition should remain possible, but first-time completion should be more valuable.
+
+Possible structure:
+- repeatable Legacy Point reward;
+- first completion achievement/unlock;
+- completion tiers for increasingly difficult versions;
+- additional rewards for completing it on higher difficulty.
+
+This allows Ambitions to remain useful without turning them into one-time checklist content.
+
+### Ambition tiers
+
+Many Ambitions may have multiple tiers.
+
+Example:
+
+Breadbasket I
+→ reach 1,000 population with 125% Food production
+
+Breadbasket II
+→ reach 3,000 population with 150%
+
+Breadbasket III
+→ reach 8,000 population with 175% under higher Challenge Tier pressure
+
+Exact values remain open.
+
+Higher tiers can unlock over meta progression or after completing lower tiers.
+
+### Difficulty unlock progression
+
+Higher difficulty settings should unlock gradually.
+
+Example structure:
+- Standard available initially;
+- Challenging unlocked after first meaningful run;
+- Hard after reaching a certain Challenge Tier or score;
+- later modes through achievements.
+
+This avoids exposing an inexperienced player to settings they cannot yet interpret.
+
+### No Legacy loadout
+
+Run setup must not become a Legacy build system.
+
+Permanent Legacy Talents remain always active.
+
+The run setup changes the challenge and goals, not which permanent bonuses the player equips.
+
+### Optional challenge modifiers
+
+A later layer of optional challenge modifiers may be added if useful.
+
+Examples:
+- poor harvest region;
+- limited immigration;
+- unstable trade;
+- harsher winters.
+
+These should not be required for the basic difficulty system.
+
+If implemented, they should function as advanced challenge options with proportional score/Legacy rewards rather than as a mandatory list of sliders.
+
+### Run summary
+
+Before starting, the player should see a concise summary:
+
+- Region / starting geography
+- Difficulty
+- selected Ambitions
+- major known starting modifiers
+- Legacy Point multiplier
+- important special rules
+
+The player should understand what challenge they are accepting without needing to inspect hidden formulas.
+
+### Design principle
+
+> **Difficulty determines how hostile the world is; Ambitions determine what the player is trying to accomplish inside that world.**
+
+Run setup should create direction and replayability while leaving the town's actual specialization and strategy to emerge during play.
+
+
+
+## System 16 Revision Notes
+
+**Status: Still under discussion; these revisions supersede conflicting earlier proposal text.**
+
+### Score and Legacy Point conversion
+
+The preferred direction is now **linear or near-linear score-to-Legacy Point conversion**, not diminishing conversion.
+
+Reasoning:
+- escalating World Pressure and Challenge Tiers already make additional score increasingly difficult to earn;
+- higher Run Difficulty independently makes strong score harder to achieve;
+- increasingly expensive Legacy Talents provide the long-term progression sink;
+- a great run should feel visibly more valuable than the previous one.
+
+The exact conversion ratio remains open.
+
+### Intended full-progression pacing
+
+A provisional target is roughly **30–50 total runs to reach 100% meta progression**, potentially fewer depending on average run length and player success.
+
+This target should be calibrated after prototype data exists.
+
+100% progression here means ordinary Legacy Talents and major progression systems/features; optional challenge achievements may extend beyond that.
+
+### Double-counting difficulty
+
+Run Difficulty and dynamic Challenge Tier should both independently improve score gain.
+
+Conceptually:
+
+Monthly Score
+= Civilization / Management Value
+× Challenge Tier Multiplier
+× Run Difficulty Multiplier
+
+Exact formula remains open.
+
+This intentionally rewards:
+1. choosing a harder ruleset before the run;
+2. surviving far enough within that ruleset to reach higher Challenge Tiers.
+
+### Ambition challenge bonuses
+
+Completing Ambitions that conflict with:
+- each other;
+- geography;
+- other known run constraints
+
+should provide a visible **Challenge Bonus**.
+
+This may be an end-of-run score multiplier or additive bonus.
+
+The end screen should explicitly show that the player was rewarded for taking on the harder combination.
+
+### Ambition scalability
+
+Ambitions need explicit scaling so they do not become trivial after substantial meta progression.
+
+Preferred tools include:
+- Ambition tiers;
+- higher target thresholds;
+- minimum Difficulty requirements;
+- Challenge Tier requirements;
+- additional conditions;
+- harder variants.
+
+Lower tiers may remain repeatable but should become less strategically valuable than pushing higher tiers.
+
+### Ambition selection
+
+The previous randomized Ambition draft is no longer preferred.
+
+Ambitions should generally be **freely chosen from the currently unlocked roster**.
+
+Reason:
+- if Ambitions are random, players may intentionally abandon/restart runs until they receive the goal they wanted;
+- Ambitions are the main source of intentional direction at run start;
+- another system should provide unpredictability instead.
+
+### Preferred run-setup order
+
+Current recommendation:
+
+1. **Choose unlocked Run Difficulty.**
+2. **Generate and reveal the Region / starting geography.**
+3. **Choose Ambitions freely from the unlocked roster after seeing the Region.**
+4. Show geography–Ambition synergies/conflicts and their potential Challenge Bonuses.
+5. Confirm/start the actual simulation.
+
+The Region provides unpredictability.
+The Ambition provides agency.
+
+This gives the player a meaningful idea of what they want to attempt without letting them fully pre-design the settlement.
+
+### Region selection
+
+Regions are not freely selected by default in the current proposal.
+
+They are generated randomly from the unlocked pool after Difficulty is chosen.
+
+Meta progression may later provide:
+- broader region pools;
+- limited region rerolls;
+- challenge-region unlocks;
+- special modes with direct region selection.
+
+These are not yet accepted.
+
+### Onboarding
+
+Advanced systems should unlock progressively over many runs.
+
+This includes:
+- Ambitions;
+- additional Ambition slots;
+- Ambition tiers;
+- specialization systems;
+- harder Difficulty levels;
+- more complex laws/reforms;
+- advanced research;
+- additional Regions;
+- finance;
+- deeper forecasting.
+
+Long onboarding is acceptable because the full game is already expected to be complex.
+
+The first runs should deliberately expose only a subset of the final system set.
+
+
+
+### Ambition slot interface
+
+The Ambition setup screen uses a small number of clearly visible slots.
+
+Provisional structure:
+- Slot 1 available early;
+- Slot 2 visibly locked behind a milestone, achievement, or meta-progression requirement;
+- Slot 3 visibly locked behind a deeper requirement.
+
+Locked slots remain visible so the player understands that additional Ambition capacity is part of long-term progression.
+
+For each unlocked slot:
+1. the player selects an Ambition freely from the unlocked catalogue;
+2. the player selects the highest currently available tier they wish to attempt;
+3. locked higher tiers remain visible with their unlock requirements.
+
+The Ambition catalogue should also show future locked Ambitions and explain the achievement, milestone, specialization, difficulty, or meta requirement needed to unlock them.
+
+This makes Ambition progression aspirational rather than hidden.
+
+### Deliberate Region selection as a late unlock
+
+Random Region generation remains the default because it provides the main unpredictable run-start constraint.
+
+Later progression may unlock a setting that allows the player to deliberately select a Region.
+
+This is especially useful for:
+- limit testing;
+- targeted achievement attempts;
+- specialization experiments;
+- controlled balance testing;
+- extreme Ambition/geography combinations.
+
+Choosing the Region should reduce the run's score multiplier or Region Challenge Bonus compared with accepting a randomly generated Region.
+
+This preserves the value of adapting to randomness while still allowing advanced players to construct deliberate challenge runs.
