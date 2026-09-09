@@ -2053,3 +2053,212 @@ This may happen indirectly through:
 This can accelerate future Legacy Point gain, while the diminishing score-to-Legacy conversion prevents unlimited linear snowballing.
 
 The system should reinforce the incremental/prestige loop without making low-difficulty farming permanently optimal.
+
+
+
+## Decision 015 — Trade, External Economy, and Regional World
+
+**Status: Accepted at system level; exact price model, capacity formulas, contracts, forecasting accuracy, and regional-investment balance remain open.**
+
+### Core principle
+
+Trade should allow a settlement to specialize, recover from shortages, and convert comparative advantages into Coin or needed goods.
+
+It should not allow every town to ignore local production entirely.
+
+The outside world should therefore be represented through an **abstract Regional Market** rather than fully simulated neighboring settlements.
+
+### Regional Market
+
+The Regional Market represents surrounding settlements, merchants, trade routes, distant producers, and broader economic conditions.
+
+For each tradable resource, the market may expose:
+- current buy price;
+- current sell price;
+- available import volume;
+- available export demand;
+- recent price direction;
+- known regional modifiers.
+
+Prices and availability can change because of season, regional events, World Pressure, trade-route condition, local specialization, shortages/surpluses, and geography.
+
+### Standing trade orders
+
+Routine trade should be handled through persistent orders configured at the map table.
+
+Examples:
+- Import Food until stockpile reaches 600.
+- Export Wood while stockpile remains above 900.
+- Buy up to 40 Medicine per month if price is below a chosen threshold.
+
+Standing orders are free routine management and resolve during monthly simulation.
+
+### Trade forecast
+
+Before Advance Month, the map table should show expected imports, exports, Coin spent/earned, trade capacity used, stockpile results, and known price effects.
+
+If conditions are uncertain, the forecast may show a range or warning.
+
+### Trade capacity
+
+A settlement has limited **Trade Capacity**.
+
+Trade Capacity may depend on roads, river access, market infrastructure, warehouses, merchant institutions, geography, specialists, and season.
+
+Imports and exports compete for this capacity.
+
+A rich town therefore cannot instantly import unlimited Food merely because it has enough Coin.
+
+### Market access and geography
+
+Geography determines baseline market access.
+
+Examples:
+- river crossing: strong bulk trade;
+- remote highlands: weak access;
+- major road junction: strong merchant traffic;
+- isolated valley: expensive imports and limited export volume.
+
+Infrastructure can improve access but not erase geography completely.
+
+### Import dependency
+
+Heavy import dependence is viable but creates natural vulnerability.
+
+A Mining Center may export Iron and Stone while importing Food. This can be profitable in normal conditions but dangerous during regional food shortages or disrupted routes.
+
+This is preferable to arbitrary specialization penalties.
+
+### Prices and availability
+
+Prices should be dynamic enough to create meaningful decisions without simulating a full exchange.
+
+Buying normally costs more than selling the same resource because of merchant margin, transport, and risk.
+
+Regional supply and demand are finite. Medicine, Food, Stone, and other resources may have limited monthly or seasonal availability/demand.
+
+Large player trade volumes may later influence prices modestly, but detailed market-clearing simulation is not required initially.
+
+### Contracts and special opportunities
+
+Events, milestones, specialization, and merchant institutions may offer **Trade Contracts** beyond ordinary market orders.
+
+Examples:
+- guaranteed Tools purchase for 12 months;
+- fixed-price Grain imports through winter;
+- large Stone-delivery request;
+- caravan offers rare Medicine;
+- unusually high-price crafted-goods buyer.
+
+Contracts create strategic commitments without replacing the basic Regional Market.
+
+### Trade disruption
+
+Persistent regional conditions can modify capacity, price, availability, or contract reliability.
+
+Examples:
+- flooded roads;
+- bandit activity;
+- harsh winter;
+- bridge collapse;
+- famine;
+- epidemic restrictions;
+- embargo.
+
+Trade therefore interacts directly with crises and World Pressure.
+
+### Tariffs and merchant policy
+
+Tariffs, merchant privileges, customs collection, subsidies, strategic reserves, and market regulation belong mainly in the policy/reform system rather than a separate trade minigame.
+
+### Trading-Crafting specialization
+
+Trading-Crafting specialization deepens the system through better market access, warehouses, merchant institutions, contracts, finished-goods chains, rare imports, and hybrid milestone options.
+
+Its advantage should not simply be a flat trade-price bonus.
+
+Crafting creates exportable value; trade provides markets and imported inputs.
+
+Pure transit/tariff trade may be viable only with exceptional geography.
+
+### External world abstraction
+
+The outside world should have enough state to generate believable pressure without becoming another strategy simulation.
+
+Possible regional variables:
+- food abundance;
+- trade stability;
+- disease pressure;
+- security;
+- merchant activity;
+- selected resource availability.
+
+These may shift seasonally and through events.
+
+### Anti-exploit principles
+
+Trade should not permit infinite arbitrage, unlimited emergency imports, trivial avoidance of specialization weaknesses, or predictable free profit from price cycling.
+
+Safeguards include:
+- buy/sell spread;
+- finite market volume;
+- trade capacity;
+- transport friction;
+- changing regional conditions;
+- event risk.
+
+### Design principle
+
+> **Trade turns surplus into flexibility, but dependence on the outside world creates its own risk.**
+
+Local production remains strategically valuable, while specialized settlements may deliberately rely on imports where economics and geography support it.
+
+
+### Hidden market uncertainty and forecasting progression
+
+The Regional Market does not need to be perfectly predictable from the start.
+
+Some future market movements, route disruptions, harvest outcomes, and availability changes may be determined by hidden randomness.
+
+The player gains increasing access to forecasts through meta progression, institutions, specialists, and research.
+
+Forecast quality may progress from:
+- current-price information only;
+- qualitative warnings;
+- broad ranges/probabilities;
+- improved seasonal projections;
+- highly accurate short-term forecasts at deep progression.
+
+Information itself is therefore a progression reward. Forecasting reduces uncertainty without completely removing late-game risk.
+
+### Regional investment
+
+Trade-dependent settlements may invest Coin, materials, or administrative effort into the surrounding region.
+
+Possible investments include roads, bridges, caravan security, depots, merchant incentives, regional production support, and trade-corridor development.
+
+These may improve Trade Capacity, market depth, buyer/seller volume, route reliability, regional prosperity, and contract quality.
+
+This is especially important for a **pure Trade City** ultra-specialization: it cannot extract unlimited wealth from a poor region forever and must help create the economy that supports its own scale.
+
+Regional investment remains abstract initially and does not require a regional map.
+
+### Pure Trade City
+
+Pure trade is a valid extreme specialization under suitable conditions.
+
+It may rely heavily on merchant activity, tariffs, warehousing, finance, contracts, imported necessities, and regional market depth.
+
+It should generally require exceptional geography plus substantial investment in regional prosperity and infrastructure.
+
+### Banking and finance
+
+Banking exists in the broader game and overlaps multiple systems.
+
+Administration-oriented finance may include treasury management, public borrowing, a Mint, coinage/monetary control, state debt, and taxation-related finance.
+
+Trading-Crafting-oriented finance may include merchant banking, loans, commercial credit, investment ventures, and period-appropriate shares or debt instruments.
+
+The full banking/monetary system is deferred to a dedicated future design system.
+
+A modern stock market is not assumed; merchant ventures, partnerships, bonds/debt instruments, or shares can provide similar gameplay in a more fitting form.
