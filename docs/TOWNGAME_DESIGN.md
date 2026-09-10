@@ -1,5 +1,42 @@
 # Towngame — Game Design
 
+
+> **AUTHORITATIVE CURRENT SNAPSHOT — through System 19**
+>
+> This file supersedes earlier Towngame rolling design snapshots.
+> When older sections conflict with a later explicitly marked revision, the later revision wins.
+>
+> Current design status:
+>
+> | System | Topic | Status |
+> |---|---|---|
+> | 01 | Time & Run Structure | Mostly settled |
+> | 02 | Player Role & Presentation | Mostly settled |
+> | 03 | Player Actions / AP / Projects | Mostly settled |
+> | 04 | Population & Workforce | Mostly settled |
+> | 05 | Resources & Economy | Mostly settled |
+> | 06 | Buildings & Infrastructure | Mostly settled |
+> | 07 | Unrest, Legitimacy & Collapse | **Needs revisit — final collapse trigger reopened** |
+> | 08 | Expectations, Difficulty & World Pressure | Mostly settled |
+> | 09 | Events, Crises & Event Memory | Mostly settled |
+> | 10 | Scoring, Milestones & Run Rewards | Mostly settled |
+> | 11 | Meta Progression | Mostly settled |
+> | 12 | Specialization & Run Identity | Mostly settled |
+> | 13 | Policies, Laws & Ongoing Management | Mostly settled |
+> | 14 | Research, Knowledge & Technology | Mostly settled |
+> | 15 | Trade, External Economy & Regional World | Mostly settled |
+> | 16 | Ambitions, Difficulty & Run Setup | Mostly settled |
+> | 17 | Starting Geography, Regions & Settlement Conditions | Mostly settled |
+> | 18 | Religion, Social Institutions & Cultural Life | **Needs revisit later** |
+> | 19 | Map Table, UI & Information Architecture | **Currently designing** |
+>
+> **Important superseding revisions**
+>
+> - System 07: the old prototype rule `100% Unrest = immediate Game Over on month resolution` is **reopened**. The current direction is to explore an imminent/probabilistic overthrow state that may interrupt the following planning phase.
+> - System 16 supersedes the older Systems 10–11 LP-conversion direction: **Score → Legacy Points is now linear or near-linear**, while escalating challenge and increasingly expensive Legacy talents provide the long-term progression curve.
+> - Full permanent meta progression is provisionally aimed at roughly **30–50 runs**, subject to actual run length and playtesting.
+
+
 > Living design document. This file records accepted design decisions and important unresolved ideas.
 
 ## 1. Game Concept
@@ -416,32 +453,21 @@ Unrest has **lagging inertia**. Fixing the immediate cause of anger should not i
 
 A town at 98% Unrest may remain in severe danger even after a major problem is solved. Recovery should take time, and at sufficiently high levels it may be practically impossible to reverse collapse before the next major shock.
 
-### Initial defeat rule
+### Final collapse trigger — reopened after System 18
 
-For the first playable implementation:
+The earlier prototype rule that **100% Unrest immediately ends the run on month resolution is no longer locked**.
 
-> **Unrest reaching 100% ends the run immediately.**
+Current direction to explore:
 
-At 100% Unrest, the mob storms the ruling seat, the guards abandon or turn against the Lord, and the Lord loses control of the settlement.
+- very high or 100% Unrest may place the settlement into an **imminent overthrow** state rather than resolving Game Over instantly;
+- the player may begin the next planning phase while the run is already in terminal danger;
+- a breach, revolt, guard defection, or palace assault may interrupt the player while they are making decisions;
+- music, visual effects, NPC behavior, and chamber events can communicate that collapse is unfolding;
+- the exact threshold, probability, warning fairness, timing, and possibility of recovery remain unresolved.
 
-There is no recovery after the threshold has been reached in the initial version.
+The core rule still stands: **Unrest is the main measure of collapse risk, and Legitimacy remains a separate long-term political variable.**
 
-### Later endgame refinement
-
-A future version may replace the instant threshold with a terminal political-crisis sequence.
-
-Possible escalation:
-
-- Dissatisfied
-- Agitated
-- Protests
-- Riots
-- Revolt
-- Final uprising
-
-A late-game uprising may create a brief opportunity to regain control, but survival should only delay the underlying danger rather than permanently remove it. Eventually a sufficiently strained settlement should collapse.
-
-This advanced crisis system should be treated as a later refinement rather than a requirement for the first prototype.
+This point belongs in **Needs Revisit** and must be resolved before final collapse implementation.
 
 ### Legitimacy
 
@@ -1128,24 +1154,21 @@ Legacy Points may be earned primarily from final score, Ambitions, selected thre
 The exact conversion from score to Legacy Points is unresolved and should be tuned to discourage trivial farming.
 
 
-### Legacy Point score conversion
+### Legacy Point score conversion — revised by System 16
 
-Legacy Point gain from final score should use a **diminishing conversion** rather than a linear one.
+The earlier diminishing-conversion proposal is superseded.
 
-This prevents repeated farming of an easy, optimized score range from remaining the most efficient long-term strategy.
+Current direction: final Score converts to Legacy Points **linearly or near-linearly**.
 
-Higher score should always grant more Legacy Points, but each additional block of score should be worth proportionally fewer LP unless the player also increases difficulty or completes additional objectives.
+The long-term progression sink should come primarily from:
 
-Difficulty settings and Ambitions may apply proportional multipliers or bonuses to Legacy Point rewards.
+- increasingly expensive Legacy talent ranks and keystones;
+- increasing challenge needed to produce higher scores efficiently;
+- difficulty multipliers;
+- Ambition rewards and Challenge Bonuses;
+- achievement and milestone gates.
 
-This means:
-
-- harder runs can remain LP-efficient;
-- Ambitions provide meaningful additional progression;
-- merely repeating an easy safe strategy becomes progressively less attractive;
-- pushing into higher Challenge Tiers and harder modifiers remains rewarding.
-
-Exact conversion curves and multipliers remain open.
+Higher difficulty and deeper dynamic Challenge Tiers may both increase score/reward efficiency. Exact formulas remain open.
 
 ### Legacy talent progression
 
@@ -1302,10 +1325,10 @@ Meta progression may delay **specific** World Pressure or Challenge Tier milesto
 
 Many such talents should require the player to first encounter, reach, or survive the relevant threat.
 
-### Legacy Point economy
-Final score converts into Legacy Points using a **diminishing-return function**.
+### Legacy Point economy — revised by System 16
+Final Score converts into Legacy Points **linearly or near-linearly**.
 
-Difficulty settings may apply proportional LP multipliers, and Ambitions may provide additional LP or proportional bonuses.
+Difficulty settings, Challenge Bonuses, and Ambitions may increase reward efficiency. Increasingly expensive permanent talents provide the main long-term sink.
 
 ### Major unlocks remain separate
 Legacy Points buy incremental permanent power.
@@ -1316,2946 +1339,972 @@ Major gameplay systems and broader content are unlocked primarily through first-
 > **Legacy progression is permanent accumulation, not a pre-run build system.**
 
 The player gradually becomes stronger across every run until the full progression system is eventually completed.
+# Later Design Systems
 
+## Decision 012 — Specialization & Run Identity
 
-## Next Design System
+**Status: Mostly settled; exact thresholds, content, hybrid options, and visual implementation remain open.**
 
-### System 12 — Specialization and Run Identity
+Specialization should emerge from how the settlement is actually developed rather than being chosen as a rigid class at run start.
 
-Topics to resolve:
-- How does a settlement become specialized during a run?
-- Which choices are permanent for the run?
-- Should population milestones offer specialization choices?
-- Can a town mix several specializations?
-- How strongly should geography and starting modifiers influence specialization?
-- What bonuses and drawbacks distinguish farming, trade, mining, administration, research, and other town identities?
-- How should Ambitions interact with specialization?
-- Should specialization affect available events, buildings, resources, or visual town development?
+Inputs may include:
 
+- workforce allocation;
+- functional buildings and infrastructure;
+- economic production;
+- geography and resource potential;
+- milestone choices;
+- Ambitions;
+- research;
+- event history;
+- long-term policy and investment.
 
+### Primary Specialization
 
-## Decision 012 — Specialization and Run Identity
+The first specialization affinity to cross a major recognition threshold becomes the settlement's **Primary Specialization** for that run.
 
-**Status: Accepted at system level; exact thresholds, specialization content, and visual implementation remain open.**
+Before the threshold locks, the game must clearly warn the player that a specialization is close to becoming Primary so accidental lock-in is avoidable.
 
-### Emergent specialization
+The Primary Specialization may reach several tiers within the same run and can drive:
 
-Settlement specialization is primarily an emergent run-level system driven by starting geography and run modifiers, population-milestone choices, actual workforce allocation, constructed buildings and institutions, production and trade patterns, Ambitions, and event history.
-
-The game may internally track specialization affinities without exposing a visible XP bar.
-
-### Primary specialization
-
-A settlement may accumulate progress toward several specialization identities, but the **first specialization to cross the major recognition threshold becomes the run's Primary Specialization**.
-
-The player should be clearly notified when this happens.
-
-The Primary Specialization is locked for purposes such as specialization-specific achievements, first-time meta unlocks, run records, and specialization tier tracking.
-
-This prevents players from deliberately pivoting a mature city simply to collect several specialization achievements in one run.
-
-The Primary Specialization may itself have multiple tiers that can all be achieved during the same run.
+- achievements;
+- run records;
+- milestone weighting;
+- unique content;
+- meta-progression qualification;
+- special institutions;
+- visual identity.
 
 ### Secondary affinities
 
-Other specialization affinities continue to be tracked after the Primary Specialization locks.
+Other affinities continue to exist after the Primary Specialization locks.
 
-A large city may therefore have one strong Primary Specialization and one or more meaningful secondary affinities.
+They may influence:
 
-Secondary affinities may influence milestone-choice weighting, event weighting, hybrid milestone options, statistics and post-run analysis, visual town identity, and smaller situational effects.
+- events;
+- milestone rewards;
+- hybrid opportunities;
+- statistics;
+- town visuals;
+- available projects or research.
 
-They do not normally grant the same first-time achievement/meta reward as becoming the Primary Specialization.
+Hybrid development should produce interesting hybrid rewards/options **without endlessly multiplying official specialization classes**.
 
-### Hybrid specialization choices
+### Milestones and identity
 
-Cross-specialization should primarily appear through **hybrid choices**, not by permanently defining every possible combination as its own separate specialization class.
+Use two conceptual levels:
 
-Examples:
-- Agriculture + Trade/Craft affinity -> Grain Exchange / Agricultural Market options
-- Mining + Craft affinity -> Metalworking Center options
-- Scholarship + Administration -> Bureaucratic Academy / Learned Administration options
+- many **minor milestones** providing tactical run rewards;
+- a smaller number of **major milestones** capable of strongly defining settlement identity.
 
-Hybrid options may become more likely or unlock only when the relevant secondary affinity is sufficiently strong.
+Limited rerolls may exist, primarily for minor milestone choices, and Legacy progression may expand reroll access.
 
-### Milestone structure
+### Downsides
 
-Population milestones are divided conceptually into two levels.
+Specialization should generally create disadvantages through **opportunity cost and natural vulnerability**, not mandatory paired penalties.
 
-#### Minor milestones
-Occur relatively often, potentially around 10–15 times in a substantial run.
+A mining settlement, for example, may become dependent on imported Food because labor and infrastructure are concentrated elsewhere rather than because the specialization button directly applies `Food -20%`.
 
-They provide smaller, more generic or tactical run rewards such as temporary production boosts, Legitimacy, project acceleration, resource grants, minor policy options, or small specialist benefits.
+### Initial Primary Specializations
 
-Minor milestone choices may be rerollable.
+Initial planned identities:
 
-#### Major identity milestones
-Occur much less frequently, provisionally around 2–3 times in a substantial run.
+- Agricultural
+- Trading-Crafting
+- Mining
+- Scholar-University
+- Religious Centre
 
-These offer larger strategic choices that strongly shape settlement identity and specialization.
+Religion remains present in ordinary settlements even when Religious Centre is not the Primary Specialization.
 
-Their choice pools should react to current specialization affinity, but should not be fully exclusive. Generic or off-path options may still appear so the player is not completely railroaded.
+### Visual implication
 
-Major milestone choices may deepen the Primary Specialization, open a new secondary direction, unlock hybrid choices, or add institutions, policies, specialists, event types, or economic options.
+A finite library of fully static town images is no longer suitable as the long-term presentation solution. Specialization, prosperity, infrastructure, season, damage, and population combinations require a modular/composable town visualization system.
 
-Exact milestone counts and thresholds remain open.
+---
 
-### Weighted milestone pools
+## Decision 013 — Policies, Laws & Ongoing Management
 
-Current specialization affinity should influence the probability of relevant milestone choices appearing.
+**Status: Mostly settled; exact stances, formulas, reform catalogue, and timings remain open.**
 
-This weighting may be invisible.
+### Routine policies
 
-A strongly agricultural town should see agricultural and agriculture-adjacent options more often, while still occasionally receiving generic or alternative choices.
+Routine policies are free management actions.
 
-This same affinity system may also influence event weighting.
+Most should be adjustable on a **seasonal cadence** rather than inviting monthly micromanagement.
 
-### Milestone rerolls
+Use readable **discrete stances**, not precision sliders.
 
-Milestone choices may have a limited reroll system.
+Core policy families include:
 
-The player begins with **0 or 1 reroll** provisionally.
+- taxation;
+- food and rationing;
+- immigration;
+- labor;
+- public order;
+- welfare / charity;
+- religion.
 
-Additional rerolls may be unlocked through Legacy Talents or other progression.
+### Policy history and transition shock
 
-Rerolls should be limited enough that players cannot simply fish for a perfect predetermined build.
+Consequences depend on both:
 
-Minor milestones are the most natural place for rerolls.
+1. the current policy stance;
+2. how quickly the settlement was moved toward that stance.
 
-Major identity milestones may have stricter reroll rules or require a rarer meta upgrade if rerolls are allowed at all.
+Rapid changes create additional transition shock, political pressure, and Unrest-generating conditions.
 
-### Organic downside principle
+Example principle:
 
-Specializations should primarily create natural opportunity costs and vulnerabilities rather than arbitrary paired penalties.
+> Moving taxation from minimum to maximum in one year should be more destabilizing than reaching the same tax burden gradually over three years, even though the eventual high-tax stance is still burdensome.
 
-### Religion
+Historical expectations matter.
 
-Religion should exist in some form because it fits the setting and can interact with Legitimacy, Unrest, charity, burial and mortality, festivals, education, social cohesion, and events.
+Removing benefits, privileges, food support, low taxes, welfare, or other standards people have become accustomed to should hurt more than never providing them in the first place.
 
-Whether Religion becomes a full Primary Specialization is still open, but it should not be omitted merely because it is not selected as a specialization.
+### Laws and reforms
 
-### Trade and manufacturing
+Major laws/reforms normally require **AP** and may also require projects, institutions, resources, research, or specialists.
 
-Trade alone may be too dependent on geography or external conditions to function as a universally viable Primary Specialization.
+They should unlock gradually to prevent feature overload.
 
-Possible later structures include merging manufacturing and trade into a broader Commerce/Craft identity, keeping Craft/Manufacturing as a primary specialization while treating Trade as a cross-cutting affinity, or allowing pure Trade specialization only when geography or starting conditions support it.
-
-The final specialization list remains open.
-
-### Ambitions
-
-Ambitions are a major driver of run identity.
-
-They may encourage the player toward particular specializations or deliberately oppose favorable geography/run modifiers for greater challenge.
-
-Difficult or contradictory Ambition combinations may justify greater score multipliers, greater Legacy Point rewards, achievements, or unique unlocks.
-
-### Specialization design principle
-
-> **A town should become known for what it actually became, not merely for what the player selected from a menu.**
-
-The system should recognize player behavior, then use that identity to shape later opportunities without completely removing flexibility.
-
-
-### Specialization lock warning
-
-Accidental Primary Specialization lock-in must be easy to avoid.
-
-Before a specialization crosses the final lock threshold, the player should receive a clear **recognition warning state**.
-
-Example presentation:
-
-> **Your town is becoming known as a Mining Center.**
->
-> Mining is close to becoming this settlement's Primary Specialization.
-> If this continues, specialization achievements and primary specialization progression for this run will lock to Mining.
-
-The warning should appear early enough that the player can deliberately change direction if they are pursuing another specialization.
-
-Possible supporting UI:
-- a map-table notice showing which specialization is currently closest to recognition;
-- descriptive states such as Emerging / Recognized / Primary;
-- a confirmation-style warning on the final action that would clearly push the town across the threshold, where practical;
-- post-run records explaining why the specialization was recognized.
-
-The player should never accidentally discover several months later that an invisible threshold permanently locked the run.
-
-Exact thresholds and warning timing remain open.
-
-### Initial Primary Specialization roster
-
-The initial specialization roster contains five Primary Specializations:
-
-1. **Agricultural Center**
-2. **Trading & Crafting Center**
-3. **Mining Center**
-4. **Scholar / University Center**
-5. **Religious Center**
-
-These names are provisional.
-
-Each specialization should have:
-- multiple recognition tiers;
-- distinct milestone weighting;
-- relevant event weighting;
-- institutions and specialist opportunities;
-- natural opportunity costs;
-- possible hybrid choices with secondary affinities.
-
-The roster may expand later, but the first version should be designed around these five identities.
-
-### Town visual system
-
-The earlier concept of representing every settlement state through fully static city images is no longer considered suitable as the long-term solution.
-
-With multiple:
-- population sizes;
-- Primary Specializations;
-- secondary affinities;
-- infrastructure levels;
-- prosperity states;
-- seasonal states;
-- unrest/collapse states;
-
-the number of required pre-rendered images would grow into the hundreds or thousands.
-
-The visual system should therefore eventually use a more composable approach.
-
-Possible future directions include:
-- layered 2D town components;
-- modular pre-rendered districts;
-- procedural sprite/mesh placement;
-- low-detail 3D town generation;
-- hybrid 2D/3D rendering.
-
-The exact technology is intentionally deferred until the core simulation is prototyped.
-
-The design requirement is:
-
-> **The town visual must be able to reflect population, specialization, development, and condition without requiring a unique handcrafted image for every combination.**
-
-
-
-## Decision 013 — Policies, Laws, and Ongoing Management
-
-**Status: Accepted at system level; exact policy values, inertia formulas, and reform content remain open.**
-
-### Three levels of governance
-
-Ongoing governance should distinguish between three types of decisions:
-
-1. **Routine policy settings**
-   - adjusted from the map table;
-   - normally do not cost AP;
-   - represent ordinary administrative direction;
-   - usually resolve through the normal monthly simulation.
-
-2. **Major laws and reforms**
-   - significant structural changes;
-   - normally cost AP to enact, repeal, or fundamentally replace;
-   - may unlock new policy settings, institutions, or long-term effects.
-
-3. **Emergency decrees**
-   - immediate, powerful, temporary interventions;
-   - usually cost AP;
-   - may override normal policy rules for a crisis;
-   - often carry Legitimacy, resource, economic, or long-term political consequences.
-
-### Policy interface
-
-Policies should generally use a small number of discrete stances rather than fine-grained sliders.
-
-Example:
-
-Taxation:
-- Low
-- Moderate
-- High
-- Severe
-
-This keeps decisions readable and reduces monthly micro-optimization.
-
-Known effects should be forecast numerically before Advance Month.
-
-### Policy inertia
-
-Routine policy changes are free in AP terms, but should not be costless to reverse constantly.
-
-Possible anti-optimization mechanisms include:
-
-- implementation delay;
-- transition periods;
-- reduced effectiveness immediately after a change;
-- Legitimacy impact from frequent reversals;
-- administrative disruption;
-- minimum commitment periods for selected policies.
-
-The preferred model should punish erratic governance rather than simply placing arbitrary cooldowns on every setting.
-
-### Initial policy families
-
-Potential core policy categories include:
-
-- Taxation
-- Food distribution / rationing
-- Immigration
-- Labor
-- Public order
-- Welfare / charity
-- Religion
-- possibly housing/development policy where appropriate
-
-Not every category needs to exist in the first prototype.
-
-### Taxation
-
-Tax policy controls the balance between Coin income and pressure on the population.
-
-Higher taxation may:
-- increase Coin income;
-- lower household prosperity;
-- raise Unrest pressure;
-- reduce immigration attractiveness;
-- damage Legitimacy when excessive or unstable.
-
-Lower taxation may support growth and legitimacy at the cost of the Lord's treasury.
-
-Exact formulas remain open.
-
-### Food distribution and rationing
-
-Food policy determines how scarcity or surplus is distributed.
-
-Possible stances may include:
-- generous distribution;
-- normal ration;
-- strict ration;
-- emergency rationing.
-
-Rationing may stretch stockpiles while harming health, productivity, Legitimacy, or Unrest.
-
-Emergency rationing may require AP or unlock only during shortage conditions.
-
-### Immigration policy
-
-Immigration policy controls how actively the settlement accepts or attracts newcomers.
-
-Possible stances:
-- restricted;
-- controlled;
-- open;
-- actively encouraged.
-
-Effects may include:
-- immigration rate;
-- housing pressure;
-- labor supply;
-- food demand;
-- specialist-arrival chance;
-- Legitimacy or event effects.
-
-### Labor policy
-
-Labor policy may govern extraordinary use of the population rather than ordinary workforce allocation.
-
-Possible later examples:
-- child labor;
-- elderly labor;
-- work-hour intensity;
-- compulsory labor for emergencies;
-- specialist exemptions.
-
-These policies should have natural health, education, mortality, productivity, or political consequences.
-
-### Public order
-
-Public-order policy determines the balance between policing/coercion and political tolerance.
-
-Possible effects:
-- crime control;
-- protest escalation;
-- Legitimacy;
-- event outcomes;
-- guard requirements;
-- Unrest behavior.
-
-Direct permanent Unrest reduction should remain avoided; public-order policy should instead influence underlying causes, escalation, or consequences.
-
-### Welfare and charity
-
-Welfare/charity policy may consume Food, Coin, institutions, or labor in exchange for:
-- hardship mitigation;
-- health;
-- Legitimacy;
-- reduced consequences of poverty or crises.
-
-Religion may interact strongly with this system.
-
-### Religion
-
-Religion exists as an ordinary settlement system even when the town is not a Religious Center.
-
-Policy questions may include:
-- degree of institutional support;
-- festivals;
-- charitable obligations;
-- clergy funding;
-- religious education;
-- burial practices.
-
-The exact theological/religious representation remains open and should be designed later with the broader Religion system.
-
-### Reforms and laws
-
-Major laws/reforms should create structural changes rather than operate as ordinary monthly toggles.
-
-Examples:
-- establish a formal tax bureaucracy;
-- legalize/ban child labor;
-- create public granaries;
-- establish poor relief;
-- formalize merchant privileges;
-- create religious institutions;
-- introduce compulsory sanitation rules.
-
-These may:
-- cost AP;
-- require institutions or specialists;
-- take time to implement;
-- unlock new policy stances;
-- create permanent event/Legitimacy consequences.
-
-### Emergency decrees
-
-Emergency decrees represent the Lord using exceptional authority.
-
-Examples:
-- seize private grain;
-- impose emergency rationing;
-- conscript labor for a fire/flood response;
-- close markets during epidemic;
-- suspend normal taxes after disaster.
-
-They should usually be strong and immediate, but costly politically or economically.
-
-### Specialization and Ambitions
-
-Policy choices should interact with specialization without hard-locking policy access.
-
-Examples:
-- Agricultural towns may gain specialized food-policy options.
-- Trading-Crafting towns may unlock merchant or tariff reforms.
-- Religious Centers may gain more sophisticated charity/festival policies.
-- Scholar towns may unlock public education or medical regulations.
-
-Ambitions may require unusual or difficult policy combinations.
-
-### Design principle
-
-> **Routine governance should be flexible; structural reform should require commitment; emergency power should be strong but costly.**
-
-Policies should create long-term consequences and recognizable governing styles without becoming a monthly slider-optimization puzzle.
-
-
-
-### Seasonal policy cadence
-
-Routine policies are free to change, but each policy should normally be adjustable only **once per season**.
-
-This prevents players from switching policy stances every month to exploit short-term conditions while remaining simple to understand.
-
-Different policies may eventually have exceptions, but seasonal adjustment is the default rule.
-
-### Rate-of-change penalties
-
-Policy consequences should depend not only on the current stance but also on **how quickly the policy changed**.
-
-Example:
-
-Moving taxation from Minimum to Maximum over one year should create substantially more disruption, Legitimacy pressure, and Unrest-generating conditions than reaching the same tax level gradually over three years.
-
-The current policy level still matters; a severe tax rate remains burdensome even if introduced slowly.
-
-This creates two separate effects:
-
-1. **Level effect** — the consequences of the policy itself.
-2. **Transition shock** — additional consequences caused by rapid change.
-
-The exact formula remains open.
-
-### Historical expectations and acquired standards
-
-Population expectations should remember previously experienced standards.
-
-Removing an established benefit, tolerance, subsidy, service, or level of prosperity should generally create more political pressure than never providing it in the first place.
-
-Examples:
-
-- people accustomed to low taxes react strongly to a rapid tax increase;
-- merchants accustomed to privileges resist their removal;
-- citizens accustomed to generous food support resent abrupt rationing;
-- established welfare or religious support becomes politically harder to withdraw.
-
-This connects policy history with the broader Expectations system from Decision 008.
-
-The principle is:
-
-> **Wanting an improvement is usually less destabilizing than losing a standard people already consider normal.**
-
-### Gradual reform-system introduction
-
-Major laws and reforms should be introduced slowly to avoid feature overload.
-
-Early runs may contain only a very small reform set.
-
-Additional reform categories, laws, and structural policy options may be unlocked through:
+New reform categories may be unlocked through:
 
 - meta progression;
-- population milestones;
-- achievements;
+- milestones;
 - institutions;
 - specialization;
 - research.
 
-This allows the governance system itself to expand as the player becomes more experienced.
+### Emergency decrees
 
-### Prototype simplification
+Emergency decrees use AP as premium governing authority for strong immediate responses.
 
-The first implementation may use simpler rules:
+They should solve or strongly mitigate problems while creating political, economic, institutional, or future consequences.
 
-- routine policy changes are free;
-- each policy may be changed once per season;
-- effects apply at the next monthly resolution;
-- transition penalties can use a simple recent-change measure;
-- only a small number of laws/reforms exist initially;
-- emergency decrees remain AP-driven.
+Policies should change the **underlying causes of Unrest**, not act as direct `Unrest +/-` controls.
 
-More detailed implementation delays and institutional friction can be added later if needed.
+---
 
+## Decision 014 — Research, Knowledge & Technology
 
-## Next Design System
+**Status: Mostly settled; exact catalogue, prerequisites, costs, institutions, and pacing remain open.**
 
-### System 14 — Research, Knowledge & Technology
+Research uses selectable **multi-month projects**, not a giant static technology tree.
 
-Topics to resolve:
-- How research is generated and progressed.
-- Role of Scholars, Schools, Universities and Paper.
-- Whether technologies unlock buildings, policies, specialists or efficiencies.
-- How research avoids becoming a generic linear tech tree.
-- How Scholar/University specialization interacts with research.
-- Which research knowledge resets each run versus what meta progression permanently unlocks.
+### Research Capacity
 
+Scholars and research institutions generate monthly **Research Capacity**.
 
+Unused capacity is not stored forever as abstract Research Points.
 
-## Decision 014 — Research, Knowledge, and Technology
+Research therefore competes for current scholars, institutions, Coin, and later resources such as Paper.
 
-**Status: Accepted at system level; exact catalogue, prerequisites, costs, institutions, and research pacing remain open.**
+### Research Catalogue
 
-### Core principle
+Available discoveries appear in a contextual catalogue grouped into broad knowledge domains.
 
-Research should represent the settlement deliberately developing useful knowledge, practices, institutions, and techniques.
+Research opportunities can be revealed by:
 
-It should not become a large generic technology tree that the player mechanically clears in roughly the same order every run.
-
-The preferred direction is **selective research projects within broad knowledge domains**.
-
-### Research projects
-
-Research uses the same broad project philosophy as construction and reforms.
-
-A research project:
-- takes multiple months;
-- requires Scholar capacity;
-- may consume Coin, Paper, or other resources;
-- may accept ordinary assistants but requires qualified Scholars for core research;
-- can be paused by assigning insufficient staff/resources;
-- produces a defined discovery or institutional capability when completed.
-
-Research progress should be forecast on the map table.
-
-### Research capacity
-
-Scholars and research institutions create **Research Capacity** rather than a permanently stockpiled Research Point currency.
-
-Research Capacity represents how much research work can be performed in the current month.
-
-Unused Research Capacity normally disappears at month resolution rather than accumulating forever.
-
-This prevents the player from banking years of abstract science points and instantly purchasing a chain of discoveries later.
-
-### Research institutions
-
-Possible institutional progression:
-- educated individual / court scholar;
-- School or Scriptorium;
-- Academy;
-- University.
-
-Exact buildings remain open.
-
-Early research should be possible on a small scale without requiring a full University.
-
-Advanced research may require:
-- specific institutions;
-- multiple Scholars;
-- Paper;
-- Coin;
-- previous discoveries;
-- relevant settlement experience.
-
-### Knowledge domains
-
-Research should be grouped into broad domains rather than one rigid tree.
-
-Provisional domains may include:
-- Agriculture
-- Engineering / Construction
-- Medicine
-- Administration
-- Craft / Commerce
-- Social / Religious knowledge
-
-Additional domains can be added later if needed.
-
-Domains are organizational structures, not necessarily linear progression tracks.
-
-### Contextual availability
-
-Research options should become available based on what exists in the settlement and what it has experienced.
-
-Examples:
-- repeated mine accidents may make Mine Safety Methods available;
-- epidemic experience may unlock advanced medical research;
-- large agricultural production may reveal irrigation or crop-management projects;
-- administrative institutions may unlock census/accounting methods;
-- trade activity may unlock commercial standards or warehousing methods.
-
-This makes research react to the town rather than exist as a detached checklist.
-
-### Research choices
-
-The player should normally choose which available research project to pursue.
-
-Research options may be influenced by:
-- current buildings;
-- specialists;
-- Primary and secondary specialization affinities;
-- population milestones;
-- events and crisis history;
-- previous discoveries;
+- settlement development;
+- buildings;
+- specialization;
 - geography;
-- meta-progression unlocks.
+- events and crises;
+- previous discoveries;
+- institutions;
+- specialist availability.
 
-Exact presentation remains open.
+Once prerequisites are met, ordinary strategic research should generally be predictable rather than heavily RNG-gated.
 
-### Research outcomes
+### What research should do
 
-Research should primarily unlock **new capabilities and options**.
+Research primarily unlocks:
 
-Possible rewards:
-- new functional buildings;
-- infrastructure stages;
-- laws/reforms;
-- policy stances;
+- capabilities;
+- institutions;
+- policies and laws;
+- specialist functions;
+- crisis responses;
+- production chains;
+- infrastructure solutions;
+- strategic options.
+
+Pure `+X%` technologies are secondary.
+
+Basic survival mechanics should not require the player to re-research tedious foundational knowledge every run.
+
+### Scholar-University identity
+
+Ordinary settlements begin with limited research parallelism.
+
+A Scholar-University settlement gains:
+
+- greater breadth;
+- deeper academic options;
+- more parallel research;
+- unique research institutions;
+- rare discoveries and academic events.
+
+Its identity should not reduce to a flat research-speed multiplier.
+
+### Meta progression
+
+Legacy progression normally unlocks **future research possibilities** rather than automatically completing discoveries every run.
+
+Deep late-game Legacy upgrades may eventually allow selected foundational knowledge to begin already researched.
+
+A normal settlement should not realistically complete the entire research catalogue in one run.
+
+---
+
+## Decision 015 — Trade, External Economy & Regional World
+
+**Status: Mostly settled; exact price model, capacities, contracts, investment costs, and forecast precision remain open.**
+
+The outside economy is represented initially by an abstract **Regional Market**, not fully simulated neighboring settlements.
+
+### Routine trade
+
+The player can establish standing import/export orders.
+
+Routine trade is constrained by:
+
+- finite Trade Capacity;
+- market availability;
+- transport access;
+- geography;
+- roads;
+- markets;
+- warehouses;
+- merchant institutions.
+
+Import dependence is intentionally viable, allowing highly specialized settlements, but creates natural vulnerability to:
+
+- shortages;
+- route disruption;
+- price spikes;
+- regional crises;
+- political events.
+
+### Information uncertainty
+
+Market prices and availability may contain hidden uncertainty.
+
+Forecasting improves through:
+
+- Legacy progression;
 - specialists;
-- crisis-response options;
-- new production chains;
-- improved forecasting;
-- specialized projects;
-- modest efficiency improvements.
+- research;
+- institutions;
+- commercial infrastructure.
 
-Pure numerical upgrades are allowed but should not dominate the system.
+### Trade Contracts
 
-### Scholar / University specialization
+Trade Contracts provide longer-term strategic commitments beyond routine standing orders.
 
-Research must remain useful for every settlement.
-
-Scholar / University specialization should deepen the system rather than simply grant a large flat research-speed bonus.
-
-Possible specialization advantages include:
-- more simultaneous research projects;
-- better access to advanced discoveries;
-- lower institutional requirements;
-- additional research choices;
-- unique academic institutions;
-- special hybrid research;
-- stronger event/research interactions;
-- ability to pursue theoretical or prestige knowledge that ordinary towns cannot justify.
-
-Exact advantages remain open.
-
-### Parallel research
-
-Ordinary settlements may begin with only **one active research project** at a time.
-
-Advanced institutions or Scholar specialization may allow multiple projects to run simultaneously.
-
-Each project still requires its own workers and resources, so parallel research creates a real economic cost.
-
-### Paper and advanced scholarship
-
-Paper is a promising advanced resource for research and administration.
-
-Early basic research should not depend heavily on Paper so the system can function before advanced production chains exist.
-
-Later research and larger institutions may consume Paper monthly.
-
-### Meta progression and research
-
-Meta progression should usually **unlock research possibilities**, not automatically grant every discovery at the start of each run.
-
-Example:
-- an achievement permanently unlocks Advanced Medicine as a possible future research branch;
-- a later settlement still needs appropriate Scholars, institutions, and research effort to obtain it.
-
-Some deep Legacy upgrades may eventually allow selected foundational discoveries to begin already known, reducing repetitive early-run research.
-
-This should be used sparingly.
-
-### Research and run variety
-
-A settlement should not realistically research everything during an ordinary run.
-
-Limited time, Scholar labor, resources, institutional requirements, specialization, and World Pressure should force prioritization.
-
-A Scholar-specialized late-game city may approach a much broader research catalogue, but ordinary settlements should finish with meaningful gaps.
-
-### Discovery memory and events
-
-Research history may interact with Event Memory.
-
-Examples:
-- surviving an epidemic can expose a medical research path;
-- researching sanitation can change future disease-event responses;
-- studying a mine collapse may unlock safety practices;
-- religious scholarship may affect doctrinal or social events.
-
-Research therefore becomes another way the history of the settlement changes its future possibilities.
-
-### Design principle
-
-> **Research should answer problems and ambitions the settlement actually has, not exist as an isolated checklist of upgrades.**
-
-The player develops knowledge because it changes what the town can do, and choosing one research direction means delaying another.
-
-
-
-### Meta progression and score efficiency
-
-Meta progression may also improve how effectively a developed settlement converts strong play into score-generating capability.
-
-This may happen indirectly through:
-- earlier access to productive or institutional options;
-- better research throughput;
-- improved ability to sustain higher Challenge Tiers;
-- stronger milestone rewards;
-- other bounded progression bonuses.
-
-This can accelerate future Legacy Point gain, while the diminishing score-to-Legacy conversion prevents unlimited linear snowballing.
-
-The system should reinforce the incremental/prestige loop without making low-difficulty farming permanently optimal.
-
-
-
-## Decision 015 — Trade, External Economy, and Regional World
-
-**Status: Accepted at system level; exact price model, capacity formulas, contracts, forecasting accuracy, and regional-investment balance remain open.**
-
-### Core principle
-
-Trade should allow a settlement to specialize, recover from shortages, and convert comparative advantages into Coin or needed goods.
-
-It should not allow every town to ignore local production entirely.
-
-The outside world should therefore be represented through an **abstract Regional Market** rather than fully simulated neighboring settlements.
-
-### Regional Market
-
-The Regional Market represents surrounding settlements, merchants, trade routes, distant producers, and broader economic conditions.
-
-For each tradable resource, the market may expose:
-- current buy price;
-- current sell price;
-- available import volume;
-- available export demand;
-- recent price direction;
-- known regional modifiers.
-
-Prices and availability can change because of season, regional events, World Pressure, trade-route condition, local specialization, shortages/surpluses, and geography.
-
-### Standing trade orders
-
-Routine trade should be handled through persistent orders configured at the map table.
-
-Examples:
-- Import Food until stockpile reaches 600.
-- Export Wood while stockpile remains above 900.
-- Buy up to 40 Medicine per month if price is below a chosen threshold.
-
-Standing orders are free routine management and resolve during monthly simulation.
-
-### Trade forecast
-
-Before Advance Month, the map table should show expected imports, exports, Coin spent/earned, trade capacity used, stockpile results, and known price effects.
-
-If conditions are uncertain, the forecast may show a range or warning.
-
-### Trade capacity
-
-A settlement has limited **Trade Capacity**.
-
-Trade Capacity may depend on roads, river access, market infrastructure, warehouses, merchant institutions, geography, specialists, and season.
-
-Imports and exports compete for this capacity.
-
-A rich town therefore cannot instantly import unlimited Food merely because it has enough Coin.
-
-### Market access and geography
-
-Geography determines baseline market access.
-
-Examples:
-- river crossing: strong bulk trade;
-- remote highlands: weak access;
-- major road junction: strong merchant traffic;
-- isolated valley: expensive imports and limited export volume.
-
-Infrastructure can improve access but not erase geography completely.
-
-### Import dependency
-
-Heavy import dependence is viable but creates natural vulnerability.
-
-A Mining Center may export Iron and Stone while importing Food. This can be profitable in normal conditions but dangerous during regional food shortages or disrupted routes.
-
-This is preferable to arbitrary specialization penalties.
-
-### Prices and availability
-
-Prices should be dynamic enough to create meaningful decisions without simulating a full exchange.
-
-Buying normally costs more than selling the same resource because of merchant margin, transport, and risk.
-
-Regional supply and demand are finite. Medicine, Food, Stone, and other resources may have limited monthly or seasonal availability/demand.
-
-Large player trade volumes may later influence prices modestly, but detailed market-clearing simulation is not required initially.
-
-### Contracts and special opportunities
-
-Events, milestones, specialization, and merchant institutions may offer **Trade Contracts** beyond ordinary market orders.
-
-Examples:
-- guaranteed Tools purchase for 12 months;
-- fixed-price Grain imports through winter;
-- large Stone-delivery request;
-- caravan offers rare Medicine;
-- unusually high-price crafted-goods buyer.
-
-Contracts create strategic commitments without replacing the basic Regional Market.
-
-### Trade disruption
-
-Persistent regional conditions can modify capacity, price, availability, or contract reliability.
-
-Examples:
-- flooded roads;
-- bandit activity;
-- harsh winter;
-- bridge collapse;
-- famine;
-- epidemic restrictions;
-- embargo.
-
-Trade therefore interacts directly with crises and World Pressure.
-
-### Tariffs and merchant policy
-
-Tariffs, merchant privileges, customs collection, subsidies, strategic reserves, and market regulation belong mainly in the policy/reform system rather than a separate trade minigame.
+Exact contract mechanics remain open.
 
 ### Trading-Crafting specialization
 
-Trading-Crafting specialization deepens the system through better market access, warehouses, merchant institutions, contracts, finished-goods chains, rare imports, and hybrid milestone options.
+This specialization can deepen:
 
-Its advantage should not simply be a flat trade-price bonus.
+- contract access;
+- market reach;
+- finished-goods production;
+- finance;
+- rare commercial opportunities;
+- Trade Capacity.
 
-Crafting creates exportable value; trade provides markets and imported inputs.
-
-Pure transit/tariff trade may be viable only with exceptional geography.
-
-### External world abstraction
-
-The outside world should have enough state to generate believable pressure without becoming another strategy simulation.
-
-Possible regional variables:
-- food abundance;
-- trade stability;
-- disease pressure;
-- security;
-- merchant activity;
-- selected resource availability.
-
-These may shift seasonally and through events.
-
-### Anti-exploit principles
-
-Trade should not permit infinite arbitrage, unlimited emergency imports, trivial avoidance of specialization weaknesses, or predictable free profit from price cycling.
-
-Safeguards include:
-- buy/sell spread;
-- finite market volume;
-- trade capacity;
-- transport friction;
-- changing regional conditions;
-- event risk.
-
-### Design principle
-
-> **Trade turns surplus into flexibility, but dependence on the outside world creates its own risk.**
-
-Local production remains strategically valuable, while specialized settlements may deliberately rely on imports where economics and geography support it.
-
-
-### Hidden market uncertainty and forecasting progression
-
-The Regional Market does not need to be perfectly predictable from the start.
-
-Some future market movements, route disruptions, harvest outcomes, and availability changes may be determined by hidden randomness.
-
-The player gains increasing access to forecasts through meta progression, institutions, specialists, and research.
-
-Forecast quality may progress from:
-- current-price information only;
-- qualitative warnings;
-- broad ranges/probabilities;
-- improved seasonal projections;
-- highly accurate short-term forecasts at deep progression.
-
-Information itself is therefore a progression reward. Forecasting reduces uncertainty without completely removing late-game risk.
+A nearly pure Trade City should be viable as an extreme specialization, but require exceptional geography and substantial investment in connections, prosperity, sellers, and buyers.
 
 ### Regional investment
 
-Trade-dependent settlements may invest Coin, materials, or administrative effort into the surrounding region.
+The Lord may invest in abstract regional connections and infrastructure to improve:
 
-Possible investments include roads, bridges, caravan security, depots, merchant incentives, regional production support, and trade-corridor development.
+- market depth;
+- Trade Capacity;
+- reliability;
+- route resilience.
 
-These may improve Trade Capacity, market depth, buyer/seller volume, route reliability, regional prosperity, and contract quality.
+A detailed regional map is not initially required.
 
-This is especially important for a **pure Trade City** ultra-specialization: it cannot extract unlimited wealth from a poor region forever and must help create the economy that supports its own scale.
+Banking and finance overlap this system but are reserved for a dedicated later design system.
 
-Regional investment remains abstract initially and does not require a regional map.
+---
 
-### Pure Trade City
+## Decision 016 — Ambitions, Difficulty & Run Setup
 
-Pure trade is a valid extreme specialization under suitable conditions.
+**Status: Mostly settled; exact multipliers, Ambition tiers, slot unlocks, and progression pacing remain open.**
 
-It may rely heavily on merchant activity, tariffs, warehousing, finance, contracts, imported necessities, and regional market depth.
+### Run setup order
 
-It should generally require exceptional geography plus substantial investment in regional prosperity and infrastructure.
+Current preferred order:
 
-### Banking and finance
+1. Difficulty is selected from unlocked options.
+2. A Region is randomly generated and revealed.
+3. The player sees the Region's archetype, traits, resource potentials, and challenge information.
+4. The player chooses Ambitions from the unlocked roster and selects available Ambition tiers.
+5. The run begins.
 
-Banking exists in the broader game and overlaps multiple systems.
+Run setup should provide direction without becoming a full pre-run character/build configuration system.
 
-Administration-oriented finance may include treasury management, public borrowing, a Mint, coinage/monetary control, state debt, and taxation-related finance.
+### Difficulty and Challenge Tier
 
-Trading-Crafting-oriented finance may include merchant banking, loans, commercial credit, investment ventures, and period-appropriate shares or debt instruments.
+**Run Difficulty** and the in-run **dynamic Challenge Tier** are separate and may both increase score/reward efficiency.
 
-The full banking/monetary system is deferred to a dedicated future design system.
+This double reward is intentional:
 
-A modern stock market is not assumed; merchant ventures, partnerships, bonds/debt instruments, or shares can provide similar gameplay in a more fitting form.
-
-
-
-## Decision 016 — Ambitions, Difficulty, and Run Setup
-
-**Status: Accepted at system level; exact multipliers, Ambition tiers, slot unlock requirements, and completion pacing remain open.**
-
-### Core principle
-
-Run setup should give the player a meaningful reason to approach each settlement differently without becoming a complicated pre-run build system.
-
-The preferred structure is a hybrid:
-
-1. a clear **base Difficulty** setting;
-2. a small number of optional **Ambitions**;
-3. later, geography/region and other unlocked run conditions.
-
-### First-run simplicity
-
-The first run should have little or no setup complexity.
-
-Possible first-run structure:
-- fixed/default region;
-- Standard difficulty;
-- no Ambition choice, or one simple introductory Ambition.
-
-Additional difficulty levels, Ambition slots, rerolls, regions, and challenge combinations can unlock through meta progression and achievements.
-
-### Base difficulty
-
-Difficulty is a global run-level setting rather than dozens of mandatory sliders.
-
-Provisional examples:
-- Standard
-- Challenging
-- Hard
-- Severe
-- Extreme
-
-Names and number of levels remain open.
-
-Higher difficulty should primarily increase **external/progression pressure**, such as:
-- earlier World Pressure milestones;
-- faster Challenge Tier progression;
-- larger Event Pressure Budgets;
-- more severe crisis eligibility;
-- harsher regional conditions;
-- weaker forecasting;
-- tighter starting conditions;
-- less forgiving market availability.
-
-Difficulty should avoid arbitrary universal penalties such as `Food production -30%` unless a specific mode is intentionally built around that constraint.
-
-### Difficulty rewards
-
-Difficulty increases Legacy Point rewards **after** the diminishing score-to-LP conversion.
-
-Conceptually:
-
-Score
-→ diminishing base Legacy Points
-→ difficulty multiplier
-→ Ambition rewards/modifiers
-
-Higher difficulty may also affect score itself if needed for records, but score and Legacy reward multipliers should remain separately tunable.
+- Difficulty rewards voluntarily choosing harsher rules.
+- Challenge Tier rewards surviving far enough for the world to become harsher during the run.
 
 ### Ambitions
 
-Ambitions are optional commitments that give a run a specific secondary objective.
+Ambitions are optional run-long commitments.
 
-Examples:
-- Breadbasket — achieve a major Food surplus at a target population.
-- City of Scholars — maintain a large Scholar population / University capability.
-- Open Gates — accept refugee/immigration opportunities while reaching a population target.
-- Stone and Iron — reach Mining specialization tiers and export a target amount.
-- Pious City — maintain major religious institutions and social support.
-- Commercial Hub — reach high trade volume or regional market influence.
+They have scalable tiers or harder variants.
 
-Ambitions should primarily reward Legacy Points, with additional achievements, unlocks, or score modifiers for difficult sets.
-
-### Ambition selection
-
-The preferred initial structure is an **Ambition draft** rather than unrestricted catalogue selection.
-
-At run setup, the game offers a small random set of Ambitions from the unlocked pool.
-
-The player chooses one or more depending on progression.
-
-This reduces repetitive farming of the mathematically easiest Ambition while still giving meaningful agency.
-
-Meta progression may unlock:
-- more Ambition choices in the draft;
-- additional active Ambition slots;
-- a limited Ambition reroll;
-- more advanced Ambition categories.
-
-Exact numbers remain open.
+Completing Ambitions that conflict with each other, or clash with the revealed geography, may provide a visible **Challenge Bonus**.
 
 ### Ambition slots
 
-A new player should begin with only a small number of active Ambitions, provisionally one.
+The UI uses visible Ambition slots.
 
-Later progression may allow two or three simultaneous Ambitions.
+Initially only one may be available, while later slots are visibly locked behind achievements, milestones, or meta progression.
 
-Taking more Ambitions creates more potential reward but also more competing objectives.
+For each unlocked slot, the player chooses:
 
-The maximum should remain small enough that the player remembers them without constantly checking a checklist.
+- an Ambition;
+- an available tier.
 
-### Ambition commitment
-
-Selected Ambitions are locked when the run begins.
-
-They cannot normally be swapped mid-run.
-
-Failing an Ambition does not end the run; it only forfeits that Ambition's reward.
-
-This keeps them optional goals rather than victory conditions.
-
-### Ambition difficulty
-
-Ambition rewards should scale according to how difficult the goal is under the current run conditions.
-
-Factors may include:
-- base difficulty;
-- geography;
-- starting modifiers;
-- other active Ambitions;
-- Primary Specialization conflict;
-- World Pressure settings.
-
-A Breadbasket Ambition in fertile farmland should be worth less than the same Ambition in rocky highlands.
-
-The exact calculation can remain hidden or summarized as an Ambition reward multiplier.
-
-### Contradictory Ambitions
-
-Deliberately difficult combinations should be valid and potentially highly rewarding.
-
-Examples:
-- Breadbasket in poor farmland;
-- Scholar city with limited trade/Paper access;
-- population-growth Ambition under restrictive migration conditions.
-
-Especially difficult combinations may grant:
-- greater Legacy rewards;
-- score multipliers;
-- achievements;
-- unique unlocks.
-
-### Ambitions and specialization
-
-Ambitions should strongly influence player goals without hard-locking specialization.
-
-A Farming Ambition makes Agriculture attractive, but the player may still solve it through trade, research, hybrid development, or an unusual strategy if the requirements allow it.
-
-Some Ambitions may explicitly require a specialization tier.
-
-### Repeat Ambitions
-
-Repeating an already-completed easy Ambition should remain possible, but first-time completion should be more valuable.
-
-Possible structure:
-- repeatable Legacy Point reward;
-- first completion achievement/unlock;
-- completion tiers for increasingly difficult versions;
-- additional rewards for completing it on higher difficulty.
-
-This allows Ambitions to remain useful without turning them into one-time checklist content.
-
-### Ambition tiers
-
-Many Ambitions may have multiple tiers.
-
-Example:
-
-Breadbasket I
-→ reach 1,000 population with 125% Food production
-
-Breadbasket II
-→ reach 3,000 population with 150%
-
-Breadbasket III
-→ reach 8,000 population with 175% under higher Challenge Tier pressure
-
-Exact values remain open.
-
-Higher tiers can unlock over meta progression or after completing lower tiers.
-
-### Difficulty unlock progression
-
-Higher difficulty settings should unlock gradually.
-
-Example structure:
-- Standard available initially;
-- Challenging unlocked after first meaningful run;
-- Hard after reaching a certain Challenge Tier or score;
-- later modes through achievements.
-
-This avoids exposing an inexperienced player to settings they cannot yet interpret.
-
-### No Legacy loadout
-
-Run setup must not become a Legacy build system.
-
-Permanent Legacy Talents remain always active.
-
-The run setup changes the challenge and goals, not which permanent bonuses the player equips.
-
-### Optional challenge modifiers
-
-A later layer of optional challenge modifiers may be added if useful.
-
-Examples:
-- poor harvest region;
-- limited immigration;
-- unstable trade;
-- harsher winters.
-
-These should not be required for the basic difficulty system.
-
-If implemented, they should function as advanced challenge options with proportional score/Legacy rewards rather than as a mandatory list of sliders.
-
-### Run summary
-
-Before starting, the player should see a concise summary:
-
-- Region / starting geography
-- Difficulty
-- selected Ambitions
-- major known starting modifiers
-- Legacy Point multiplier
-- important special rules
-
-The player should understand what challenge they are accepting without needing to inspect hidden formulas.
-
-### Design principle
-
-> **Difficulty determines how hostile the world is; Ambitions determine what the player is trying to accomplish inside that world.**
-
-Run setup should create direction and replayability while leaving the town's actual specialization and strategy to emerge during play.
-
-
-
-## System 16 Revision Notes
-
-**Status: Still under discussion; these revisions supersede conflicting earlier proposal text.**
-
-### Score and Legacy Point conversion
-
-The preferred direction is now **linear or near-linear score-to-Legacy Point conversion**, not diminishing conversion.
-
-Reasoning:
-- escalating World Pressure and Challenge Tiers already make additional score increasingly difficult to earn;
-- higher Run Difficulty independently makes strong score harder to achieve;
-- increasingly expensive Legacy Talents provide the long-term progression sink;
-- a great run should feel visibly more valuable than the previous one.
-
-The exact conversion ratio remains open.
-
-### Intended full-progression pacing
-
-A provisional target is roughly **30–50 total runs to reach 100% meta progression**, potentially fewer depending on average run length and player success.
-
-This target should be calibrated after prototype data exists.
-
-100% progression here means ordinary Legacy Talents and major progression systems/features; optional challenge achievements may extend beyond that.
-
-### Double-counting difficulty
-
-Run Difficulty and dynamic Challenge Tier should both independently improve score gain.
-
-Conceptually:
-
-Monthly Score
-= Civilization / Management Value
-× Challenge Tier Multiplier
-× Run Difficulty Multiplier
-
-Exact formula remains open.
-
-This intentionally rewards:
-1. choosing a harder ruleset before the run;
-2. surviving far enough within that ruleset to reach higher Challenge Tiers.
-
-### Ambition challenge bonuses
-
-Completing Ambitions that conflict with:
-- each other;
-- geography;
-- other known run constraints
-
-should provide a visible **Challenge Bonus**.
-
-This may be an end-of-run score multiplier or additive bonus.
-
-The end screen should explicitly show that the player was rewarded for taking on the harder combination.
-
-### Ambition scalability
-
-Ambitions need explicit scaling so they do not become trivial after substantial meta progression.
-
-Preferred tools include:
-- Ambition tiers;
-- higher target thresholds;
-- minimum Difficulty requirements;
-- Challenge Tier requirements;
-- additional conditions;
-- harder variants.
-
-Lower tiers may remain repeatable but should become less strategically valuable than pushing higher tiers.
-
-### Ambition selection
-
-The previous randomized Ambition draft is no longer preferred.
-
-Ambitions should generally be **freely chosen from the currently unlocked roster**.
-
-Reason:
-- if Ambitions are random, players may intentionally abandon/restart runs until they receive the goal they wanted;
-- Ambitions are the main source of intentional direction at run start;
-- another system should provide unpredictability instead.
-
-### Preferred run-setup order
-
-Current recommendation:
-
-1. **Choose unlocked Run Difficulty.**
-2. **Generate and reveal the Region / starting geography.**
-3. **Choose Ambitions freely from the unlocked roster after seeing the Region.**
-4. Show geography–Ambition synergies/conflicts and their potential Challenge Bonuses.
-5. Confirm/start the actual simulation.
-
-The Region provides unpredictability.
-The Ambition provides agency.
-
-This gives the player a meaningful idea of what they want to attempt without letting them fully pre-design the settlement.
+The catalogue should also show locked future Ambitions and their unlock requirements.
 
 ### Region selection
 
-Regions are not freely selected by default in the current proposal.
+Random Region is the normal **full-reward** mode.
 
-They are generated randomly from the unlocked pool after Difficulty is chosen.
+Later progression may unlock deliberate Region selection for challenge testing or record attempts.
 
-Meta progression may later provide:
-- broader region pools;
-- limited region rerolls;
-- challenge-region unlocks;
-- special modes with direct region selection.
+Choosing the Region should reduce the score/Legacy reward multiplier enough that accepting randomness remains the optimal progression route.
 
-These are not yet accepted.
+### Score and Legacy progression — current revision
 
-### Onboarding
+Score-to-Legacy conversion is **linear or near-linear**.
 
-Advanced systems should unlock progressively over many runs.
+Increasingly difficult pressure makes high score harder to obtain, and rapidly increasing Legacy talent costs provide the long-term progression sink.
 
-This includes:
-- Ambitions;
-- additional Ambition slots;
-- Ambition tiers;
-- specialization systems;
-- harder Difficulty levels;
-- more complex laws/reforms;
-- advanced research;
-- additional Regions;
-- finance;
-- deeper forecasting.
+Permanent meta progression is provisionally targeted at approximately **30–50 runs**, potentially fewer if runs become long or successful runs advance progression substantially.
 
-Long onboarding is acceptable because the full game is already expected to be complex.
-
-The first runs should deliberately expose only a subset of the final system set.
-
-
-
-### Ambition slot interface
-
-The Ambition setup screen uses a small number of clearly visible slots.
-
-Provisional structure:
-- Slot 1 available early;
-- Slot 2 visibly locked behind a milestone, achievement, or meta-progression requirement;
-- Slot 3 visibly locked behind a deeper requirement.
-
-Locked slots remain visible so the player understands that additional Ambition capacity is part of long-term progression.
-
-For each unlocked slot:
-1. the player selects an Ambition freely from the unlocked catalogue;
-2. the player selects the highest currently available tier they wish to attempt;
-3. locked higher tiers remain visible with their unlock requirements.
-
-The Ambition catalogue should also show future locked Ambitions and explain the achievement, milestone, specialization, difficulty, or meta requirement needed to unlock them.
-
-This makes Ambition progression aspirational rather than hidden.
-
-### Deliberate Region selection as a late unlock
-
-Random Region generation remains the default because it provides the main unpredictable run-start constraint.
-
-Later progression may unlock a setting that allows the player to deliberately select a Region.
-
-This is especially useful for:
-- limit testing;
-- targeted achievement attempts;
-- specialization experiments;
-- controlled balance testing;
-- extreme Ambition/geography combinations.
-
-Choosing the Region should reduce the run's score multiplier or Region Challenge Bonus compared with accepting a randomly generated Region.
-
-This preserves the value of adapting to randomness while still allowing advanced players to construct deliberate challenge runs.
-
-
-
-## Decision 017 — Starting Geography, Regions, and Settlement Conditions
-
-**Status: Accepted at system level; exact archetypes, traits, resource-potential formulas, connection scaling, and challenge values remain open.**
-
-### Core principle
-
-The Region is the main unpredictable run-start element.
-
-It should create a different strategic problem each run without simply rolling a "good map" or "bad map."
-
-The player should usually adapt to geography rather than restart until an optimal region appears.
-
-### Run-start order
-
-The accepted direction from System 16 remains:
-
-1. choose unlocked Run Difficulty;
-2. randomly generate and reveal the Region;
-3. inspect its geography, potentials, risks, and challenge rating;
-4. choose Ambitions in response;
-5. begin the settlement.
-
-Deep progression may later allow direct Region selection at a reduced score multiplier.
-
-### Region structure
-
-The preferred scalable structure is:
-
-**Region Archetype + Geographic Traits + Resource Potentials**
-
-This allows many combinations without requiring hundreds of individually handcrafted region definitions.
-
-### Region archetypes
-
-A Region Archetype defines the broad character of the land.
-
-Provisional examples:
-
-- Fertile Basin
-- Forested Uplands
-- Rocky Highlands
-- River Crossing / River Valley
-- Open Plains
-- Wetlands / Marshland
-
-The initial release does not need all of these.
-
-Each archetype should have recognizable advantages, limitations, event tendencies, and infrastructure implications.
-
-### Geographic traits
-
-Each generated Region may receive a small number of additional traits.
-
-Examples:
-
-- Deep Ore Veins
-- Thin Soil
-- Abundant Springs
-- Floodplain
-- Ancient Road
-- Dense Old-Growth Forest
-- Wind-Exposed
-- Harsh Winters
-- Mild Winters
-- Isolated
-- Natural Crossing
-- Poor Drainage
-
-Traits should generally create strategic texture rather than simply stack positive multipliers.
-
-A region should normally have only a few important traits so the player can remember them.
-
-### Resource potentials
-
-Geography should influence both **production efficiency** and **how far an industry can scale locally**.
-
-Visible regional potentials may include:
-
-- Farmland
-- Timber
-- Stone
-- Ore / Minerals
-- Water
-- Trade Access
-
-These may be shown with readable ratings such as:
-
-Poor / Limited / Average / Good / Rich / Exceptional
-
-Exact scale remains open.
-
-### Soft capacity rather than hard prohibition
-
-Poor resource potential should not normally mean:
-
-> Farming impossible.
-
-Instead it should mean that farming becomes progressively less efficient or more expensive as the settlement tries to scale beyond what the land naturally supports.
-
-Example:
-
-A Rocky Highlands region may support enough agriculture for an early village, but feeding a large city locally becomes increasingly labor- and infrastructure-intensive.
-
-This preserves strategic freedom while making geography matter strongly at scale.
-
-### Industry scaling pressure
-
-Resource potential can act as a soft carrying capacity.
-
-Below local potential:
-- production operates efficiently.
-
-Near potential:
-- expansion becomes more costly.
-
-Beyond potential:
-- diminishing returns, additional infrastructure, imports, research, or specialist methods become necessary.
-
-This can apply differently to:
-- agriculture;
-- forestry;
-- mining;
-- water systems;
-- trade access.
-
-Exact formulas remain open.
-
-### Geography and specialization
-
-Geography encourages specialization indirectly.
-
-Examples:
-
-- rich farmland makes agricultural investment naturally attractive;
-- mineral-rich highlands make Mining easier to develop;
-- river access encourages Trading-Crafting;
-- strong institutional geography is generally not required for Scholar or Religious specialization, allowing those identities to emerge across many regions.
-
-Geography should not directly select or lock a Primary Specialization.
-
-Specialization recognition still depends on what the player actually builds and does.
-
-### Geography and hybrid strategies
-
-A region should support unexpected solutions.
-
-Examples:
-
-Rocky Highlands + Breadbasket Ambition:
-- terrace farming;
-- irrigation research;
-- heavy food imports;
-- agricultural institutions;
-- high Challenge Bonus.
-
-Forested Uplands + Trading-Crafting:
-- timber;
-- Paper;
-- tools;
-- finished goods;
-- merchant exports.
-
-River Valley + Mining:
-- weaker local ore but excellent import/export logistics may support a processing-focused mining/craft economy.
-
-### Climate and environmental risk
-
-Regions affect probability and severity distributions rather than guaranteeing fixed events.
-
-Possible dimensions:
-- winter severity;
-- drought likelihood;
-- flood likelihood;
-- fire risk;
-- disease/environmental exposure;
-- transport disruption.
-
-A River Valley may have excellent Food/Trade potential but meaningful flood risk.
-
-A dense forest may offer abundant Wood but increased fire exposure.
-
-A highland region may have strong minerals but harsher winters and transport difficulty.
-
-### Forecasting
-
-The player should see the known geographic baseline at run start.
-
-Example:
-
-> Winters: Usually harsh
-> Flood risk: Low
-> Drought risk: Moderate
-
-Exact seasonal outcomes can still use hidden randomness.
-
-Forecasting systems and meta progression may later provide better short-term information.
-
-### Infrastructure interaction
-
-Geography changes the cost or value of infrastructure.
-
-Examples:
-
-- highlands make roads more expensive;
-- river regions may require bridges but gain high trade capacity;
-- wetlands make sanitation/drainage difficult;
-- abundant springs improve early water access;
-- isolated regions require greater investment to connect to markets.
-
-Infrastructure can mitigate geography but should not erase it completely.
-
-### Starting conditions and remnants
-
-Some geographic traits may provide starting-world features rather than pure modifiers.
-
-Examples:
-- abandoned quarry;
-- old road;
-- ruined bridge;
-- existing well;
-- neglected shrine;
-- former trading post.
-
-These can create early opportunities or projects.
-
-They should remain limited to avoid turning Region generation into a map-object collection game.
-
-### Region challenge rating
-
-Some Region combinations will inevitably be harder overall.
-
-The game should recognize this rather than pretending every Region is perfectly equal.
-
-A Region may therefore provide a visible **Region Challenge Bonus** to score.
-
-The rating should account for broad environmental difficulty, not whether the Region happens to match the player's later-selected Ambition.
-
-Ambition/geography conflict creates an additional separate Challenge Bonus.
-
-Exact scoring remains open.
-
-### Anti-restart design
-
-To reduce "reroll until perfect" behavior:
-
-- most Regions should contain meaningful strengths and weaknesses;
-- strengths should usually imply a strategic direction rather than universal power;
-- inherently harsher Regions should grant more score;
-- Ambitions are chosen after Region reveal, so the player can react intelligently;
-- random Region receives full score potential;
-- later manual Region selection receives a reduced score multiplier.
-
-A limited Region reroll may be unlocked through deep Legacy progression, but is not required initially.
-
-### Progressive Region unlocks
-
-The first runs should use a small, readable Region pool.
-
-Additional archetypes and unusual traits can unlock through:
-- milestones;
-- achievements;
-- meta progression;
-- Difficulty progression.
-
-This keeps onboarding manageable and lets later runs become geographically more diverse.
-
-### Regional investment
-
-Regional investment from the Trade system can improve:
-- roads;
-- market access;
-- security;
-- regional wealth;
-- Trade Capacity.
-
-It should not change fundamental geography.
-
-A mountain region remains mountainous even after excellent roads are built.
-
-### Visual implications
-
-Region should eventually influence the settlement's visual surroundings and procedural/modular town presentation.
-
-Examples:
-- highland backdrop;
-- forest edge;
-- river;
-- wet ground;
-- broad farmland;
-- rocky terrain.
-
-The simulation must not depend on final visual technology.
-
-### Design principle
-
-> **Geography should tell the player what is easy, what is expensive, and what is risky — but rarely what is impossible.**
-
-A Region creates constraints and opportunities. The player's settlement identity emerges from how they respond to them.
-
-
-### Abstract connection distance
-
-Geography should also describe how far the settlement is from major transport features, not only whether those features are inside the settlement.
-
-Important cases include:
-- direct access to a navigable river;
-- nearby access to a river or river town;
-- moderate distance to a major trade corridor;
-- long or difficult connection to regional transport.
-
-This remains abstract initially rather than requiring a detailed regional map.
-
-Infrastructure projects scale with both terrain difficulty and effective connection distance.
-
-Examples:
-- Rocky Highlands close to a navigable river may need only a few expensive road/bridge projects before gaining strong regional access.
-- Open Plains far from major waterways may have cheap individual roads but require much longer development before reaching equivalent Trade Capacity.
-
-Infrastructure can improve access substantially without changing the underlying geography.
-
-### Progressive geographic knowledge
-
-The player receives enough Region information at run start to make an informed Ambition choice.
-
-Meta progression, research, institutions, or specialists may later improve:
-- resource-potential clarity;
-- climate and hazard estimates;
-- understanding of trade connections;
-- seasonal and short-term forecasts.
-
-Progression may therefore improve information quality as well as raw capability.
-
-### Manual Region selection
-
-Random Region generation remains the intended full-reward/default mode.
-
-A later unlock may permit direct Region selection for limit testing, targeted achievements, controlled specialization experiments, and deliberate extreme challenges.
-
-Direct Region selection should reduce score, and therefore Legacy Point gain, enough that repeatedly selecting the optimal Region is not an efficient progression strategy.
-
-### Initial implementation simplification
-
-No resource depletion is required initially.
-
-Geography can first operate through:
-- buffs/debuffs;
-- resource-potential modifiers;
-- infrastructure scaling;
-- event weighting;
-- progression/research mitigation.
-
-Deforestation, soil exhaustion, mine depletion, and similar systems remain optional later additions.
-
-
-
-## System 18 Proposal — Religion, Social Institutions, and Cultural Life
-
-**Status: Proposed for discussion; not yet accepted.**
-
-### Core principle
-
-Religion should matter in every settlement because religious institutions are part of ordinary social life, not because the town selected a Religious specialization.
-
-The system should avoid a generic stockpiled **Faith/Piety** resource.
-
-Religion is instead represented through:
-- clergy;
-- institutions;
-- services;
-- public expectations;
-- festivals and customs;
-- charity;
-- education/scholarship;
-- burial and crisis response;
-- political influence.
-
-> **Religion should be something the settlement organizes and lives through, not a mana bar.**
-
-### Early religious institutions as multi-purpose social infrastructure
-
-In an early settlement, religious institutions may provide several social functions at once.
-
-A staffed Chapel/Temple/Church may contribute to:
-- worship/religious provision;
-- burial/funerary organization;
-- basic charity;
-- festivals/customs;
-- limited education/literacy;
-- social mediation.
-
-As the town grows, specialized civic institutions can take over some of these roles:
-- schools;
-- hospitals/infirmaries;
-- formal welfare;
-- administrative offices;
-- dedicated cemeteries;
-- academic institutions.
-
-This gives the player a strategic choice between continuing to rely heavily on religious institutions and developing more specialized civic alternatives.
-
-### Religious Provision
-
-A settlement may track a visible **Religious Provision** or **Worship Capacity** relative to population.
-
-This is a capacity/service measure, not a measure of personal belief.
-
-Religious buildings and Clergy provide capacity.
-
-Under-provision may contribute indirectly to:
-- lower Legitimacy;
-- unmet Expectations;
-- poorer social cohesion;
-- negative religious events;
-- reduced effectiveness of charity/festivals.
-
-Excess provision is not automatically useful; overbuilding religious institutions consumes workers, Coin, materials, land, and specialists.
-
-Exact name and formula remain open.
-
-### No individual belief simulation initially
-
-The first version should not track every citizen's faith, piety, denomination, or theological opinion.
-
-The settlement may begin with an abstract dominant/traditional religious culture.
-
-Pluralism, minority faiths, conversion, schisms, or detailed doctrine can be introduced later only if they create worthwhile strategic decisions.
-
-### Clergy
-
-Clergy are a specialist population/function.
-
-General workers can support religious institutions, but Clergy are required for their core religious functions.
-
-Clergy may contribute to:
-- worship;
-- charity;
-- education;
-- record keeping;
-- burial;
-- event mediation;
-- religious scholarship.
-
-Clergy therefore compete with other specialists and ordinary labor.
-
-### Religious buildings and institutional progression
-
-Provisional building families may include:
-- Shrine / Chapel;
-- Church / Temple;
-- Monastery / Abbey;
-- Cathedral / Great Temple;
-- Hospice or religious charity institution;
-- Scriptorium / Seminary / religious school.
-
-Not every building is required in the first version.
-
-Large religious institutions should be meaningful projects with staffing and upkeep rather than passive monuments.
-
-### Charity and welfare
-
-Religious institutions can provide a base form of charity even before advanced civic welfare is unlocked.
-
-Charity may consume:
-- Food;
-- Coin;
-- Clergy time;
-- institution capacity.
-
-It may mitigate:
-- hardship;
-- famine consequences;
-- homelessness;
-- disease vulnerability;
-- Legitimacy loss.
-
-It should normally affect the causes of Unrest rather than directly subtracting Unrest.
-
-Later civic welfare and religious charity can coexist, overlap, or specialize.
-
-### Burial and mortality
-
-Religion can play an important role in burial/funerary organization.
-
-Burial pressure becomes especially relevant during:
-- epidemics;
-- famine;
-- disasters;
-- mass-casualty events.
-
-Insufficient burial capacity/organization may create:
-- health consequences;
-- Legitimacy loss;
-- social distress;
-- event escalation.
-
-This can remain simplified or disabled in the first prototype if it adds too much complexity.
-
-### Festivals and customs
-
-Religious/cultural festivals should be occasional predictable calendar events rather than monthly micromanagement.
-
-Supporting a festival may consume:
-- Food;
-- Coin;
-- temporary labor/productivity.
-
-Benefits may include:
-- Legitimacy;
-- social cohesion;
-- merchant activity;
-- immigration attractiveness;
-- event outcomes.
-
-Skipping or cutting back a long-established festival may create stronger negative consequences than never establishing it, using the policy-history/Expectations principles from System 13.
-
-### Religious patronage policy
-
-Religion should connect to the policy system through a small number of readable stances rather than detailed theological controls.
-
-A possible policy family is **Religious Patronage**:
-- Minimal;
-- Customary;
-- Supported;
-- Favored.
-
-Higher patronage may:
-- increase religious-institution support;
-- improve Clergy availability or institution output;
-- increase expectations;
-- increase clerical influence;
-- cost Coin/resources.
-
-Exact stances and effects remain open.
-
-### Clerical Influence
-
-Religious institutions can become an important political power center.
-
-The game may track **Clerical Influence** internally or through a descriptive visible state such as:
-- Marginal;
-- Established;
-- Influential;
-- Powerful;
-- Dominant.
-
-Influence grows through:
-- institution size;
-- Clergy numbers;
-- privileges;
-- patronage;
-- land/wealth;
-- Religious specialization;
-- successful crisis mediation.
-
-High Clerical Influence can be beneficial:
-- stronger charity;
-- Legitimacy support;
-- education;
-- crisis response;
-- regional prestige.
-
-But it also means the clergy have interests of their own:
-- resistance to lost privileges;
-- requests for exemptions;
-- opposition to abrupt policy changes;
-- influence over reforms/events;
-- potential conflict with administrative or commercial institutions.
-
-This creates an organic opportunity cost rather than a forced specialization penalty.
-
-### Religious institutions and Expectations
-
-Once religious services, festivals, charity, or privileges become established, people and institutions grow accustomed to them.
-
-Removing established religious provision should therefore be politically harder than never providing it.
-
-This directly uses System 13's acquired-standard principle.
-
-### Religious Center specialization
-
-A Religious Center should deepen the ordinary religion system rather than unlock religion from nothing.
-
-Possible specialization advantages:
-- major religious institutions;
-- pilgrimage;
-- religious prestige;
-- expanded charity;
-- advanced religious scholarship;
-- more powerful festivals;
-- unique event chains;
-- higher Clergy capacity;
-- regional religious influence;
-- specialized laws/reforms;
-- unique crisis responses.
-
-It should not simply receive `Religion +50%`.
-
-### Pilgrimage and regional prestige
-
-A highly developed Religious Center may attract pilgrims and visitors.
-
-Pilgrimage can create:
-- Coin/trade activity;
-- demand for Food and lodging;
-- prestige/score;
-- disease exposure;
-- crowd-management pressure;
-- unique events.
-
-This gives Religious specialization an economic path without turning it into a disguised Trading specialization.
-
-### Religious specialization opportunity cost
-
-Religious specialization naturally consumes:
-- workers;
-- Clergy;
-- Coin;
-- Food;
-- Paper;
-- construction materials;
-- valuable institutional capacity.
-
-Large religious institutions may also accumulate political influence.
-
-The specialization's weakness therefore comes from the resources and authority it dedicates to religious life, not from an arbitrary production penalty.
-
-### Hybrid development
-
-Religion should interact strongly with secondary affinities.
-
-Examples:
-- Religion + Scholarship → Monastic School, theological academy, manuscript culture.
-- Religion + Trade → pilgrimage markets, hospitality, long-distance religious visitors.
-- Religion + Agriculture → monastic estates, charity granaries.
-- Religion + Administration → record keeping, legal/religious courts, institutional bureaucracy.
-- Religion + Medicine → hospices, charitable care, epidemic ministry.
-
-These are hybrid choices/features, not new official Primary Specializations.
-
-### Cultural life beyond religion
-
-Not all culture should be religious.
-
-Later civic development may include:
-- secular festivals;
-- markets/fairs;
-- schools;
-- taverns/public gathering places;
-- civic ceremonies;
-- guild traditions.
-
-The religion system can overlap with cultural life without owning the entire concept.
-
-A separate Culture resource is not required.
-
-### Events and narrative memory
-
-Religion is a rich source of event memory.
-
-Examples:
-- a Clergy leader supported the town during famine;
-- the Lord cancelled an established festival;
-- a shrine became a pilgrimage destination;
-- the clergy resisted taxation;
-- religious charity saved people during an epidemic.
-
-These histories can alter later options and relationships.
+This target remains subject to testing.
 
 ### Progressive onboarding
 
-The first runs should expose only a simple religious layer.
+Ambitions, difficulty levels, specializations, advanced Regions, and many deeper systems unlock gradually.
 
-Possible early version:
-- one basic worship institution;
-- Clergy specialist requirement;
-- simple Religious Provision;
-- occasional festival/charity events.
+This supports a deliberately long onboarding curve and prevents the early game from presenting the entire eventual complexity at once.
 
-Later meta progression, milestones, research, and specialization can unlock:
-- advanced patronage policy;
-- monasteries;
-- pilgrimage;
-- clerical politics;
-- specialized charity;
-- religious scholarship;
-- advanced reforms.
+---
 
-### Design principle
+## Decision 017 — Starting Geography, Regions & Settlement Conditions
 
-> **Religion is a social institution first, a specialization second, and never merely a numerical Piety resource.**
+**Status: Mostly settled; exact archetypes, traits, potentials, scaling, and challenge values remain open.**
 
-The Lord decides how much authority, labor, wealth, and responsibility religious institutions receive. In return they can provide legitimacy, care, education, cohesion, prestige, and crisis resilience—but powerful institutions also develop expectations and interests of their own.
+Each Region is generated from:
 
+> **Region Archetype + Geographic Traits + Resource Potentials**
 
+Additional archetypes and traits can unlock through meta progression.
 
-## System 18 Revision Notes
+### Geography should influence, not dictate
 
-**Status: Deferred / Needs Revisit. Core religion identity is established, but Church–Lord control and legitimacy mechanics should be finalized closer to implementation and alongside regional politics/warfare.**
+Geography affects:
 
-### Religious Center economic identity
+- production;
+- trade;
+- climate risk;
+- infrastructure cost;
+- resource access;
+- settlement specialization incentives.
 
-The Religious Center specialization should focus especially on:
+It should strongly encourage some strategies without making one path mandatory.
 
-- church tithes;
-- large-scale charity;
-- pilgrimage-centered market activity;
-- missionaries;
-- advanced religious institutions;
-- later interaction with warfare through holy-war/religious-conflict systems if warfare is added.
+Initial implementation can use clear geographical buffs/debuffs and advancement modifiers.
 
-These should be the specialization's main active economic and strategic tools rather than generic religious production bonuses.
+Resource depletion is **not required initially**.
 
-### Church tithes
+### Infrastructure and geography
 
-Tithes are primarily revenue/resources collected by organized religion, not automatically part of the Lord's treasury.
+Infrastructure can mitigate poor geography but never completely erase it.
 
-An independent Church may use tithe income for:
+Connection distance is abstract but strategically meaningful.
 
-- Clergy upkeep;
-- worship institutions;
+Examples:
+
+- direct river access;
+- a nearby river or river town;
+- a distant major trade corridor.
+
+These can alter connection project cost and Trade Capacity.
+
+Terrain and distance both matter.
+
+For example, highlands close to a river may require a few expensive links while flat plains far from navigable water may require long road development.
+
+### Remnants
+
+Occasional existing remnants can create opportunities, such as:
+
+- old roads;
+- ruined bridges;
+- abandoned quarries;
+- old wells;
+- shrines;
+- other inherited infrastructure.
+
+### Challenge rewards and information
+
+Harder Regions provide visible **Region Challenge Bonuses**.
+
+The Region is revealed before Ambitions are chosen.
+
+Meta progression and research may improve geographical and climate forecasting detail.
+
+Random Region remains the full-reward/default option.
+
+If manual Region selection is later unlocked, it receives a meaningful score/Legacy penalty.
+
+Ambitions that conflict with geography may grant additional Challenge Bonuses.
+
+---
+
+## System 18 — Religion, Social Institutions & Cultural Life
+
+**Status: Needs revisit later. The core identity is established, but the Church–Lord control and legitimacy model is deliberately unresolved.**
+
+Religion exists in every settlement through:
+
+- clergy;
+- religious buildings;
+- ceremonies;
 - charity;
+- burial;
 - festivals;
-- education/scholarship;
-- missionary activity;
-- reserves and institutional growth.
+- traditions;
+- political influence.
 
-The Lord may influence how much of this wealth supports settlement goals through privileges, agreements, appointments, taxation, or direct control.
+There is **no generic Faith/Piety currency** planned.
 
-A Religious Center may eventually gain stronger mechanisms for redirecting or coordinating tithe revenue.
+### Semi-independent Church
 
-Taking too much church wealth for secular use should create consequences such as:
+Organized religion is semi-independent by default.
 
-- reduced religious services;
-- weaker charity;
-- Clergy resistance;
-- lower institutional legitimacy;
-- political/religious events.
+It may possess its own:
 
-### Pilgrimage-centered market economy
-
-Pilgrimage should be one of the major economic engines of a Religious Center.
-
-A prestigious religious destination attracts visitors who create demand for:
-
-- Food;
-- lodging;
-- markets;
-- transport;
-- crafted goods;
-- religious goods/services.
-
-Benefits may include:
-
-- Coin generation;
-- merchant activity;
-- Trade Capacity justification;
-- settlement prestige;
-- regional influence;
-- specialization progression.
-
-Costs and risks include:
-
-- seasonal crowding;
-- Food demand;
-- housing/lodging pressure;
-- sanitation;
-- disease exposure;
-- road/infrastructure requirements;
-- vulnerability to regional instability.
-
-A highly specialized religious settlement may therefore develop a real visitor-based economy rather than merely receiving passive donations.
-
-### Missionaries
-
-Missionaries are a later Religious Center tool.
-
-Missionary projects may consume:
-
-- Clergy;
-- Coin;
-- supplies;
-- time.
-
-Initially their external effects can remain abstract.
-
-Possible effects include:
-
-- regional religious influence;
-- increased future pilgrimage;
-- new event chains;
-- relations with external authorities;
-- access to religious contacts/resources;
-- prestige and score.
-
-Detailed conversion, neighboring-faith simulation, or a regional religious map is not required initially.
-
-### Church as an independent organism
-
-Organized religion should not begin as another department of the Lord's administration.
-
-It is a semi-independent institution with:
-
-- its own wealth;
-- Clergy;
-- institutions;
+- wealth;
 - legitimacy;
 - expectations;
-- political interests;
-- ability to support or pressure the Lord.
+- political pressure;
+- institutional interests.
 
-The Church and Lord may cooperate, compete, or become deeply intertwined.
+A powerful Church can support the Lord, constrain the Lord, or become an alternative source of public legitimacy.
 
-### Two political dimensions
+### Religious Centre specialization
 
-A useful model is to distinguish:
+A Religious Centre may emphasize:
 
-**Clerical Influence**
-How much social, institutional, economic, and political power organized religion possesses.
+- tithes;
+- charity;
+- pilgrimage economy;
+- missionaries;
+- major religious institutions;
+- festivals;
+- burial and funerary systems.
 
-**Lord Control**
-How much of that religious power is aligned with, subordinate to, or directly controlled by the Lord.
+Holy warfare is deferred to the future Warfare / Regional Politics system.
 
-These are separate.
+### Church control possibilities
 
-Examples:
+Several political relationships are plausible and intentionally remain unresolved:
 
-#### Low Influence / Low Control
-Religion is weak and decentralized.
-Little political threat, but also little benefit.
+**Independent Church**
+- maintains autonomy;
+- may lend legitimacy to the Lord;
+- may oppose or undermine the ruler.
 
-#### High Influence / Low Control
-A powerful independent Church.
-Strong charity, legitimacy, institutions, and social reach, but capable of resisting the Lord.
+**Overtly controlled/state Church**
+- strongly directed by the Lord;
+- still retains some separate institutional credibility;
+- may absorb blame more effectively than a purely secular government arm.
 
-#### Low Influence / High Control
-The Lord tightly controls a relatively weak religious establishment.
-Easy to coordinate, but limited in what it can provide.
+**Subtly co-opted Church**
+- remains publicly distinct;
+- appointments, finances, and policy are gradually brought under the Lord's influence.
 
-#### High Influence / High Control
-A highly developed Religious Center in which the Lord has successfully brought powerful religious institutions into the governing structure.
+Under deep control, tithes may effectively become Lord-controlled revenue.
 
-This can be extremely strong but creates its own risks.
+However, corruption, religious failure, or unpopular Church policy may increasingly rebound onto the Lord as control becomes obvious.
 
-### Bringing religion under the Lord's control
+The exact balance between control, blame absorption, Church legitimacy, and Lord Legitimacy must be designed later.
 
-Religious specialization may unlock a progression path toward stronger Lord Control through:
+### Later social/cultural mechanics
 
-- appointment rights;
-- patronage;
-- negotiated privileges;
-- state-supported Clergy;
-- religious administration;
-- control of major institutions;
-- legal reforms;
-- integration of tithe collection;
-- control over missionary policy.
+Burial is considered a strong future mechanic.
 
-This should not happen automatically just because the town becomes religious.
+Festivals should become increasingly relevant as settlements grow.
 
-The player actively invests in creating a powerful but politically aligned religious structure.
+Advanced religious systems should unlock gradually to avoid early-game feature bloat.
 
-### Advantages of high Lord Control
+---
 
-Potential benefits include:
+## System 19 — Map Table, UI & Information Architecture
 
-- greater share or coordination of tithe resources;
-- more reliable Clergy support;
-- coordinated charity;
-- stronger use of religion for Legitimacy;
-- directed missionary activity;
-- easier mobilization for major religious projects;
-- reduced risk of independent clerical obstruction;
-- stronger synergy between religion and Administration.
+**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is now being refined through proposed subsections 19A (Navigation & Core Planning Workflow) and 19B (Tooltips, Information Transparency & Commitment Safety); neither subsection is accepted yet. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
 
-### Disadvantages and new pressures
+System 19 treats the interface as a **testable reference architecture**, not final pixel placement.
 
-Bringing religion under state control should not simply remove the downside.
+### Full-screen Map Table shell
 
-Possible costs include:
+The Map Table uses one persistent full-screen shell:
 
-- the Lord becomes directly responsible for religious failures;
-- reduced independent legitimacy of the Church;
-- opposition from Clergy who value autonomy;
-- greater risk of schism/reformist movements later;
-- external religious authorities may oppose state control;
-- religious policy mistakes attach directly to the Lord;
-- controlled religious wealth may create corruption/administrative burden;
-- citizens may resent obvious political manipulation of religion.
+1. **Global Status Header**
+2. **Left Navigation Rail**
+3. **Central Town / Map Workspace**
+4. **Right Planning & Forecast Inspector**
+5. **Bottom Commitment Bar**
 
-Thus a powerful controlled Church is a different risk profile, not a solved version of a powerful independent Church.
+Conceptual hierarchy:
 
-### Religious political pressure
+```text
+┌──────────────── GLOBAL STATUS HEADER ────────────────┐
+│ Date | AP | Pop | Food | Coin | Unrest | Legitimacy │
+│                                      | Challenge Tier │
+├───────────┬──────────────────────┬───────────────────┤
+│           │                      │                   │
+│ LEFT NAV  │   TOWN / MAP /       │ RIGHT INSPECTOR   │
+│           │   ACTIVE WORKSPACE   │                   │
+│ Overview  │                      │ Needs Attention   │
+│ Economy   │                      │ Forecast          │
+│ People    │                      │ Selected Effects  │
+│ Projects  │                      │ Why? breakdown    │
+│ etc.      │                      │                   │
+├───────────┴──────────────────────┴───────────────────┤
+│ Pending Changes | Undo | Reset | LORD'S SEAL / NEXT │
+└──────────────────────────────────────────────────────┘
+```
 
-An independent Church may pressure the Lord through:
+### Global Status Header
 
-- demands for privileges;
-- requests for tax exemptions;
-- opposition to reforms;
-- requests for religious construction;
-- protection of charity budgets;
-- influence over festivals/customs;
-- resistance to secular institutions;
-- mediation during unrest.
+Keep only universally important information permanently visible.
 
-The Lord may concede, negotiate, oppose, or gradually absorb these powers.
+Current candidates:
 
-This creates long-term political history through Event Memory.
-
-### Burial
-
-Burial/funerary capacity remains a strong later addition, particularly for epidemics, famine, disaster, and mass-casualty events.
-
-It should not be required in the first implementation.
-
-### Festivals and settlement scale
-
-Festivals become increasingly relevant as the settlement grows.
-
-Small towns may handle them largely through events and local tradition.
-
-Large towns may require real Food, Coin, security, sanitation, and organizational capacity.
-
-Established festivals create Expectations and become politically difficult to cut.
-
-### Holy warfare
-
-Holy warfare is explicitly deferred.
-
-If warfare/regional politics is later implemented, Religious specialization may interact through:
-
-- religiously motivated military campaigns;
-- calls to arms;
-- missionary conflict;
-- religious diplomacy;
-- regional religious legitimacy.
-
-The core Religion system should not depend on warfare existing.
-
-
-
-### Controlled Church as legitimacy intermediary — deferred concept
-
-A controlled Church does not necessarily need to appear publicly identical to the Lord's administration.
-
-A sophisticated Religious Center may gradually create a **puppet or co-opted Church** that remains formally and socially distinct while the Lord increasingly controls:
-- appointments;
-- finances;
-- tithe allocation;
-- policy direction;
-- missionary priorities;
-- major institutions.
-
-This separation can remain politically useful.
-
-The Church may absorb public blame or controversy more effectively than a visibly secular government institution because it retains the accumulated legitimacy and resilience of religion as a social institution.
-
-Under this model:
-- the Lord can use a controlled Church to help maintain Legitimacy;
-- Church institutions may buffer some political damage;
-- tithe revenue may increasingly become available as Lord-controlled Coin;
-- the Church can still generate its own pressures and expectations even while controlled.
-
-By contrast, a powerful autonomous Church may independently determine whether the Lord is seen as legitimate. Its support can substantially strengthen the ruler, while conflict with it can become dangerous.
-
-The exact model remains deliberately unresolved. Possible advanced outcomes include:
-1. genuinely autonomous Church;
-2. openly state-controlled Church;
-3. subtly co-opted Church that appears institutionally independent.
-
-These should be revisited when the political and warfare/regional systems are more mature.
-
-
-
-## System 19 Proposal — Map Table, UI, and Information Architecture
-
-**Status: Proposed for discussion; not yet accepted.**
-
-### Core UX principle
-
-The interface should let the player answer three questions quickly:
-
-1. What is the settlement's current condition?
-2. What is likely to happen next month?
-3. What can I change before I commit?
-
-The player should never need to inspect every screen every month to discover whether something important is wrong.
-
-> **The Map Table is the settlement's operational desktop: overview first, intervention second, detail on demand.**
-
-### Monthly UX loop
-
-The intended interaction loop is:
-
-1. New events/crises/visitors are presented.
-2. The player reaches the Map Table Overview.
-3. Important changes since last month and current risks are surfaced automatically.
-4. Routine management changes are made.
-5. Forecasts update immediately as the plan changes.
-6. Major/AP actions may be performed through chamber stations.
-7. The player returns to the table and reviews the final plan.
-8. Advance Month commits the plan.
-9. Resolution compares expected and actual outcomes.
-10. The next month begins with the important consequences already surfaced.
-
-The UI should make a calm month fast and a crisis month deep without forcing the same amount of interaction every turn.
-
-### Information hierarchy
-
-The interface should use progressive disclosure.
-
-#### Layer 0 — Always-visible run state
-
-A compact persistent strip should expose only the most important run-level information, provisionally:
-
-- Date / Month / Season / Year
-- Action Points
-- Population
-- Food reserve / coverage
-- Coin
-- Unrest
-- Legitimacy
-- Challenge Tier / major active crisis indicator
-
-Not every resource belongs here.
-
-The exact set should be tested, but the HUD must remain small enough that important signals remain visually meaningful.
-
-#### Layer 1 — Map Table Overview
-
-The Overview is the default planning screen.
-
-It should summarize:
-
-- next-month forecast;
-- needs attention;
-- major resource flows;
-- population/workforce condition;
-- active projects/research;
-- active crises;
-- recent important changes.
-
-A normal month should often be playable almost entirely from this screen.
-
-#### Layer 2 — Domain management views
-
-Detailed routine management is divided into a small number of stable domains rather than one tab for every mechanic.
-
-Provisional domains:
-
-- People — demographics, workforce, specialists, migration.
-- Economy — resources, production, consumption, stockpiles.
-- Development — functional buildings, infrastructure, projects.
-- Governance — policies, laws/reforms, Legitimacy context.
-- Institutions — research, religion, health, administration where appropriate.
-- External — trade and later regional systems.
-
-Exact grouping remains open.
-
-Unlocked systems can add subviews inside an existing domain before adding another permanent top-level navigation item.
-
-#### Layer 3 — Explanations and deep breakdowns
-
-Detailed calculations, history, causes, building-level data, and exact modifiers should open only when requested.
-
-The player should be able to access deep numbers without having deep numbers occupy the main screen permanently.
-
-### Current → Forecast → Actual
-
-A central information pattern should be used across the game:
-
-**Current** — what exists now.
-
-**Forecast** — what the current plan is expected to produce when the month advances.
-
-**Actual** — what happened after hidden uncertainty/events resolved.
-
-Example:
-
-Food
-Current: 820
-Forecast after plan: 760
-Actual next month: 702
-Difference: -58 from forecast
-Cause: Unexpected crop disease / regional import shortfall.
-
-This pattern is especially important because some outcomes intentionally contain hidden randomness.
-
-Forecasting progression can improve forecast accuracy without changing this UI structure.
-
-### Baseline versus planned forecast
-
-At the beginning of planning, the game should preserve a baseline forecast.
-
-As the player changes workforce, policies, trade, projects, or other routine settings, the UI can distinguish:
-
-**Before planning**
-Food next month: -180
-
-**Current plan**
-Food next month: +35
-
-This lets the player see whether their decisions actually solved the problem.
-
-### Forecast design
-
-Forecasts should update live whenever predictable planning decisions change.
-
-Forecasts may include:
-
-- expected production/consumption;
-- stockpile changes;
-- project progress;
-- Coin income/expenses;
-- population changes where predictable;
-- service/capacity shortages;
-- known policy effects;
-- expected trade;
-- expected Unrest/Legitimacy pressure where sufficiently predictable.
-
-Uncertain values should communicate uncertainty rather than displaying false precision.
-
-Possible presentation:
-- exact number for deterministic outcomes;
-- expected number plus uncertainty marker;
-- range/probability where forecasting has been unlocked;
-- qualitative warning when information is weak.
-
-### The “Why?” interaction
-
-Important numbers should support an expandable explanation.
-
-Example:
-
-Food forecast: -124
-
-Why?
-Production:
-+620 Farms
-+85 Imports
-Consumption:
--710 Population
--40 Festival
--79 Construction/work camps
-
-The breakdown should sort major contributors first.
-
-Where practical, clicking a cause should navigate directly to the place where the player can affect it.
-
-This principle should also apply to:
+- current date / month / season;
+- AP;
+- population;
+- Food;
+- Coin;
 - Unrest;
 - Legitimacy;
-- project delays;
-- worker shortages;
-- Trade Capacity;
-- service shortages;
-- infrastructure deterioration.
+- Challenge Tier.
 
-The player should not need an external wiki to discover why a visible number changed.
+Less universal information belongs in tooltips, contextual panels, or dedicated views.
 
-### Planning is reversible before commitment
+The header must resist gradual clutter as new systems unlock.
 
-Routine management should behave as a planning state.
+### Left Navigation Rail
 
-Workforce assignments, routine policy settings, trade orders, and other free planning decisions can be changed repeatedly before Advance Month.
+Use a small number of stable top-level domains.
 
-The UI should provide:
+Locked systems should **not appear before they are unlocked**.
 
-- Undo;
-- Redo where practical;
-- Reset current section;
-- Reset all routine planning to the beginning-of-month state.
+As complexity expands, prefer subviews and contextual navigation over endlessly adding new top-level tabs.
 
-Major AP actions that represent actual committed decisions may remain committed once performed unless the individual action is explicitly cancellable.
+The exact final domain grouping is still open.
 
-### Pending Changes
+### Central Workspace
 
-The Map Table should maintain a compact **Pending Changes** summary.
+The central area preserves player orientation.
 
-Example:
+On Overview it displays the town/map presentation.
 
-Pending Changes
-- 12 workers moved Farming → Construction
-- Taxation Moderate → High
-- Food import floor 500 → 800
-- Started Granary staffing
-- Sawmill workforce reduced by 4
+Other management domains may replace or overlay parts of this workspace while keeping spatial/contextual continuity where practical.
 
-Selecting an entry should take the player to that setting.
+The town itself remains a major progress indicator and should eventually support contextual overlays.
 
-This makes the monthly plan reviewable and helps prevent accidental configuration changes.
+### Persistent Right Inspector
 
-### Advance Month review
+The right inspector provides context for whatever the player is doing.
 
-Advance Month should not create a confirmation popup every turn.
+Core responsibilities:
 
-If the plan has no important predictable danger, it should resolve immediately.
+- **Needs Attention**
+- next-month forecast
+- selected-item effects
+- consequence explanations
+- `Why?` breakdowns
 
-A confirmation/interruption should occur only for meaningful conditions such as:
+Warnings should be actionable.
 
-- predictable Food exhaustion;
-- housing/service collapse;
-- critical project consequence;
-- explicit irreversible action not yet acknowledged;
-- another severe forecasted condition.
+Selecting a warning should deep-link the player directly to the relevant control or management screen.
 
-Warnings should be specific:
+This is a major anti-friction principle.
 
-> Advancing the month is expected to exhaust Food reserves.
+### Event / Decision queue
 
-Not:
+Events and unresolved decisions remain visible during the planning phase.
 
-> Are you sure?
+The player can revisit/edit choices before commitment when the decision logically allows it.
 
-The game should not train the player to click through meaningless warnings.
+Event decisions and AP interventions should immediately feed into the live forecast.
 
-### Attention system
+### Bottom Commitment Bar
 
-The Overview should automatically surface issues.
+The lower area permanently groups:
 
-Three conceptual priorities are useful:
+- Pending Changes
+- Undo
+- Reset
+- the Lord's Seal / Advance Month action
 
-**Critical** — likely severe consequence this month.
+The player should always understand whether their current plan differs from the month's starting state before committing.
 
-**Warning** — a meaningful developing problem.
+### Information depth
 
-**Opportunity / Information** — useful but non-urgent.
+Use layered information:
 
-The player should not need to inspect every domain for hidden red badges.
+- **tooltip** for quick explanation;
+- click/pin/context panel for deeper explanation;
+- dedicated view for complex management and exact calculations.
 
-Selecting an alert should deep-link to the relevant control or explanation.
+The interface should allow players who want numbers to access exact math without forcing all detail onto the default screen.
 
-Alerts should be deduplicated and grouped so one underlying shortage does not create six separate notifications.
+### Monthly Outcomes and Chronicle
 
-### Turn Resolution
+After resolution, **Monthly Outcomes** summarize what changed.
 
-After Advance Month, the game should summarize what actually happened.
+The outcome view is dismissible and can be reopened.
 
-The resolution should prioritize unusual or strategically important outcomes rather than dumping every simulation tick.
+Historical outcomes, important decisions, events, and settlement history feed into the **Chronicle**.
 
-A compact resolution might show:
+### Forecast principle
 
-- major expected changes;
-- unexpected deviations from forecast;
-- project completions/stalls;
-- population changes;
-- new/changed crises;
-- important resource or political shifts.
+The established rule remains:
 
-If the month was uneventful, the resolution should be very brief.
+> **Show predictable outcomes before commitment.**
 
-If the month was catastrophic, the player should be able to inspect the causal chain.
+The Map Table is the main implementation of that principle.
 
-### Expected versus actual
+Predictable production, consumption, shortages, project progress, policy effects, AP consequences, and event choices should update live before the player seals the month.
 
-Where uncertainty affected an outcome, resolution should explicitly compare forecast and result.
+Unpredictable events remain genuinely uncertain.
 
-Example:
+### Prototype telemetry
 
-Expected Food: 760
-Actual Food: 702
--58 below forecast
+Prototype testing should measure interface friction, including:
 
-Reason:
-Harvest yield lower than expected.
+- menu/domain visit frequency;
+- missed warnings;
+- use of Undo and Reset;
+- time from opening planning to committing the month;
+- frequently revisited information;
+- unnecessary navigation.
 
-This is important for trust. The game can contain hidden dice rolls without making the result feel arbitrary.
+System 19 should be revised based on observed player behavior rather than treated as final because a mock-up looks clean.
 
-### Chronicle / history
+### Current open questions for System 19
 
-Past months should remain inspectable through a **Chronicle**, **Ledger**, or equivalent history interface.
+- Exact top-level navigation domains.
+- Which resources/statuses deserve permanent header space.
+- Exact density of the right inspector.
+- How Events/Decisions are surfaced without dominating the screen.
+- How much of the central town remains visible while deep management panels are open.
+- Mobile/alternative-resolution concerns are not currently a primary design target, but scaling behavior should not be painted into a corner.
+- Keyboard shortcuts and high-speed interaction should be considered because a future optional Timed/Pressure Mode may exist.
+- Exact transition between first-person chamber interaction and full-screen Map Table.
+- Exact presentation of tooltips, pinned breakdowns, forecasts, and Monthly Outcomes.
+- How much visual animation is allowed before it slows repetitive monthly planning.
 
-It may record:
+---
 
-- major events;
-- decisions;
-- crises;
-- policy changes;
-- project completions;
-- milestones;
-- population records;
-- major resource shocks;
-- specialization development;
-- important Church/trade/research history later.
 
-The user should be able to filter history by topic.
+### System 19A — Navigation Domains & Core Planning Workflow
 
-The Chronicle also supports Event Memory by letting the player see prior decisions that later events reference.
+**Status: PROPOSED / CURRENTLY DESIGNING — not yet accepted.**
 
-### Numbers without spreadsheet overload
+System 19 is being split into focused design subsections so individual UI decisions can be discussed and accepted without prematurely settling the entire interface architecture.
 
-The game should prefer numerical transparency, but not expose every number at once.
+Current proposed top-level navigation direction:
 
-Default presentation:
-- important current values;
-- deltas;
-- clear forecast;
-- status descriptors.
+- Overview
+- People
+- Economy
+- Development
+- Governance
+- Region
+- Chronicle
 
-Expanded presentation:
-- component math;
-- modifiers;
-- historical graph;
-- exact source breakdown.
+These are conceptual management domains rather than one tab per simulation system. New mechanics should normally extend an existing domain through subviews or contextual controls instead of creating another permanent top-level tab.
 
-This preserves the user's preference for numbers while keeping the main interface readable.
+Proposed domain roles:
 
-### Essential information must not be meta-gated
+- **Overview** — default strategic hub showing the town, important current conditions, unresolved decisions, live forecast highlights, and a restrained Needs Attention list.
+- **People** — population, workforce, specialists, demographic pressures, and related settlement-capacity information.
+- **Economy** — stockpiles, production, routine trade, treasury, and resource-flow analysis.
+- **Development** — projects, functional buildings, infrastructure, research, repairs, and other forward investment.
+- **Governance** — policies, laws/reforms, administration, religion, public-order institutions, and similar rule-setting systems.
+- **Region** — regional market, geography, connections, regional conditions, and later external systems such as deeper trade networks, banking links, diplomacy, or warfare if those systems are added.
+- **Chronicle** — historical outcomes, events, decisions, settlement history, later records, and other informational history views.
 
-Meta progression may improve **information quality**:
-- better forecasts;
-- better regional estimates;
-- longer projections;
-- more precise probabilities.
+The normal monthly workflow should not require visiting every domain. The proposed loop is:
 
-It should not gate basic usability.
+> **Monthly Outcomes → new events/visitors → Overview → investigate or change only what matters → review forecast → Lord's Seal / Advance Month.**
 
-The player must always be able to understand:
-- current values;
-- known rules;
-- known costs;
-- why a control is unavailable;
-- predictable consequences of a decision.
+Needs Attention should act as **triage and navigation**, not as a mandatory checklist. Selecting a warning should deep-link to the relevant control, but the game should not imply that every imperfect statistic must be corrected before the month can advance.
 
-Information progression adds intelligence, not relief from intentionally bad UX.
+Players must remain free to knowingly accept weaknesses, shortages, unused AP, risky specialization choices, or other non-optimal conditions.
 
-### Disabled and locked controls
+Multiple views may expose the same underlying planning state when useful. For example, overall workforce allocation may be viewed from **People**, while workers assigned to a specific project may also be edited from **Development**. These are multiple views into one underlying plan, not duplicated independent state.
 
-A disabled action should explain exactly why it is disabled.
+Warnings should identify problems rather than automatically prescribe the optimal solution.
 
-Example:
+This subsection remains open for critique and has not yet been accepted as an authoritative system-level decision.
 
-University unavailable
-Requires:
-- Academy
-- 2 Scholars
-- Paper production
-- Population 2,500
+---
 
-Locked advanced systems should generally stay out of the main navigation until unlocked, preventing new-player feature overload.
+### System 19B — Tooltips, Information Transparency & Commitment Safety
 
-Meta/progression screens may still show future systems and their unlock requirements.
+**Status: PROPOSED / CURRENTLY DESIGNING — not yet accepted.**
 
-### Progressive UI onboarding
+Tooltips should become a primary explanatory layer of the Map Table rather than merely providing short labels.
 
-The UI itself expands with the game.
+The guiding principle is:
 
-Early runs may expose only:
-- Overview;
-- People;
-- Economy;
-- Development.
+> **The default interface stays simple, while meaningful values and states can explain themselves immediately.**
 
-As systems unlock, new subviews or navigation entries appear gradually.
+A casual player with little prior knowledge should be able to discover what a number means, why it is changing, what an uncertain forecast represents, and whether missing information is intentionally unavailable without having to search through unnecessary submenus.
 
-This preserves the same overall layout while preventing a first-time player from seeing fifteen empty or locked systems.
+#### Tooltip versus management view
 
-### Map Table visual concept
+The proposed distinction is:
 
-The final Map Table should feel like a physical place without sacrificing readability.
+> **Tooltips explain; management views control.**
 
-The recommended approach is **diegetic framing with crisp interface layers**.
+A tooltip should often be sufficient when the player only wants to understand a value or state. Dedicated management screens remain useful when the player wants to change allocations, compare multiple producers, edit trade, inspect history, or perform deeper planning.
 
-When the Lord interacts with the table:
-- the camera moves to a comfortable reading angle;
-- the table/map/ledgers provide physical context;
-- interactive information is rendered clearly and consistently;
-- text is not forced into hard-to-read perspective solely for realism.
+Example conceptual Food tooltip:
 
-The game should never sacrifice UX because "the number is physically written on a tiny parchment."
+```text
+FOOD
+Current stockpile: 2,840
 
-### The map itself
+Expected this month
+Production              +612
+Population consumption  -560
+Winter reserve           -80
+Trade                    -60
+Projects                 -24
+Other                    -268
+────────────────────────────
+Expected change          -320
 
-Because the player does not manually place buildings, the central map is not a construction-grid interface.
+Projected stockpile: 2,520
 
-It can instead provide:
-- orientation;
-- settlement growth feedback;
-- district/institution status;
-- crisis hotspots;
-- infrastructure state;
-- visual shortcuts into management domains.
+At current consumption:
+~4.1 months of food remaining
 
-The management UI must remain fully understandable even if the decorative/representational map is temporarily removed during prototyping.
+[View detailed economy]
+```
 
-### Chamber integration
+All numbers are illustrative only.
 
-Routine monthly management stays concentrated at the Map Table.
+#### Tooltips for derived values
 
-Other chamber stations are reserved for:
-- major AP actions;
-- exceptional institutional interactions;
-- event characters;
-- special projects/decisions.
+Important derived values should explain their main causes rather than only define their name.
 
-Walking across the chamber must never become required for repetitive actions that could reasonably remain on the Map Table.
+For example, an Unrest tooltip could show current direction and the largest contributing pressures. A Legitimacy tooltip could show important long-term positive and negative influences. Climate, market, or crisis-risk tooltips should explain their practical meaning and known consequences.
 
-The visual chamber supports immersion and importance hierarchy; it does not become a navigation tax.
+The first tooltip should answer the obvious question without forcing the player through chains of nested tooltips.
 
-### Flat prototype requirement
+If deeper analysis is needed, the explanation may be **pinned or transferred to the persistent right inspector**, or the player may open the relevant dedicated view.
 
-The first implementation should be a conventional 2D interface.
+#### Known, estimated, and unavailable information
 
-Its hierarchy should mirror the final design:
+The interface should distinguish three broad information states:
 
-- persistent run state;
-- Overview;
-- domain navigation;
-- live planning forecast;
-- Pending Changes;
-- Advance Month;
-- Resolution;
-- Chronicle.
+1. **Known information** — precise or sufficiently reliable values can be shown directly.
+2. **Estimated information** — the interface should communicate the forecast together with useful uncertainty/confidence information where relevant.
+3. **Unavailable information** — the UI should explicitly state that the information is intentionally not known yet and, where appropriate, indicate how better information can later be unlocked.
 
-The 3D chamber should later wrap around this tested information architecture rather than forcing a redesign of the simulation UI.
+Unknown information should never look like missing UI implementation.
 
-### UX design laws
+Example conceptual climate tooltip:
 
-1. No mandatory monthly tab sweep.
-2. No important unexplained number.
-3. No repetitive confirmation popup.
-4. No hidden prerequisite on disabled actions.
-5. No routine chamber walking requirement.
-6. No false precision for uncertain forecasts.
-7. No essential understanding locked behind meta progression.
-8. No giant end-of-month data dump when nothing important happened.
-9. Important warnings must navigate toward a solution.
-10. The same information pattern should behave consistently across systems.
+```text
+CLIMATE OUTLOOK
 
-### Design principle
+Severe winter conditions are considered likely.
 
-> **The player should lose because the settlement problem was hard, not because the interface concealed the problem.**
+Known effects may include:
+Heating demand           Higher
+Crop productivity        Lower
+Travel disruption        Possible
+Disease pressure         Higher
 
-System 19 should make complexity legible without making the simulation shallow.
+Forecast confidence: Moderate
 
+Some information remains uncertain.
 
+Better climate forecasting can be unlocked through:
+• Research
+• Regional knowledge
+• Relevant specialists
+• Legacy progression
+```
 
-## System 19 Revision Notes
+Exact information quality, confidence scales, unlock sources, and numerical precision remain unresolved.
 
-**Status: Still under discussion; these revisions supersede conflicting earlier proposal text.**
+Improved forecasting should ideally feel like gaining genuinely better information rather than only receiving an abstract `Forecast Accuracy +X%` modifier.
 
-### Transparent unknowns
-The interface must not conceal what the settlement should reasonably know. When information is unavailable because the settlement lacks forecasting/knowledge capability, the UI must clearly say that it is unknown and why.
+A possible progression is conceptually:
 
-### Entire month as reversible planning state
-All monthly decisions remain provisional until **Advance Month**:
-- workforce;
-- policies;
-- project staffing/priorities;
-- trade orders;
-- Event responses;
-- AP-spending decisions.
+```text
+Unknown
+→ broad qualitative warning
+→ rough probability / confidence
+→ estimated effect ranges
+→ high-confidence detailed forecast
+```
 
-AP is effectively **reserved**, not consumed, until commitment. Reversing an AP action before commitment restores the AP.
+This progression remains illustrative rather than accepted balance/content.
 
-### Event and AP choices on the Map Table
-Events and AP actions remain accessible through their own thematic panels, but also appear on the Map Table with:
-- unresolved choices;
-- currently selected answers;
-- reserved/unused AP;
-- predicted effects.
+#### Lord's Seal as non-blocking commitment safety
 
-Choosing an Event/AP option updates the whole-settlement forecast immediately. The player can then revise either the broader plan or the Event/AP choice.
+The **Lord's Seal / Advance Month** control should communicate how risky it is to commit the current plan without forcing confirmation dialogs on experienced players.
 
-### Hidden randomness resolves only on commitment
-Before Advance Month, uncertain outcomes are shown only as ranges/probabilities/qualitative forecasts according to current knowledge. Hidden rolls do not occur until the month is sealed, preventing undo/reselect RNG fishing.
+The Seal may change:
 
-### Full-screen Map Table
-Interacting with the physical table opens a full-screen management surface. The chamber remains the frame, but readability wins over literal perspective: comfortable camera angle, crisp overlays, full-screen space.
+- color;
+- glow;
+- animation;
+- surrounding effects;
+- warning iconography;
+- short nearby status indicators;
 
-### Tooltips as core UX
-Most important numbers and buttons should have useful hover tooltips.
+based on important current planning conditions.
 
-Examples:
-- Food: current value, recent change, current-plan forecast, major contributors.
-- Weather: meaning, gameplay effect, confidence, and what unlock improves the forecast.
-- Disabled button: purpose, why unavailable, exact requirement.
-- Policy/action: effect, cost, AP use, important consequences.
+Potential influences include:
 
-Tooltips should reduce unnecessary menu depth without replacing dedicated screens where broader control is genuinely needed.
+- predicted catastrophic shortages;
+- major avoidable crisis escalation;
+- unresolved important decisions;
+- remaining Action Points;
+- other unusually consequential forecast conditions.
 
-### Summary first, detail on demand
-Preferred depth:
-1. clean summary;
-2. tooltip;
-3. dedicated management view;
-4. deep breakdown/history.
+Different conditions should not all be treated equally. For example, unused AP may warrant a visible reminder but is not automatically a mistake, whereas a predicted Food stockpile collapse may justify a much stronger danger state.
 
-### Comparison values
-Where useful, expose:
-- previous actual;
-- current value;
-- start-of-planning forecast;
-- current-plan forecast;
-- actual after resolution.
+The Seal must **remain directly pressable without a mandatory confirmation dialog**. Experienced players should be able to commit a month immediately even when warnings remain.
 
-Do not show everything at once; use arrows, deltas, tooltips and expanded detail.
+The purpose is to prevent accidental rapid advancement, not to prohibit deliberately risky decisions.
 
-Forecast presentation itself may improve with progression:
-- qualitative arrow/word;
-- rough band;
-- numeric range;
-- probability/confidence;
-- near-exact short-term estimate where appropriate.
+A hover or click explanation on the Seal may summarize remaining concerns, for example:
 
-### Pending Changes beside commitment
-Cluster these controls:
-- Pending Changes;
-- Undo Last Action;
-- Reset Plan;
-- Advance Month.
+```text
+BEFORE YOU ADVANCE
 
-Pending Changes includes Event answers and AP reservations as well as routine edits.
+Critical
+Food stockpile expected to reach 0
 
-### Lord's seal / stamp
-Advance Month should feel ceremonial. Preferred concept: the Lord seals/stamps the monthly decree.
+Warning
+Flood risk elevated
 
-Possible cosmetic progression later:
-- seal/crest choices;
-- colors;
-- effects;
-- achievement/meta cosmetics.
+Unresolved
+Refugee petition
 
-The interaction communicates: **the plan becomes real when sealed**.
+Unused
+1 Action Point
 
-The animation should be satisfying but never a time tax; experienced players should be able to trigger it instantly and use shortened/non-blocking presentation.
+You may advance the month at any time.
+```
 
-### Advance Month risk signaling
-The seal/button may visually react to:
-- unresolved Event choices;
-- unused AP;
-- severe shortages;
-- extreme Unrest/revolt danger;
-- other critical conditions.
+This information should remain concise and should not turn the Seal into another full management panel.
 
-Use restrained signaling so warnings retain meaning. Modal warnings should be rare.
+#### Casual-player discoverability
 
-### Monthly Outcomes page
-Every completed month generates a Monthly Outcomes summary that:
-- may open automatically;
-- is instantly dismissible;
-- is fully reopenable;
-- never forces disaster animations or detailed reading;
-- can be collapsed/minimized by fast players.
+The same interface should serve inexperienced and experienced players without requiring separate basic and advanced UI modes.
 
-It prioritizes major changes, forecast deviations, causes, project outcomes, population/crisis changes, and records/milestones.
+A new player can hover or inspect unfamiliar information to understand it. An experienced player can ignore explanatory layers and interact quickly.
 
-### Minimal in-world HUD
-Outside the Map Table, keep HUD minimal:
-- month/year transition;
-- truly urgent event/collapse cues;
-- essential interaction prompts.
+Whenever the simulation deliberately withholds information, the interface should make that explicit. A player should be able to distinguish:
 
-Most settlement data belongs on the Map Table.
+> **“I do not know this because my settlement lacks the information”**
 
-### Support both slow and fast players
-The UI should work for analytical players and experienced speed-oriented players.
+from:
 
-Potential support:
-- predictable control placement;
-- keyboard shortcuts;
-- Advance Month hotkey;
-- optional reduced animation;
-- quick Pending Changes access;
-- remembered menu state where useful.
+> **“I do not know this because the interface failed to explain it.”**
 
-### Parked future mode — Timed / Pressure Mode
-Possible optional later mode:
-- each month automatically advances after a fixed real-time planning window, e.g. around one minute;
-- designed for fast, chaotic, experience-driven runs;
-- may have its own score modifier, records and achievements.
+This is proposed as a major System 19 information-architecture principle.
 
-It is explicitly parked and not part of the base design.
+#### Tooltip anti-bloat rule
 
-### Collapse presentation reopened
-The exact 100% Unrest = immediate Game Over rule is reopened.
+Tooltips should not become recursive mini-menus.
 
-Possible later presentation:
-- very high/100% Unrest may create an imminent/probabilistic overthrow state;
-- after a month resolves, the player may begin the next planning phase without being told that collapse is already inevitable;
-- sound, music, chamber activity, breached gates, guard reactions and crowd noise can culminate in a revolt interrupting the player mid-decision.
+The initial tooltip should normally explain enough to answer the player's immediate question within a few seconds. More complex formulae, historical data, secondary contributors, or management controls belong in a pinned inspector or dedicated view.
 
-This belongs primarily to System 07 and must preserve warning fairness.
+#### Proposed Decision 019B — Self-Explaining Information & Commitment Safety
 
-### Revised monthly mental model
-> **Observe → Draft → Test → Revise → Seal → Resolve → Summarize → Continue**
+**Proposed, not accepted.**
+
+The Map Table uses tooltips as the primary explanatory layer for important resources, forecasts, statuses, modifiers, and derived values. Tooltips should explain what information means, why it is changing, its major consequences, and where relevant where it can be managed.
+
+The UI explicitly distinguishes **known, estimated, and intentionally unavailable information**. Uncertainty should be communicated where strategically relevant, and intentionally hidden information should explain that it is unknown rather than appearing as unexplained missing data.
+
+Better forecasting and information quality may unlock through research, institutions, specialists, regional knowledge, Legacy progression, and other suitable systems. Exact sources and precision remain open.
+
+Complex tooltip explanations may be pinned or transferred to the right inspector. Deep nested tooltip chains should be avoided.
+
+The Lord's Seal acts as a **non-blocking commitment-risk indicator**. Its appearance and effects may react to important predicted danger, unresolved decisions, unused AP, and other consequential conditions, but the player can still advance the month immediately without a mandatory confirmation dialog.
+
+The goal is to make accidental commitment difficult while keeping deliberate fast play frictionless.
+
+---
+
+# Parked Future Systems
+
+These are roadmap placeholders rather than accepted designs.
+
+## System 20 — Town Visualization & Modular Presentation
+
+Need a composable presentation system that can reflect population, specialization, infrastructure, prosperity, season, damage, and unrest without handcrafted images for every combination.
+
+Candidate directions include modular 2D layers, pre-rendered districts, procedural sprites/meshes, low-detail 3D, or a hybrid.
+
+Simulation logic must remain independent of presentation.
+
+## System 21 — Banking, Credit & Monetary Control
+
+Banking/credit belongs partly to the base game and partly to Administration / Trading-Crafting.
+
+Topics include borrowing, interest, default risk, liquidity, deposits, public debt, coinage/minting, merchant finance, and anti-exploit rules preventing credit from trivializing scarcity.
+
+## System 22 — Warfare, Armies & Regional Politics
+
+Possible future system covering defense, forces, logistics, fortifications, neighboring powers, raids, alliances, embargoes, tribute, and external military pressure.
+
+It must not turn the core game into a grand-strategy title.
+
+## System 23 — Timed / Pressure Mode
+
+Optional future mode where months may advance automatically after a limited real-time planning window.
+
+This would be separate from normal untimed play and only implemented if testing shows it is fun.
+
+Potentially supports separate scoring, achievements, and records.
+
+
+# Continuation Point
+
+**Resume design discussion at System 19 — Map Table, UI & Information Architecture.**
+
+The structural shell is established. Proposed subsection 19A covers navigation domains and the core monthly planning workflow. Proposed subsection 19B covers self-explaining tooltips, deliberate information uncertainty, and the non-blocking Lord's Seal warning state. Neither is accepted yet. Continue by critiquing/refining these proposals, then move into right-inspector density, Events/Decisions presentation, and interaction details before System 19 is marked accepted.
+
+When this file is supplied to a new ChatGPT conversation, treat it as the authoritative Towngame design context. Do not restart from System 12 or assume every older proposal remains current when a later revision above supersedes it.
