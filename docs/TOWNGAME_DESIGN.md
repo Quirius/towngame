@@ -2671,3 +2671,358 @@ This is especially useful for:
 Choosing the Region should reduce the run's score multiplier or Region Challenge Bonus compared with accepting a randomly generated Region.
 
 This preserves the value of adapting to randomness while still allowing advanced players to construct deliberate challenge runs.
+
+
+
+## Decision 017 — Starting Geography, Regions, and Settlement Conditions
+
+**Status: Accepted at system level; exact archetypes, traits, resource-potential formulas, connection scaling, and challenge values remain open.**
+
+### Core principle
+
+The Region is the main unpredictable run-start element.
+
+It should create a different strategic problem each run without simply rolling a "good map" or "bad map."
+
+The player should usually adapt to geography rather than restart until an optimal region appears.
+
+### Run-start order
+
+The accepted direction from System 16 remains:
+
+1. choose unlocked Run Difficulty;
+2. randomly generate and reveal the Region;
+3. inspect its geography, potentials, risks, and challenge rating;
+4. choose Ambitions in response;
+5. begin the settlement.
+
+Deep progression may later allow direct Region selection at a reduced score multiplier.
+
+### Region structure
+
+The preferred scalable structure is:
+
+**Region Archetype + Geographic Traits + Resource Potentials**
+
+This allows many combinations without requiring hundreds of individually handcrafted region definitions.
+
+### Region archetypes
+
+A Region Archetype defines the broad character of the land.
+
+Provisional examples:
+
+- Fertile Basin
+- Forested Uplands
+- Rocky Highlands
+- River Crossing / River Valley
+- Open Plains
+- Wetlands / Marshland
+
+The initial release does not need all of these.
+
+Each archetype should have recognizable advantages, limitations, event tendencies, and infrastructure implications.
+
+### Geographic traits
+
+Each generated Region may receive a small number of additional traits.
+
+Examples:
+
+- Deep Ore Veins
+- Thin Soil
+- Abundant Springs
+- Floodplain
+- Ancient Road
+- Dense Old-Growth Forest
+- Wind-Exposed
+- Harsh Winters
+- Mild Winters
+- Isolated
+- Natural Crossing
+- Poor Drainage
+
+Traits should generally create strategic texture rather than simply stack positive multipliers.
+
+A region should normally have only a few important traits so the player can remember them.
+
+### Resource potentials
+
+Geography should influence both **production efficiency** and **how far an industry can scale locally**.
+
+Visible regional potentials may include:
+
+- Farmland
+- Timber
+- Stone
+- Ore / Minerals
+- Water
+- Trade Access
+
+These may be shown with readable ratings such as:
+
+Poor / Limited / Average / Good / Rich / Exceptional
+
+Exact scale remains open.
+
+### Soft capacity rather than hard prohibition
+
+Poor resource potential should not normally mean:
+
+> Farming impossible.
+
+Instead it should mean that farming becomes progressively less efficient or more expensive as the settlement tries to scale beyond what the land naturally supports.
+
+Example:
+
+A Rocky Highlands region may support enough agriculture for an early village, but feeding a large city locally becomes increasingly labor- and infrastructure-intensive.
+
+This preserves strategic freedom while making geography matter strongly at scale.
+
+### Industry scaling pressure
+
+Resource potential can act as a soft carrying capacity.
+
+Below local potential:
+- production operates efficiently.
+
+Near potential:
+- expansion becomes more costly.
+
+Beyond potential:
+- diminishing returns, additional infrastructure, imports, research, or specialist methods become necessary.
+
+This can apply differently to:
+- agriculture;
+- forestry;
+- mining;
+- water systems;
+- trade access.
+
+Exact formulas remain open.
+
+### Geography and specialization
+
+Geography encourages specialization indirectly.
+
+Examples:
+
+- rich farmland makes agricultural investment naturally attractive;
+- mineral-rich highlands make Mining easier to develop;
+- river access encourages Trading-Crafting;
+- strong institutional geography is generally not required for Scholar or Religious specialization, allowing those identities to emerge across many regions.
+
+Geography should not directly select or lock a Primary Specialization.
+
+Specialization recognition still depends on what the player actually builds and does.
+
+### Geography and hybrid strategies
+
+A region should support unexpected solutions.
+
+Examples:
+
+Rocky Highlands + Breadbasket Ambition:
+- terrace farming;
+- irrigation research;
+- heavy food imports;
+- agricultural institutions;
+- high Challenge Bonus.
+
+Forested Uplands + Trading-Crafting:
+- timber;
+- Paper;
+- tools;
+- finished goods;
+- merchant exports.
+
+River Valley + Mining:
+- weaker local ore but excellent import/export logistics may support a processing-focused mining/craft economy.
+
+### Climate and environmental risk
+
+Regions affect probability and severity distributions rather than guaranteeing fixed events.
+
+Possible dimensions:
+- winter severity;
+- drought likelihood;
+- flood likelihood;
+- fire risk;
+- disease/environmental exposure;
+- transport disruption.
+
+A River Valley may have excellent Food/Trade potential but meaningful flood risk.
+
+A dense forest may offer abundant Wood but increased fire exposure.
+
+A highland region may have strong minerals but harsher winters and transport difficulty.
+
+### Forecasting
+
+The player should see the known geographic baseline at run start.
+
+Example:
+
+> Winters: Usually harsh
+> Flood risk: Low
+> Drought risk: Moderate
+
+Exact seasonal outcomes can still use hidden randomness.
+
+Forecasting systems and meta progression may later provide better short-term information.
+
+### Infrastructure interaction
+
+Geography changes the cost or value of infrastructure.
+
+Examples:
+
+- highlands make roads more expensive;
+- river regions may require bridges but gain high trade capacity;
+- wetlands make sanitation/drainage difficult;
+- abundant springs improve early water access;
+- isolated regions require greater investment to connect to markets.
+
+Infrastructure can mitigate geography but should not erase it completely.
+
+### Starting conditions and remnants
+
+Some geographic traits may provide starting-world features rather than pure modifiers.
+
+Examples:
+- abandoned quarry;
+- old road;
+- ruined bridge;
+- existing well;
+- neglected shrine;
+- former trading post.
+
+These can create early opportunities or projects.
+
+They should remain limited to avoid turning Region generation into a map-object collection game.
+
+### Region challenge rating
+
+Some Region combinations will inevitably be harder overall.
+
+The game should recognize this rather than pretending every Region is perfectly equal.
+
+A Region may therefore provide a visible **Region Challenge Bonus** to score.
+
+The rating should account for broad environmental difficulty, not whether the Region happens to match the player's later-selected Ambition.
+
+Ambition/geography conflict creates an additional separate Challenge Bonus.
+
+Exact scoring remains open.
+
+### Anti-restart design
+
+To reduce "reroll until perfect" behavior:
+
+- most Regions should contain meaningful strengths and weaknesses;
+- strengths should usually imply a strategic direction rather than universal power;
+- inherently harsher Regions should grant more score;
+- Ambitions are chosen after Region reveal, so the player can react intelligently;
+- random Region receives full score potential;
+- later manual Region selection receives a reduced score multiplier.
+
+A limited Region reroll may be unlocked through deep Legacy progression, but is not required initially.
+
+### Progressive Region unlocks
+
+The first runs should use a small, readable Region pool.
+
+Additional archetypes and unusual traits can unlock through:
+- milestones;
+- achievements;
+- meta progression;
+- Difficulty progression.
+
+This keeps onboarding manageable and lets later runs become geographically more diverse.
+
+### Regional investment
+
+Regional investment from the Trade system can improve:
+- roads;
+- market access;
+- security;
+- regional wealth;
+- Trade Capacity.
+
+It should not change fundamental geography.
+
+A mountain region remains mountainous even after excellent roads are built.
+
+### Visual implications
+
+Region should eventually influence the settlement's visual surroundings and procedural/modular town presentation.
+
+Examples:
+- highland backdrop;
+- forest edge;
+- river;
+- wet ground;
+- broad farmland;
+- rocky terrain.
+
+The simulation must not depend on final visual technology.
+
+### Design principle
+
+> **Geography should tell the player what is easy, what is expensive, and what is risky — but rarely what is impossible.**
+
+A Region creates constraints and opportunities. The player's settlement identity emerges from how they respond to them.
+
+
+### Abstract connection distance
+
+Geography should also describe how far the settlement is from major transport features, not only whether those features are inside the settlement.
+
+Important cases include:
+- direct access to a navigable river;
+- nearby access to a river or river town;
+- moderate distance to a major trade corridor;
+- long or difficult connection to regional transport.
+
+This remains abstract initially rather than requiring a detailed regional map.
+
+Infrastructure projects scale with both terrain difficulty and effective connection distance.
+
+Examples:
+- Rocky Highlands close to a navigable river may need only a few expensive road/bridge projects before gaining strong regional access.
+- Open Plains far from major waterways may have cheap individual roads but require much longer development before reaching equivalent Trade Capacity.
+
+Infrastructure can improve access substantially without changing the underlying geography.
+
+### Progressive geographic knowledge
+
+The player receives enough Region information at run start to make an informed Ambition choice.
+
+Meta progression, research, institutions, or specialists may later improve:
+- resource-potential clarity;
+- climate and hazard estimates;
+- understanding of trade connections;
+- seasonal and short-term forecasts.
+
+Progression may therefore improve information quality as well as raw capability.
+
+### Manual Region selection
+
+Random Region generation remains the intended full-reward/default mode.
+
+A later unlock may permit direct Region selection for limit testing, targeted achievements, controlled specialization experiments, and deliberate extreme challenges.
+
+Direct Region selection should reduce score, and therefore Legacy Point gain, enough that repeatedly selecting the optimal Region is not an efficient progression strategy.
+
+### Initial implementation simplification
+
+No resource depletion is required initially.
+
+Geography can first operate through:
+- buffs/debuffs;
+- resource-potential modifiers;
+- infrastructure scaling;
+- event weighting;
+- progression/research mitigation.
+
+Deforestation, soil exhaustion, mine depletion, and similar systems remain optional later additions.
