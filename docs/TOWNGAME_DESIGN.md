@@ -3644,3 +3644,618 @@ The exact model remains deliberately unresolved. Possible advanced outcomes incl
 3. subtly co-opted Church that appears institutionally independent.
 
 These should be revisited when the political and warfare/regional systems are more mature.
+
+
+
+## System 19 Proposal — Map Table, UI, and Information Architecture
+
+**Status: Proposed for discussion; not yet accepted.**
+
+### Core UX principle
+
+The interface should let the player answer three questions quickly:
+
+1. What is the settlement's current condition?
+2. What is likely to happen next month?
+3. What can I change before I commit?
+
+The player should never need to inspect every screen every month to discover whether something important is wrong.
+
+> **The Map Table is the settlement's operational desktop: overview first, intervention second, detail on demand.**
+
+### Monthly UX loop
+
+The intended interaction loop is:
+
+1. New events/crises/visitors are presented.
+2. The player reaches the Map Table Overview.
+3. Important changes since last month and current risks are surfaced automatically.
+4. Routine management changes are made.
+5. Forecasts update immediately as the plan changes.
+6. Major/AP actions may be performed through chamber stations.
+7. The player returns to the table and reviews the final plan.
+8. Advance Month commits the plan.
+9. Resolution compares expected and actual outcomes.
+10. The next month begins with the important consequences already surfaced.
+
+The UI should make a calm month fast and a crisis month deep without forcing the same amount of interaction every turn.
+
+### Information hierarchy
+
+The interface should use progressive disclosure.
+
+#### Layer 0 — Always-visible run state
+
+A compact persistent strip should expose only the most important run-level information, provisionally:
+
+- Date / Month / Season / Year
+- Action Points
+- Population
+- Food reserve / coverage
+- Coin
+- Unrest
+- Legitimacy
+- Challenge Tier / major active crisis indicator
+
+Not every resource belongs here.
+
+The exact set should be tested, but the HUD must remain small enough that important signals remain visually meaningful.
+
+#### Layer 1 — Map Table Overview
+
+The Overview is the default planning screen.
+
+It should summarize:
+
+- next-month forecast;
+- needs attention;
+- major resource flows;
+- population/workforce condition;
+- active projects/research;
+- active crises;
+- recent important changes.
+
+A normal month should often be playable almost entirely from this screen.
+
+#### Layer 2 — Domain management views
+
+Detailed routine management is divided into a small number of stable domains rather than one tab for every mechanic.
+
+Provisional domains:
+
+- People — demographics, workforce, specialists, migration.
+- Economy — resources, production, consumption, stockpiles.
+- Development — functional buildings, infrastructure, projects.
+- Governance — policies, laws/reforms, Legitimacy context.
+- Institutions — research, religion, health, administration where appropriate.
+- External — trade and later regional systems.
+
+Exact grouping remains open.
+
+Unlocked systems can add subviews inside an existing domain before adding another permanent top-level navigation item.
+
+#### Layer 3 — Explanations and deep breakdowns
+
+Detailed calculations, history, causes, building-level data, and exact modifiers should open only when requested.
+
+The player should be able to access deep numbers without having deep numbers occupy the main screen permanently.
+
+### Current → Forecast → Actual
+
+A central information pattern should be used across the game:
+
+**Current** — what exists now.
+
+**Forecast** — what the current plan is expected to produce when the month advances.
+
+**Actual** — what happened after hidden uncertainty/events resolved.
+
+Example:
+
+Food
+Current: 820
+Forecast after plan: 760
+Actual next month: 702
+Difference: -58 from forecast
+Cause: Unexpected crop disease / regional import shortfall.
+
+This pattern is especially important because some outcomes intentionally contain hidden randomness.
+
+Forecasting progression can improve forecast accuracy without changing this UI structure.
+
+### Baseline versus planned forecast
+
+At the beginning of planning, the game should preserve a baseline forecast.
+
+As the player changes workforce, policies, trade, projects, or other routine settings, the UI can distinguish:
+
+**Before planning**
+Food next month: -180
+
+**Current plan**
+Food next month: +35
+
+This lets the player see whether their decisions actually solved the problem.
+
+### Forecast design
+
+Forecasts should update live whenever predictable planning decisions change.
+
+Forecasts may include:
+
+- expected production/consumption;
+- stockpile changes;
+- project progress;
+- Coin income/expenses;
+- population changes where predictable;
+- service/capacity shortages;
+- known policy effects;
+- expected trade;
+- expected Unrest/Legitimacy pressure where sufficiently predictable.
+
+Uncertain values should communicate uncertainty rather than displaying false precision.
+
+Possible presentation:
+- exact number for deterministic outcomes;
+- expected number plus uncertainty marker;
+- range/probability where forecasting has been unlocked;
+- qualitative warning when information is weak.
+
+### The “Why?” interaction
+
+Important numbers should support an expandable explanation.
+
+Example:
+
+Food forecast: -124
+
+Why?
+Production:
++620 Farms
++85 Imports
+Consumption:
+-710 Population
+-40 Festival
+-79 Construction/work camps
+
+The breakdown should sort major contributors first.
+
+Where practical, clicking a cause should navigate directly to the place where the player can affect it.
+
+This principle should also apply to:
+- Unrest;
+- Legitimacy;
+- project delays;
+- worker shortages;
+- Trade Capacity;
+- service shortages;
+- infrastructure deterioration.
+
+The player should not need an external wiki to discover why a visible number changed.
+
+### Planning is reversible before commitment
+
+Routine management should behave as a planning state.
+
+Workforce assignments, routine policy settings, trade orders, and other free planning decisions can be changed repeatedly before Advance Month.
+
+The UI should provide:
+
+- Undo;
+- Redo where practical;
+- Reset current section;
+- Reset all routine planning to the beginning-of-month state.
+
+Major AP actions that represent actual committed decisions may remain committed once performed unless the individual action is explicitly cancellable.
+
+### Pending Changes
+
+The Map Table should maintain a compact **Pending Changes** summary.
+
+Example:
+
+Pending Changes
+- 12 workers moved Farming → Construction
+- Taxation Moderate → High
+- Food import floor 500 → 800
+- Started Granary staffing
+- Sawmill workforce reduced by 4
+
+Selecting an entry should take the player to that setting.
+
+This makes the monthly plan reviewable and helps prevent accidental configuration changes.
+
+### Advance Month review
+
+Advance Month should not create a confirmation popup every turn.
+
+If the plan has no important predictable danger, it should resolve immediately.
+
+A confirmation/interruption should occur only for meaningful conditions such as:
+
+- predictable Food exhaustion;
+- housing/service collapse;
+- critical project consequence;
+- explicit irreversible action not yet acknowledged;
+- another severe forecasted condition.
+
+Warnings should be specific:
+
+> Advancing the month is expected to exhaust Food reserves.
+
+Not:
+
+> Are you sure?
+
+The game should not train the player to click through meaningless warnings.
+
+### Attention system
+
+The Overview should automatically surface issues.
+
+Three conceptual priorities are useful:
+
+**Critical** — likely severe consequence this month.
+
+**Warning** — a meaningful developing problem.
+
+**Opportunity / Information** — useful but non-urgent.
+
+The player should not need to inspect every domain for hidden red badges.
+
+Selecting an alert should deep-link to the relevant control or explanation.
+
+Alerts should be deduplicated and grouped so one underlying shortage does not create six separate notifications.
+
+### Turn Resolution
+
+After Advance Month, the game should summarize what actually happened.
+
+The resolution should prioritize unusual or strategically important outcomes rather than dumping every simulation tick.
+
+A compact resolution might show:
+
+- major expected changes;
+- unexpected deviations from forecast;
+- project completions/stalls;
+- population changes;
+- new/changed crises;
+- important resource or political shifts.
+
+If the month was uneventful, the resolution should be very brief.
+
+If the month was catastrophic, the player should be able to inspect the causal chain.
+
+### Expected versus actual
+
+Where uncertainty affected an outcome, resolution should explicitly compare forecast and result.
+
+Example:
+
+Expected Food: 760
+Actual Food: 702
+-58 below forecast
+
+Reason:
+Harvest yield lower than expected.
+
+This is important for trust. The game can contain hidden dice rolls without making the result feel arbitrary.
+
+### Chronicle / history
+
+Past months should remain inspectable through a **Chronicle**, **Ledger**, or equivalent history interface.
+
+It may record:
+
+- major events;
+- decisions;
+- crises;
+- policy changes;
+- project completions;
+- milestones;
+- population records;
+- major resource shocks;
+- specialization development;
+- important Church/trade/research history later.
+
+The user should be able to filter history by topic.
+
+The Chronicle also supports Event Memory by letting the player see prior decisions that later events reference.
+
+### Numbers without spreadsheet overload
+
+The game should prefer numerical transparency, but not expose every number at once.
+
+Default presentation:
+- important current values;
+- deltas;
+- clear forecast;
+- status descriptors.
+
+Expanded presentation:
+- component math;
+- modifiers;
+- historical graph;
+- exact source breakdown.
+
+This preserves the user's preference for numbers while keeping the main interface readable.
+
+### Essential information must not be meta-gated
+
+Meta progression may improve **information quality**:
+- better forecasts;
+- better regional estimates;
+- longer projections;
+- more precise probabilities.
+
+It should not gate basic usability.
+
+The player must always be able to understand:
+- current values;
+- known rules;
+- known costs;
+- why a control is unavailable;
+- predictable consequences of a decision.
+
+Information progression adds intelligence, not relief from intentionally bad UX.
+
+### Disabled and locked controls
+
+A disabled action should explain exactly why it is disabled.
+
+Example:
+
+University unavailable
+Requires:
+- Academy
+- 2 Scholars
+- Paper production
+- Population 2,500
+
+Locked advanced systems should generally stay out of the main navigation until unlocked, preventing new-player feature overload.
+
+Meta/progression screens may still show future systems and their unlock requirements.
+
+### Progressive UI onboarding
+
+The UI itself expands with the game.
+
+Early runs may expose only:
+- Overview;
+- People;
+- Economy;
+- Development.
+
+As systems unlock, new subviews or navigation entries appear gradually.
+
+This preserves the same overall layout while preventing a first-time player from seeing fifteen empty or locked systems.
+
+### Map Table visual concept
+
+The final Map Table should feel like a physical place without sacrificing readability.
+
+The recommended approach is **diegetic framing with crisp interface layers**.
+
+When the Lord interacts with the table:
+- the camera moves to a comfortable reading angle;
+- the table/map/ledgers provide physical context;
+- interactive information is rendered clearly and consistently;
+- text is not forced into hard-to-read perspective solely for realism.
+
+The game should never sacrifice UX because "the number is physically written on a tiny parchment."
+
+### The map itself
+
+Because the player does not manually place buildings, the central map is not a construction-grid interface.
+
+It can instead provide:
+- orientation;
+- settlement growth feedback;
+- district/institution status;
+- crisis hotspots;
+- infrastructure state;
+- visual shortcuts into management domains.
+
+The management UI must remain fully understandable even if the decorative/representational map is temporarily removed during prototyping.
+
+### Chamber integration
+
+Routine monthly management stays concentrated at the Map Table.
+
+Other chamber stations are reserved for:
+- major AP actions;
+- exceptional institutional interactions;
+- event characters;
+- special projects/decisions.
+
+Walking across the chamber must never become required for repetitive actions that could reasonably remain on the Map Table.
+
+The visual chamber supports immersion and importance hierarchy; it does not become a navigation tax.
+
+### Flat prototype requirement
+
+The first implementation should be a conventional 2D interface.
+
+Its hierarchy should mirror the final design:
+
+- persistent run state;
+- Overview;
+- domain navigation;
+- live planning forecast;
+- Pending Changes;
+- Advance Month;
+- Resolution;
+- Chronicle.
+
+The 3D chamber should later wrap around this tested information architecture rather than forcing a redesign of the simulation UI.
+
+### UX design laws
+
+1. No mandatory monthly tab sweep.
+2. No important unexplained number.
+3. No repetitive confirmation popup.
+4. No hidden prerequisite on disabled actions.
+5. No routine chamber walking requirement.
+6. No false precision for uncertain forecasts.
+7. No essential understanding locked behind meta progression.
+8. No giant end-of-month data dump when nothing important happened.
+9. Important warnings must navigate toward a solution.
+10. The same information pattern should behave consistently across systems.
+
+### Design principle
+
+> **The player should lose because the settlement problem was hard, not because the interface concealed the problem.**
+
+System 19 should make complexity legible without making the simulation shallow.
+
+
+
+## System 19 Revision Notes
+
+**Status: Still under discussion; these revisions supersede conflicting earlier proposal text.**
+
+### Transparent unknowns
+The interface must not conceal what the settlement should reasonably know. When information is unavailable because the settlement lacks forecasting/knowledge capability, the UI must clearly say that it is unknown and why.
+
+### Entire month as reversible planning state
+All monthly decisions remain provisional until **Advance Month**:
+- workforce;
+- policies;
+- project staffing/priorities;
+- trade orders;
+- Event responses;
+- AP-spending decisions.
+
+AP is effectively **reserved**, not consumed, until commitment. Reversing an AP action before commitment restores the AP.
+
+### Event and AP choices on the Map Table
+Events and AP actions remain accessible through their own thematic panels, but also appear on the Map Table with:
+- unresolved choices;
+- currently selected answers;
+- reserved/unused AP;
+- predicted effects.
+
+Choosing an Event/AP option updates the whole-settlement forecast immediately. The player can then revise either the broader plan or the Event/AP choice.
+
+### Hidden randomness resolves only on commitment
+Before Advance Month, uncertain outcomes are shown only as ranges/probabilities/qualitative forecasts according to current knowledge. Hidden rolls do not occur until the month is sealed, preventing undo/reselect RNG fishing.
+
+### Full-screen Map Table
+Interacting with the physical table opens a full-screen management surface. The chamber remains the frame, but readability wins over literal perspective: comfortable camera angle, crisp overlays, full-screen space.
+
+### Tooltips as core UX
+Most important numbers and buttons should have useful hover tooltips.
+
+Examples:
+- Food: current value, recent change, current-plan forecast, major contributors.
+- Weather: meaning, gameplay effect, confidence, and what unlock improves the forecast.
+- Disabled button: purpose, why unavailable, exact requirement.
+- Policy/action: effect, cost, AP use, important consequences.
+
+Tooltips should reduce unnecessary menu depth without replacing dedicated screens where broader control is genuinely needed.
+
+### Summary first, detail on demand
+Preferred depth:
+1. clean summary;
+2. tooltip;
+3. dedicated management view;
+4. deep breakdown/history.
+
+### Comparison values
+Where useful, expose:
+- previous actual;
+- current value;
+- start-of-planning forecast;
+- current-plan forecast;
+- actual after resolution.
+
+Do not show everything at once; use arrows, deltas, tooltips and expanded detail.
+
+Forecast presentation itself may improve with progression:
+- qualitative arrow/word;
+- rough band;
+- numeric range;
+- probability/confidence;
+- near-exact short-term estimate where appropriate.
+
+### Pending Changes beside commitment
+Cluster these controls:
+- Pending Changes;
+- Undo Last Action;
+- Reset Plan;
+- Advance Month.
+
+Pending Changes includes Event answers and AP reservations as well as routine edits.
+
+### Lord's seal / stamp
+Advance Month should feel ceremonial. Preferred concept: the Lord seals/stamps the monthly decree.
+
+Possible cosmetic progression later:
+- seal/crest choices;
+- colors;
+- effects;
+- achievement/meta cosmetics.
+
+The interaction communicates: **the plan becomes real when sealed**.
+
+The animation should be satisfying but never a time tax; experienced players should be able to trigger it instantly and use shortened/non-blocking presentation.
+
+### Advance Month risk signaling
+The seal/button may visually react to:
+- unresolved Event choices;
+- unused AP;
+- severe shortages;
+- extreme Unrest/revolt danger;
+- other critical conditions.
+
+Use restrained signaling so warnings retain meaning. Modal warnings should be rare.
+
+### Monthly Outcomes page
+Every completed month generates a Monthly Outcomes summary that:
+- may open automatically;
+- is instantly dismissible;
+- is fully reopenable;
+- never forces disaster animations or detailed reading;
+- can be collapsed/minimized by fast players.
+
+It prioritizes major changes, forecast deviations, causes, project outcomes, population/crisis changes, and records/milestones.
+
+### Minimal in-world HUD
+Outside the Map Table, keep HUD minimal:
+- month/year transition;
+- truly urgent event/collapse cues;
+- essential interaction prompts.
+
+Most settlement data belongs on the Map Table.
+
+### Support both slow and fast players
+The UI should work for analytical players and experienced speed-oriented players.
+
+Potential support:
+- predictable control placement;
+- keyboard shortcuts;
+- Advance Month hotkey;
+- optional reduced animation;
+- quick Pending Changes access;
+- remembered menu state where useful.
+
+### Parked future mode — Timed / Pressure Mode
+Possible optional later mode:
+- each month automatically advances after a fixed real-time planning window, e.g. around one minute;
+- designed for fast, chaotic, experience-driven runs;
+- may have its own score modifier, records and achievements.
+
+It is explicitly parked and not part of the base design.
+
+### Collapse presentation reopened
+The exact 100% Unrest = immediate Game Over rule is reopened.
+
+Possible later presentation:
+- very high/100% Unrest may create an imminent/probabilistic overthrow state;
+- after a month resolves, the player may begin the next planning phase without being told that collapse is already inevitable;
+- sound, music, chamber activity, breached gates, guard reactions and crowd noise can culminate in a revolt interrupting the player mid-decision.
+
+This belongs primarily to System 07 and must preserve warning fairness.
+
+### Revised monthly mental model
+> **Observe → Draft → Test → Revise → Seal → Resolve → Summarize → Continue**
