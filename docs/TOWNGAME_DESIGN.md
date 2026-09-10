@@ -3026,3 +3026,621 @@ Geography can first operate through:
 - progression/research mitigation.
 
 Deforestation, soil exhaustion, mine depletion, and similar systems remain optional later additions.
+
+
+
+## System 18 Proposal — Religion, Social Institutions, and Cultural Life
+
+**Status: Proposed for discussion; not yet accepted.**
+
+### Core principle
+
+Religion should matter in every settlement because religious institutions are part of ordinary social life, not because the town selected a Religious specialization.
+
+The system should avoid a generic stockpiled **Faith/Piety** resource.
+
+Religion is instead represented through:
+- clergy;
+- institutions;
+- services;
+- public expectations;
+- festivals and customs;
+- charity;
+- education/scholarship;
+- burial and crisis response;
+- political influence.
+
+> **Religion should be something the settlement organizes and lives through, not a mana bar.**
+
+### Early religious institutions as multi-purpose social infrastructure
+
+In an early settlement, religious institutions may provide several social functions at once.
+
+A staffed Chapel/Temple/Church may contribute to:
+- worship/religious provision;
+- burial/funerary organization;
+- basic charity;
+- festivals/customs;
+- limited education/literacy;
+- social mediation.
+
+As the town grows, specialized civic institutions can take over some of these roles:
+- schools;
+- hospitals/infirmaries;
+- formal welfare;
+- administrative offices;
+- dedicated cemeteries;
+- academic institutions.
+
+This gives the player a strategic choice between continuing to rely heavily on religious institutions and developing more specialized civic alternatives.
+
+### Religious Provision
+
+A settlement may track a visible **Religious Provision** or **Worship Capacity** relative to population.
+
+This is a capacity/service measure, not a measure of personal belief.
+
+Religious buildings and Clergy provide capacity.
+
+Under-provision may contribute indirectly to:
+- lower Legitimacy;
+- unmet Expectations;
+- poorer social cohesion;
+- negative religious events;
+- reduced effectiveness of charity/festivals.
+
+Excess provision is not automatically useful; overbuilding religious institutions consumes workers, Coin, materials, land, and specialists.
+
+Exact name and formula remain open.
+
+### No individual belief simulation initially
+
+The first version should not track every citizen's faith, piety, denomination, or theological opinion.
+
+The settlement may begin with an abstract dominant/traditional religious culture.
+
+Pluralism, minority faiths, conversion, schisms, or detailed doctrine can be introduced later only if they create worthwhile strategic decisions.
+
+### Clergy
+
+Clergy are a specialist population/function.
+
+General workers can support religious institutions, but Clergy are required for their core religious functions.
+
+Clergy may contribute to:
+- worship;
+- charity;
+- education;
+- record keeping;
+- burial;
+- event mediation;
+- religious scholarship.
+
+Clergy therefore compete with other specialists and ordinary labor.
+
+### Religious buildings and institutional progression
+
+Provisional building families may include:
+- Shrine / Chapel;
+- Church / Temple;
+- Monastery / Abbey;
+- Cathedral / Great Temple;
+- Hospice or religious charity institution;
+- Scriptorium / Seminary / religious school.
+
+Not every building is required in the first version.
+
+Large religious institutions should be meaningful projects with staffing and upkeep rather than passive monuments.
+
+### Charity and welfare
+
+Religious institutions can provide a base form of charity even before advanced civic welfare is unlocked.
+
+Charity may consume:
+- Food;
+- Coin;
+- Clergy time;
+- institution capacity.
+
+It may mitigate:
+- hardship;
+- famine consequences;
+- homelessness;
+- disease vulnerability;
+- Legitimacy loss.
+
+It should normally affect the causes of Unrest rather than directly subtracting Unrest.
+
+Later civic welfare and religious charity can coexist, overlap, or specialize.
+
+### Burial and mortality
+
+Religion can play an important role in burial/funerary organization.
+
+Burial pressure becomes especially relevant during:
+- epidemics;
+- famine;
+- disasters;
+- mass-casualty events.
+
+Insufficient burial capacity/organization may create:
+- health consequences;
+- Legitimacy loss;
+- social distress;
+- event escalation.
+
+This can remain simplified or disabled in the first prototype if it adds too much complexity.
+
+### Festivals and customs
+
+Religious/cultural festivals should be occasional predictable calendar events rather than monthly micromanagement.
+
+Supporting a festival may consume:
+- Food;
+- Coin;
+- temporary labor/productivity.
+
+Benefits may include:
+- Legitimacy;
+- social cohesion;
+- merchant activity;
+- immigration attractiveness;
+- event outcomes.
+
+Skipping or cutting back a long-established festival may create stronger negative consequences than never establishing it, using the policy-history/Expectations principles from System 13.
+
+### Religious patronage policy
+
+Religion should connect to the policy system through a small number of readable stances rather than detailed theological controls.
+
+A possible policy family is **Religious Patronage**:
+- Minimal;
+- Customary;
+- Supported;
+- Favored.
+
+Higher patronage may:
+- increase religious-institution support;
+- improve Clergy availability or institution output;
+- increase expectations;
+- increase clerical influence;
+- cost Coin/resources.
+
+Exact stances and effects remain open.
+
+### Clerical Influence
+
+Religious institutions can become an important political power center.
+
+The game may track **Clerical Influence** internally or through a descriptive visible state such as:
+- Marginal;
+- Established;
+- Influential;
+- Powerful;
+- Dominant.
+
+Influence grows through:
+- institution size;
+- Clergy numbers;
+- privileges;
+- patronage;
+- land/wealth;
+- Religious specialization;
+- successful crisis mediation.
+
+High Clerical Influence can be beneficial:
+- stronger charity;
+- Legitimacy support;
+- education;
+- crisis response;
+- regional prestige.
+
+But it also means the clergy have interests of their own:
+- resistance to lost privileges;
+- requests for exemptions;
+- opposition to abrupt policy changes;
+- influence over reforms/events;
+- potential conflict with administrative or commercial institutions.
+
+This creates an organic opportunity cost rather than a forced specialization penalty.
+
+### Religious institutions and Expectations
+
+Once religious services, festivals, charity, or privileges become established, people and institutions grow accustomed to them.
+
+Removing established religious provision should therefore be politically harder than never providing it.
+
+This directly uses System 13's acquired-standard principle.
+
+### Religious Center specialization
+
+A Religious Center should deepen the ordinary religion system rather than unlock religion from nothing.
+
+Possible specialization advantages:
+- major religious institutions;
+- pilgrimage;
+- religious prestige;
+- expanded charity;
+- advanced religious scholarship;
+- more powerful festivals;
+- unique event chains;
+- higher Clergy capacity;
+- regional religious influence;
+- specialized laws/reforms;
+- unique crisis responses.
+
+It should not simply receive `Religion +50%`.
+
+### Pilgrimage and regional prestige
+
+A highly developed Religious Center may attract pilgrims and visitors.
+
+Pilgrimage can create:
+- Coin/trade activity;
+- demand for Food and lodging;
+- prestige/score;
+- disease exposure;
+- crowd-management pressure;
+- unique events.
+
+This gives Religious specialization an economic path without turning it into a disguised Trading specialization.
+
+### Religious specialization opportunity cost
+
+Religious specialization naturally consumes:
+- workers;
+- Clergy;
+- Coin;
+- Food;
+- Paper;
+- construction materials;
+- valuable institutional capacity.
+
+Large religious institutions may also accumulate political influence.
+
+The specialization's weakness therefore comes from the resources and authority it dedicates to religious life, not from an arbitrary production penalty.
+
+### Hybrid development
+
+Religion should interact strongly with secondary affinities.
+
+Examples:
+- Religion + Scholarship → Monastic School, theological academy, manuscript culture.
+- Religion + Trade → pilgrimage markets, hospitality, long-distance religious visitors.
+- Religion + Agriculture → monastic estates, charity granaries.
+- Religion + Administration → record keeping, legal/religious courts, institutional bureaucracy.
+- Religion + Medicine → hospices, charitable care, epidemic ministry.
+
+These are hybrid choices/features, not new official Primary Specializations.
+
+### Cultural life beyond religion
+
+Not all culture should be religious.
+
+Later civic development may include:
+- secular festivals;
+- markets/fairs;
+- schools;
+- taverns/public gathering places;
+- civic ceremonies;
+- guild traditions.
+
+The religion system can overlap with cultural life without owning the entire concept.
+
+A separate Culture resource is not required.
+
+### Events and narrative memory
+
+Religion is a rich source of event memory.
+
+Examples:
+- a Clergy leader supported the town during famine;
+- the Lord cancelled an established festival;
+- a shrine became a pilgrimage destination;
+- the clergy resisted taxation;
+- religious charity saved people during an epidemic.
+
+These histories can alter later options and relationships.
+
+### Progressive onboarding
+
+The first runs should expose only a simple religious layer.
+
+Possible early version:
+- one basic worship institution;
+- Clergy specialist requirement;
+- simple Religious Provision;
+- occasional festival/charity events.
+
+Later meta progression, milestones, research, and specialization can unlock:
+- advanced patronage policy;
+- monasteries;
+- pilgrimage;
+- clerical politics;
+- specialized charity;
+- religious scholarship;
+- advanced reforms.
+
+### Design principle
+
+> **Religion is a social institution first, a specialization second, and never merely a numerical Piety resource.**
+
+The Lord decides how much authority, labor, wealth, and responsibility religious institutions receive. In return they can provide legitimacy, care, education, cohesion, prestige, and crisis resilience—but powerful institutions also develop expectations and interests of their own.
+
+
+
+## System 18 Revision Notes
+
+**Status: Deferred / Needs Revisit. Core religion identity is established, but Church–Lord control and legitimacy mechanics should be finalized closer to implementation and alongside regional politics/warfare.**
+
+### Religious Center economic identity
+
+The Religious Center specialization should focus especially on:
+
+- church tithes;
+- large-scale charity;
+- pilgrimage-centered market activity;
+- missionaries;
+- advanced religious institutions;
+- later interaction with warfare through holy-war/religious-conflict systems if warfare is added.
+
+These should be the specialization's main active economic and strategic tools rather than generic religious production bonuses.
+
+### Church tithes
+
+Tithes are primarily revenue/resources collected by organized religion, not automatically part of the Lord's treasury.
+
+An independent Church may use tithe income for:
+
+- Clergy upkeep;
+- worship institutions;
+- charity;
+- festivals;
+- education/scholarship;
+- missionary activity;
+- reserves and institutional growth.
+
+The Lord may influence how much of this wealth supports settlement goals through privileges, agreements, appointments, taxation, or direct control.
+
+A Religious Center may eventually gain stronger mechanisms for redirecting or coordinating tithe revenue.
+
+Taking too much church wealth for secular use should create consequences such as:
+
+- reduced religious services;
+- weaker charity;
+- Clergy resistance;
+- lower institutional legitimacy;
+- political/religious events.
+
+### Pilgrimage-centered market economy
+
+Pilgrimage should be one of the major economic engines of a Religious Center.
+
+A prestigious religious destination attracts visitors who create demand for:
+
+- Food;
+- lodging;
+- markets;
+- transport;
+- crafted goods;
+- religious goods/services.
+
+Benefits may include:
+
+- Coin generation;
+- merchant activity;
+- Trade Capacity justification;
+- settlement prestige;
+- regional influence;
+- specialization progression.
+
+Costs and risks include:
+
+- seasonal crowding;
+- Food demand;
+- housing/lodging pressure;
+- sanitation;
+- disease exposure;
+- road/infrastructure requirements;
+- vulnerability to regional instability.
+
+A highly specialized religious settlement may therefore develop a real visitor-based economy rather than merely receiving passive donations.
+
+### Missionaries
+
+Missionaries are a later Religious Center tool.
+
+Missionary projects may consume:
+
+- Clergy;
+- Coin;
+- supplies;
+- time.
+
+Initially their external effects can remain abstract.
+
+Possible effects include:
+
+- regional religious influence;
+- increased future pilgrimage;
+- new event chains;
+- relations with external authorities;
+- access to religious contacts/resources;
+- prestige and score.
+
+Detailed conversion, neighboring-faith simulation, or a regional religious map is not required initially.
+
+### Church as an independent organism
+
+Organized religion should not begin as another department of the Lord's administration.
+
+It is a semi-independent institution with:
+
+- its own wealth;
+- Clergy;
+- institutions;
+- legitimacy;
+- expectations;
+- political interests;
+- ability to support or pressure the Lord.
+
+The Church and Lord may cooperate, compete, or become deeply intertwined.
+
+### Two political dimensions
+
+A useful model is to distinguish:
+
+**Clerical Influence**
+How much social, institutional, economic, and political power organized religion possesses.
+
+**Lord Control**
+How much of that religious power is aligned with, subordinate to, or directly controlled by the Lord.
+
+These are separate.
+
+Examples:
+
+#### Low Influence / Low Control
+Religion is weak and decentralized.
+Little political threat, but also little benefit.
+
+#### High Influence / Low Control
+A powerful independent Church.
+Strong charity, legitimacy, institutions, and social reach, but capable of resisting the Lord.
+
+#### Low Influence / High Control
+The Lord tightly controls a relatively weak religious establishment.
+Easy to coordinate, but limited in what it can provide.
+
+#### High Influence / High Control
+A highly developed Religious Center in which the Lord has successfully brought powerful religious institutions into the governing structure.
+
+This can be extremely strong but creates its own risks.
+
+### Bringing religion under the Lord's control
+
+Religious specialization may unlock a progression path toward stronger Lord Control through:
+
+- appointment rights;
+- patronage;
+- negotiated privileges;
+- state-supported Clergy;
+- religious administration;
+- control of major institutions;
+- legal reforms;
+- integration of tithe collection;
+- control over missionary policy.
+
+This should not happen automatically just because the town becomes religious.
+
+The player actively invests in creating a powerful but politically aligned religious structure.
+
+### Advantages of high Lord Control
+
+Potential benefits include:
+
+- greater share or coordination of tithe resources;
+- more reliable Clergy support;
+- coordinated charity;
+- stronger use of religion for Legitimacy;
+- directed missionary activity;
+- easier mobilization for major religious projects;
+- reduced risk of independent clerical obstruction;
+- stronger synergy between religion and Administration.
+
+### Disadvantages and new pressures
+
+Bringing religion under state control should not simply remove the downside.
+
+Possible costs include:
+
+- the Lord becomes directly responsible for religious failures;
+- reduced independent legitimacy of the Church;
+- opposition from Clergy who value autonomy;
+- greater risk of schism/reformist movements later;
+- external religious authorities may oppose state control;
+- religious policy mistakes attach directly to the Lord;
+- controlled religious wealth may create corruption/administrative burden;
+- citizens may resent obvious political manipulation of religion.
+
+Thus a powerful controlled Church is a different risk profile, not a solved version of a powerful independent Church.
+
+### Religious political pressure
+
+An independent Church may pressure the Lord through:
+
+- demands for privileges;
+- requests for tax exemptions;
+- opposition to reforms;
+- requests for religious construction;
+- protection of charity budgets;
+- influence over festivals/customs;
+- resistance to secular institutions;
+- mediation during unrest.
+
+The Lord may concede, negotiate, oppose, or gradually absorb these powers.
+
+This creates long-term political history through Event Memory.
+
+### Burial
+
+Burial/funerary capacity remains a strong later addition, particularly for epidemics, famine, disaster, and mass-casualty events.
+
+It should not be required in the first implementation.
+
+### Festivals and settlement scale
+
+Festivals become increasingly relevant as the settlement grows.
+
+Small towns may handle them largely through events and local tradition.
+
+Large towns may require real Food, Coin, security, sanitation, and organizational capacity.
+
+Established festivals create Expectations and become politically difficult to cut.
+
+### Holy warfare
+
+Holy warfare is explicitly deferred.
+
+If warfare/regional politics is later implemented, Religious specialization may interact through:
+
+- religiously motivated military campaigns;
+- calls to arms;
+- missionary conflict;
+- religious diplomacy;
+- regional religious legitimacy.
+
+The core Religion system should not depend on warfare existing.
+
+
+
+### Controlled Church as legitimacy intermediary — deferred concept
+
+A controlled Church does not necessarily need to appear publicly identical to the Lord's administration.
+
+A sophisticated Religious Center may gradually create a **puppet or co-opted Church** that remains formally and socially distinct while the Lord increasingly controls:
+- appointments;
+- finances;
+- tithe allocation;
+- policy direction;
+- missionary priorities;
+- major institutions.
+
+This separation can remain politically useful.
+
+The Church may absorb public blame or controversy more effectively than a visibly secular government institution because it retains the accumulated legitimacy and resilience of religion as a social institution.
+
+Under this model:
+- the Lord can use a controlled Church to help maintain Legitimacy;
+- Church institutions may buffer some political damage;
+- tithe revenue may increasingly become available as Lord-controlled Coin;
+- the Church can still generate its own pressures and expectations even while controlled.
+
+By contrast, a powerful autonomous Church may independently determine whether the Lord is seen as legitimate. Its support can substantially strengthen the ruler, while conflict with it can become dangerous.
+
+The exact model remains deliberately unresolved. Possible advanced outcomes include:
+1. genuinely autonomous Church;
+2. openly state-controlled Church;
+3. subtly co-opted Church that appears institutionally independent.
+
+These should be revisited when the political and warfare/regional systems are more mature.
