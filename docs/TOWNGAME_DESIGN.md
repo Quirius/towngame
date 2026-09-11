@@ -1858,7 +1858,7 @@ Advanced religious systems should unlock gradually to avoid early-game feature b
 
 ## System 19 — Map Table, UI & Information Architecture
 
-**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is now being refined through proposed subsections 19A (Navigation & Core Planning Workflow) and 19B (Tooltips, Information Transparency & Commitment Safety); neither subsection is accepted yet. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
+**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is being refined through focused subsections. 19A (Navigation & Core Planning Workflow) remains proposed. 19B (Tooltips, Information Transparency & Commitment Safety) is now mostly settled at the principle level. 19C (UI Customization, Guidance & Confirmations) is established at the principle level, with its exact settings catalogue and defaults still open. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
 
 System 19 treats the interface as a **testable reference architecture**, not final pixel placement.
 
@@ -1970,11 +1970,13 @@ The player should always understand whether their current plan differs from the 
 
 ### Information depth
 
-Use layered information:
+Use layered information with a strict interaction rule:
 
-- **tooltip** for quick explanation;
-- click/pin/context panel for deeper explanation;
-- dedicated view for complex management and exact calculations.
+- **hover** shows a non-interactive tooltip for quick explanation;
+- **clicking the underlying value/status** opens or deep-links to the relevant management view;
+- dedicated views provide complex management, history, and exact calculations.
+
+Tooltip contents themselves are not clickable and should never open nested hover panels.
 
 The interface should allow players who want numbers to access exact math without forcing all detail onto the default screen.
 
@@ -2073,9 +2075,9 @@ This subsection remains open for critique and has not yet been accepted as an au
 
 ### System 19B — Tooltips, Information Transparency & Commitment Safety
 
-**Status: PROPOSED / CURRENTLY DESIGNING — not yet accepted.**
+**Status: MOSTLY SETTLED at the principle level; exact tooltip content, warning thresholds, forecast precision, and visual treatment remain open.**
 
-Tooltips should become a primary explanatory layer of the Map Table rather than merely providing short labels.
+Tooltips are a primary explanatory layer of the Map Table rather than merely providing short labels.
 
 The guiding principle is:
 
@@ -2085,9 +2087,11 @@ A casual player with little prior knowledge should be able to discover what a nu
 
 #### Tooltip versus management view
 
-The proposed distinction is:
+The accepted interaction distinction is:
 
-> **Tooltips explain; management views control.**
+> **Hover explains; click navigates; management views control.**
+
+Tooltips appear on **hover only**. Their contents are informational and are not clickable. Clicking the underlying value, status, warning, or UI element should open or deep-link to the relevant management screen or contextual view where practical. This prevents nested tooltip chains and makes interaction behavior predictable.
 
 A tooltip should often be sufficient when the player only wants to understand a value or state. Dedicated management screens remain useful when the player wants to change allocations, compare multiple producers, edit trade, inspect history, or perform deeper planning.
 
@@ -2112,10 +2116,9 @@ Projected stockpile: 2,520
 At current consumption:
 ~4.1 months of food remaining
 
-[View detailed economy]
 ```
 
-All numbers are illustrative only.
+The tooltip itself contains no buttons or interactive links. Clicking the underlying Food value can open the relevant Economy / Food management view. All numbers are illustrative only.
 
 #### Tooltips for derived values
 
@@ -2125,7 +2128,7 @@ For example, an Unrest tooltip could show current direction and the largest cont
 
 The first tooltip should answer the obvious question without forcing the player through chains of nested tooltips.
 
-If deeper analysis is needed, the explanation may be **pinned or transferred to the persistent right inspector**, or the player may open the relevant dedicated view.
+There are **no nested hover panels** and no clickable items inside tooltips. If deeper analysis is needed, the player clicks the underlying value/status to open the relevant dedicated view. The right inspector may also present deeper contextual information when that item is selected through normal interface interaction.
 
 #### Known, estimated, and unavailable information
 
@@ -2202,11 +2205,13 @@ Potential influences include:
 
 Different conditions should not all be treated equally. For example, unused AP may warrant a visible reminder but is not automatically a mistake, whereas a predicted Food stockpile collapse may justify a much stronger danger state.
 
-The Seal must **remain directly pressable without a mandatory confirmation dialog**. Experienced players should be able to commit a month immediately even when warnings remain.
+The base interaction keeps the Seal **directly pressable** so experienced players can commit a month immediately even when warnings remain.
 
-The purpose is to prevent accidental rapid advancement, not to prohibit deliberately risky decisions.
+However, optional confirmation behavior is controlled through the settings system described in System 19C. A first run may enable protective confirmations by default, while experienced players can disable them.
 
-A hover or click explanation on the Seal may summarize remaining concerns, for example:
+The purpose is to prevent accidental rapid advancement without permanently imposing friction on deliberate fast play.
+
+Hovering the Seal may summarize remaining concerns, for example:
 
 ```text
 BEFORE YOU ADVANCE
@@ -2250,9 +2255,9 @@ Tooltips should not become recursive mini-menus.
 
 The initial tooltip should normally explain enough to answer the player's immediate question within a few seconds. More complex formulae, historical data, secondary contributors, or management controls belong in a pinned inspector or dedicated view.
 
-#### Proposed Decision 019B — Self-Explaining Information & Commitment Safety
+#### Decision 019B — Self-Explaining Information & Commitment Safety
 
-**Proposed, not accepted.**
+**Status: Mostly settled at the principle level.**
 
 The Map Table uses tooltips as the primary explanatory layer for important resources, forecasts, statuses, modifiers, and derived values. Tooltips should explain what information means, why it is changing, its major consequences, and where relevant where it can be managed.
 
@@ -2260,11 +2265,79 @@ The UI explicitly distinguishes **known, estimated, and intentionally unavailabl
 
 Better forecasting and information quality may unlock through research, institutions, specialists, regional knowledge, Legacy progression, and other suitable systems. Exact sources and precision remain open.
 
-Complex tooltip explanations may be pinned or transferred to the right inspector. Deep nested tooltip chains should be avoided.
+Tooltips are **hover-only and non-interactive**. There are no nested tooltip panels. Clicking the underlying value/status navigates to the relevant management or contextual view.
 
-The Lord's Seal acts as a **non-blocking commitment-risk indicator**. Its appearance and effects may react to important predicted danger, unresolved decisions, unused AP, and other consequential conditions, but the player can still advance the month immediately without a mandatory confirmation dialog.
+The Lord's Seal acts as a **commitment-risk indicator**. Its appearance and effects may react to important predicted danger, unresolved decisions, unused AP, and other consequential conditions. The base interaction remains immediate; optional confirmation behavior is governed by UI settings rather than hard-coded into the core interaction.
 
 The goal is to make accidental commitment difficult while keeping deliberate fast play frictionless.
+
+---
+
+### System 19C — UI Customization, Guidance & Confirmations
+
+**Status: ESTABLISHED at the principle level; exact options, defaults, presets, and persistence rules remain open.**
+
+Towngame should include an **extensive settings menu** that allows players to customize the amount of interface guidance, warning behavior, visual emphasis, and visible UI detail.
+
+The purpose is to support both inexperienced players who want strong assistance and experienced players who want a fast, low-friction interface without maintaining separate game modes or fundamentally different UIs.
+
+#### Granular UI control
+
+UI and guidance elements should be individually configurable where practical rather than limited to one global `Beginner / Expert` switch.
+
+Potential configurable categories include:
+
+- confirmation prompts;
+- warning severity indicators;
+- Lord's Seal color/effects/animation;
+- AP-left reminders;
+- unresolved-decision reminders;
+- forecast detail;
+- Needs Attention visibility or categories;
+- header elements;
+- contextual labels and map overlays;
+- tutorial/help hints;
+- tooltip availability or delay;
+- animations and other presentation effects;
+- other high-frequency UI elements that testing shows players may reasonably want to reduce or hide.
+
+The exact settings list is not yet accepted and should be informed by prototype use.
+
+#### First-run guidance
+
+The first run may enable more protective guidance by default. For example, advancing the month while a critical forecast warning is active could display a confirmation prompt during early play.
+
+This is **optional UX assistance**, not a core simulation rule. The player should be able to disable such confirmations in settings, and experienced players should be able to reach a one-click Advance Month workflow.
+
+Possible guidance presets may exist as convenient starting configurations, but they should not replace granular control. A preset should merely change individual settings that the player can then customize.
+
+#### Confirmation philosophy
+
+Confirmations should be reserved for genuinely consequential or easy-to-trigger actions and should be configurable. The interface should prefer visible warning states, Seal feedback, and clear forecasts over repetitive modal dialogs.
+
+A useful conceptual hierarchy is:
+
+> **Explain first → warn visually → optionally confirm → never hide the underlying reason.**
+
+The game should not assume that an intentionally risky choice is a mistake. Players remain free to ignore warnings and commit dangerous plans.
+
+#### Accessibility and player ownership
+
+Granular customization is also an accessibility and comfort feature. Players may differ in how much animation, warning emphasis, explanatory text, or persistent information they want visible.
+
+Settings should therefore alter presentation and guidance rather than secretly changing simulation rules or information that the settlement has not actually unlocked. A UI option may hide known information, but it must not reveal strategically unavailable information merely because a player enabled a more detailed interface.
+
+#### Decision 019C — Customizable Guidance Layer
+
+**Status: Established at the principle level.**
+
+Towngame will provide extensive, granular UI and guidance settings. The same underlying interface can therefore support a strongly guided first run and a streamlined experienced-player workflow.
+
+Protective confirmation prompts may be enabled by default for early play, including potentially the Lord's Seal under critical conditions, but they are optional and can be disabled.
+
+Presets may provide convenient starting configurations, but individual settings remain adjustable.
+
+UI customization affects presentation, warnings, explanations, and interaction friction; it does not grant access to information the simulation intentionally keeps unknown.
 
 ---
 
@@ -2305,6 +2378,6 @@ Potentially supports separate scoring, achievements, and records.
 
 **Resume design discussion at System 19 — Map Table, UI & Information Architecture.**
 
-The structural shell is established. Proposed subsection 19A covers navigation domains and the core monthly planning workflow. Proposed subsection 19B covers self-explaining tooltips, deliberate information uncertainty, and the non-blocking Lord's Seal warning state. Neither is accepted yet. Continue by critiquing/refining these proposals, then move into right-inspector density, Events/Decisions presentation, and interaction details before System 19 is marked accepted.
+The structural shell is established. Subsection 19A (navigation domains and core monthly planning workflow) remains proposed. Subsection 19B is mostly settled: hover-only non-interactive tooltips explain information, clicking the underlying value/status navigates to management, uncertainty is explicit, and the Lord's Seal communicates commitment risk. Subsection 19C establishes extensive granular UI/guidance settings, including optional first-run confirmations and streamlined experienced-player configurations. Continue by resolving 19A, then refine right-inspector density, Events/Decisions presentation, exact confirmation defaults, settings catalogue, and remaining interaction details before System 19 is marked accepted.
 
 When this file is supplied to a new ChatGPT conversation, treat it as the authoritative Towngame design context. Do not restart from System 12 or assume every older proposal remains current when a later revision above supersedes it.
