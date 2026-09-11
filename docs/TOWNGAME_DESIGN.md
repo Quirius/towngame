@@ -2275,69 +2275,293 @@ The goal is to make accidental commitment difficult while keeping deliberate fas
 
 ### System 19C — UI Customization, Guidance & Confirmations
 
-**Status: ESTABLISHED at the principle level; exact options, defaults, presets, and persistence rules remain open.**
+**Status: Mostly settled at the principle level; exact implementation details and final per-option catalogue remain prototype work.**
 
-Towngame should include an **extensive settings menu** that allows players to customize the amount of interface guidance, warning behavior, visual emphasis, and visible UI detail.
+Towngame will include an **extensive settings menu** that lets players customize how aggressively the interface surfaces guidance, warnings, confirmations, labels, animation, and explanatory information.
 
-The purpose is to support both inexperienced players who want strong assistance and experienced players who want a fast, low-friction interface without maintaining separate game modes or fundamentally different UIs.
+The purpose is to let the same underlying interface serve both a strongly guided first run and a fast, low-friction experienced-player workflow. UI settings change **presentation depth and interaction friction**, not the simulation rules or the amount of strategically available information.
 
-#### Granular UI control
+#### Core information-preservation rule
 
-UI and guidance elements should be individually configurable where practical rather than limited to one global `Beginner / Expert` switch.
+A central UI-customization principle is:
 
-Potential configurable categories include:
+> **Turning off or reducing an assistance feature moves information one presentation layer deeper rather than removing access to information the player is entitled to know.**
 
-- confirmation prompts;
-- warning severity indicators;
-- Lord's Seal color/effects/animation;
-- AP-left reminders;
-- unresolved-decision reminders;
-- forecast detail;
-- Needs Attention visibility or categories;
-- header elements;
-- contextual labels and map overlays;
-- tutorial/help hints;
-- tooltip availability or delay;
-- animations and other presentation effects;
-- other high-frequency UI elements that testing shows players may reasonably want to reduce or hide.
+For example, disabling an event popup may leave only the Lord's Seal glow and the Seal tooltip. The event is therefore less intrusive but not concealed.
 
-The exact settings list is not yet accepted and should be informed by prototype use.
+Likewise, hiding a warning from the most prominent presentation layer does not erase the underlying forecast, status, or explanation from the interface.
 
-#### First-run guidance
+The exception is information that the **simulation itself intentionally withholds**. UI settings can never reveal exact climate, market, event, or other information that the settlement has not gained through its actual forecasting or knowledge capabilities.
 
-The first run may enable more protective guidance by default. For example, advancing the month while a critical forecast warning is active could display a confirmation prompt during early play.
+This should be implemented conceptually as an **information-permission layer** beneath the UI: the simulation determines what the player is allowed to know, while interface settings determine how prominently that permitted information is presented.
 
-This is **optional UX assistance**, not a core simulation rule. The player should be able to disable such confirmations in settings, and experienced players should be able to reach a one-click Advance Month workflow.
+#### Presets plus granular control
 
-Possible guidance presets may exist as convenient starting configurations, but they should not replace granular control. A preset should merely change individual settings that the player can then customize.
+The settings interface may offer convenient presets such as:
 
-#### Confirmation philosophy
+- **Guided**
+- **Standard**
+- **Minimal**
+- **Custom**
 
-Confirmations should be reserved for genuinely consequential or easy-to-trigger actions and should be configurable. The interface should prefer visible warning states, Seal feedback, and clear forecasts over repetitive modal dialogs.
+These are not separate game modes. A preset simply configures individual UI options. Changing an individual option can move the current configuration to `Custom`.
 
-A useful conceptual hierarchy is:
+The exact preset defaults remain implementation details, but the broad philosophy is:
 
-> **Explain first → warn visually → optionally confirm → never hide the underlying reason.**
+- **Guided** surfaces explanations, first-time teaching, and optional protective confirmations more aggressively.
+- **Standard** retains normal warnings, detailed tooltips, and ordinary visual guidance with less interruption.
+- **Minimal** reduces popups, explanatory prompts, and animation friction while preserving access to the same known information through hover, direct navigation, forecasts, and persistent visual language.
 
-The game should not assume that an intentionally risky choice is a mistake. Players remain free to ignore warnings and commit dangerous plans.
+Certain **visual-only warning systems remain broadly consistent across presets** so the player learns one stable interface language. In particular, the Lord's Seal should still visibly react to unattended events or serious commitment risk even in a minimal configuration.
 
-#### Accessibility and player ownership
+#### Settings categories
 
-Granular customization is also an accessibility and comfort feature. Players may differ in how much animation, warning emphasis, explanatory text, or persistent information they want visible.
+The settings menu should be organized into a manageable number of categories rather than one enormous flat list.
 
-Settings should therefore alter presentation and guidance rather than secretly changing simulation rules or information that the settlement has not actually unlocked. A UI option may hide known information, but it must not reveal strategically unavailable information merely because a player enabled a more detailed interface.
+Current preferred categories include:
 
-#### Decision 019C — Customizable Guidance Layer
+- **Guidance & Confirmations**
+- **Alerts & Needs Attention**
+- **Header / HUD**
+- **Tooltips & Information**
+- **Map Labels & Overlays**
+- **Interface Motion & Pacing**
 
-**Status: Established at the principle level.**
+Additional categories may be added during implementation if testing demonstrates a clear need.
 
-Towngame will provide extensive, granular UI and guidance settings. The same underlying interface can therefore support a strongly guided first run and a streamlined experienced-player workflow.
+The player should have substantial freedom within these categories. Where useful, options may support levels such as:
 
-Protective confirmation prompts may be enabled by default for early play, including potentially the Lord's Seal under critical conditions, but they are optional and can be disabled.
+- Hidden
+- Subtle
+- Normal
+- Prominent
 
-Presets may provide convenient starting configurations, but individual settings remain adjustable.
+or contextual visibility such as:
 
-UI customization affects presentation, warnings, explanations, and interaction friction; it does not grant access to information the simulation intentionally keeps unknown.
+- Always
+- Contextual
+- Hover only
+- Hidden
+
+The exact vocabulary should be chosen for clarity during implementation.
+
+A settings search field is desirable if the eventual catalogue becomes large enough that navigation would otherwise become inconvenient.
+
+#### Global header hierarchy
+
+The global status header should use a stronger hierarchy than a uniform row of interchangeable values.
+
+##### Top-left anchor — always visible
+
+The top-left contains:
+
+- **Date / Month / Season**
+- **Action Points**
+
+These remain separate from the ordinary resource strip and are always visible. They define the current temporal position and the Lord's remaining governing capacity for the planning phase.
+
+##### Central settlement-value strip
+
+Moving rightward from the top-left anchor, the header displays the settlement's most important currently unlocked values.
+
+At the beginning of progression, the likely visible set is approximately:
+
+- Population
+- Food
+- Wood
+- Coin
+
+Strategic resources show their current amount together with a compact predicted monthly `+/-` value where meaningful.
+
+New values appear only when their underlying systems/resources are unlocked. The player should not begin a new profile staring at empty or locked resource slots for Paper, Iron, Medicine, or other later mechanics.
+
+As the resource roster grows, values may be visually categorized to keep the strip ordered and compact. Conceptual categories might include Core, Materials, Manufactured Goods, or similar groupings, but the exact resource list and grouping should follow the final economy design rather than being fixed prematurely.
+
+If the final number of strategically important resources becomes too large for permanent display, lower-priority resources may eventually require a compact category treatment. This should only be introduced if actual interface density demands it.
+
+##### Right strategic-state area
+
+The right side of the header retains the settlement's broad political and external-pressure context:
+
+- Unrest
+- Legitimacy
+- Challenge Tier
+- Climate Outlook
+
+**Challenge Tier and Climate Outlook** should have a visual hierarchy comparable to Date/AP: they describe the broad external circumstances under which the current plan is being made.
+
+Unrest and Legitimacy remain prominent political-state information adjacent to these contextual values.
+
+This creates a conceptual left-to-right hierarchy:
+
+> **Time & authority → settlement state → political state → external pressure**
+
+Exact spacing and final visual composition remain prototype/layout work.
+
+#### Tooltips and UI settings
+
+Tooltips remain the normal detailed explanatory layer established in System 19B.
+
+A separate stripped-down `Basic Tooltip` mode is **not currently required**. Detailed tooltips should be the normal design because they provide depth without permanently occupying screen space.
+
+Tooltip-related settings should therefore remain relatively restrained and may include items such as:
+
+- hover delay;
+- first-time explanatory commentary;
+- optional unlock hints;
+- animation/fade behavior;
+- other broad presentation preferences if testing proves them useful.
+
+They should not become a resource-by-resource configuration matrix.
+
+Tooltips remain hover-only and non-interactive. Clicking the underlying value/status opens its relevant management or contextual view.
+
+#### Visual warnings remain part of the core language
+
+The Lord's Seal and other important visual warning mechanisms are not purely beginner assistance.
+
+Across ordinary presets, the Seal should continue to visually communicate conditions such as:
+
+- unattended or unresolved events;
+- important unresolved decisions;
+- major predicted danger;
+- critical commitment risk;
+- remaining AP where useful.
+
+Settings may change the strength of glow, pulse, animation, auxiliary popup, text reminder, or confirmation behavior, but should not make a dangerous or unresolved commitment state visually indistinguishable from an ordinary safe state.
+
+For example:
+
+- Guided may show Seal glow + Needs Attention entry + contextual explanation + optional confirmation.
+- Standard may show Seal glow + normal warning presentation without extra teaching.
+- Minimal may remove the popup and reduce animation, while the Seal still glows and its hover tooltip explains why.
+
+The visual language therefore remains learnable and consistent across configurations.
+
+#### First-time contextual teaching
+
+First-time contextual guidance is the preferred tutorial model.
+
+The first run remains a **real run**, using the normal simulation, scoring, collapse rules, and progression. There is no requirement for a separate invulnerable or scripted tutorial scenario.
+
+The game may explain systems when the player first meaningfully encounters them, for example:
+
+- first low-Food forecast;
+- first unused AP at commitment;
+- first infrastructure-capacity overload;
+- first low-confidence climate prediction;
+- first major Unrest increase;
+- first project cancellation with resource/progress loss;
+- first newly unlocked resource or management system.
+
+These explanations can retire once seen so later runs are not repeatedly interrupted.
+
+A settings option may allow the player to reset first-time guidance if they return after a long break or want to revisit explanations.
+
+Some commentary such as unlock explanations may be suppressible in more minimal configurations, but the underlying unlocked value/system remains accessible normally.
+
+#### Confirmation rules
+
+Confirmations should **not** be attached to ordinary reversible planning actions.
+
+Actions that can be freely changed before month commitment—such as worker reassignment, policy adjustment, routine trade changes, and ordinary AP allocation where it remains undoable—should rely on:
+
+- live forecast changes;
+- visible consequence summaries;
+- tooltips;
+- Undo;
+- Reset;
+- direct reversal or reassignment.
+
+These actions therefore do **not** need routine confirmation dialogs.
+
+Optional gameplay confirmations are primarily appropriate for actions such as:
+
+- **Advance Month**, especially when major known risks or unresolved matters remain;
+- **Cancel Project**, when cancellation destroys accumulated progress or committed resources;
+- other future actions that are genuinely difficult or impossible to reverse within the planning phase.
+
+The exact categories and default confirmation thresholds remain implementation tuning.
+
+Destructive account/profile/save actions—such as deleting a profile or performing a permanent hard reset—remain separately protected and need not obey the same no-confirmation philosophy as ordinary strategic play.
+
+#### Forecast-first safety
+
+Towngame should prefer **visible predicted consequences over modal interruption**.
+
+When a player changes a policy, AP allocation, workforce assignment, trade order, project setting, or similar plan, the interface should immediately update relevant forecasts and explanations.
+
+A player should normally understand the cost or danger of a change because the interface shows the expected consequences, not because a confirmation box asks whether they are sure.
+
+This reinforces the existing principle:
+
+> **Show predictable outcomes before commitment.**
+
+#### Animation and pacing controls
+
+Animation pacing should be configurable because repeated monthly interaction makes unnecessary delay increasingly costly over long-term play.
+
+Potential settings may cover:
+
+- menu transitions;
+- tooltip fades;
+- map transitions;
+- Monthly Outcomes presentation;
+- Lord's Seal animation intensity;
+- warning pulse intensity;
+- camera movement;
+- other repetitive interface motion.
+
+Players should be able to substantially reduce or remove nonessential transition time.
+
+Important information should never require waiting for an animation to finish before it becomes available.
+
+#### Settings persistence
+
+UI settings are **global at the player-profile level** by default.
+
+A player's preferences for confirmations, warning intensity, tooltip behavior, animation pacing, guidance, and similar interface options should persist across runs rather than needing to be rebuilt for each settlement.
+
+Temporary interface state is separate from settings. Examples may include:
+
+- which resource category is currently expanded;
+- which map overlay is currently active;
+- which management subview was last open;
+- temporary panel expansion/collapse state.
+
+These may be remembered for convenience where appropriate, but they are not run rules and should not be treated as simulation state.
+
+#### Decision 019C — Customizable, Information-Preserving Guidance Layer
+
+**Status: Mostly settled at the principle level.**
+
+Towngame uses an extensive but organized settings system built from convenient presets plus granular individual controls.
+
+The same underlying UI supports a strongly guided first run and a streamlined experienced-player workflow.
+
+The interface follows an **information-preservation rule**: reducing an assistance feature moves otherwise-known information to a deeper interaction layer rather than removing access to it. UI configuration never bypasses simulation-level uncertainty or reveals information the settlement has not earned.
+
+The header uses a stable hierarchy:
+
+- Date/Season and AP remain permanently visible at the top-left;
+- Population and unlocked strategic resources extend rightward with compact current values and predicted `+/-` changes;
+- resources appear only when unlocked and may later be categorized for density;
+- Unrest and Legitimacy occupy the right-side political context;
+- Climate Outlook and Challenge Tier form the major right-side external-context anchor.
+
+Detailed hover tooltips remain the default explanatory mechanism; a separate Basic tooltip mode is not currently required.
+
+Important visual warning language—especially the Lord's Seal reacting to unattended events or serious commitment risk—remains present across ordinary UI presets. Settings may reduce animation, popups, or confirmation friction without making dangerous states appear safe.
+
+The first run is a genuine normal run. Contextual first-time teaching provides tutorial support as mechanics are encountered and can retire automatically afterward.
+
+Reversible planning actions do not require confirmations. Their consequences are communicated through forecasts, tooltips, Undo, Reset, and direct reversal. Optional confirmations focus mainly on Advance Month, project cancellation where progress/resources would be lost, and future genuinely irreversible strategic actions.
+
+Animation pacing is configurable, and no important information should require waiting for an animation to complete.
+
+UI settings persist globally at the player-profile level. Temporary panel, overlay, and expansion states are remembered separately as interface state rather than simulation rules.
+
+Exact option names, preset defaults, warning thresholds, animation timings, and final layout behavior remain implementation/prototype work.
 
 ---
 
@@ -2378,6 +2602,12 @@ Potentially supports separate scoring, achievements, and records.
 
 **Resume design discussion at System 19 — Map Table, UI & Information Architecture.**
 
-The structural shell is established. Subsection 19A (navigation domains and core monthly planning workflow) remains proposed. Subsection 19B is mostly settled: hover-only non-interactive tooltips explain information, clicking the underlying value/status navigates to management, uncertainty is explicit, and the Lord's Seal communicates commitment risk. Subsection 19C establishes extensive granular UI/guidance settings, including optional first-run confirmations and streamlined experienced-player configurations. Continue by resolving 19A, then refine right-inspector density, Events/Decisions presentation, exact confirmation defaults, settings catalogue, and remaining interaction details before System 19 is marked accepted.
+The structural shell is established. Subsection **19B** (tooltips, information transparency, and commitment safety) and subsection **19C** (UI customization, guidance, confirmations, header hierarchy, and settings persistence) are now **Mostly Settled at the principle level**.
+
+Subsection **19A — Navigation & Core Planning Workflow** remains proposed rather than accepted and should not be silently promoted.
+
+The next useful design subsection is **System 19D — Right Inspector, Needs Attention, Events & Decision Presentation**. Resolve how the persistent right inspector changes between general overview, warning triage, selected-item detail, forecasts, events, and unresolved decisions without becoming a vertical junk drawer. After that, return to any remaining 19A questions and other open System 19 interaction details before marking the overall system Mostly Settled.
+
+Trello is a secondary status tracker only and should be updated **only when the user explicitly asks for a Trello update**.
 
 When this file is supplied to a new ChatGPT conversation, treat it as the authoritative Towngame design context. Do not restart from System 12 or assume every older proposal remains current when a later revision above supersedes it.
