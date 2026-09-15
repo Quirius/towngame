@@ -1858,7 +1858,7 @@ Advanced religious systems should unlock gradually to avoid early-game feature b
 
 ## System 19 — Map Table, UI & Information Architecture
 
-**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is being refined through focused subsections. 19A (Navigation & Core Planning Workflow) remains proposed. 19B (Tooltips, Information Transparency & Commitment Safety) is now mostly settled at the principle level. 19C (UI Customization, Guidance & Confirmations) is established at the principle level, with its exact settings catalogue and defaults still open. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
+**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is being refined through focused subsections. 19A (Navigation & Core Planning Workflow) remains proposed. 19B (Tooltips, Information Transparency & Commitment Safety), 19C (UI Customization, Guidance & Confirmations), and 19D (Right Inspector, Forecasts, Events & Decision Presentation) are now mostly settled at the principle level. 19E (Central Workspace & Deep Management Views) is the next active design subsection. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
 
 System 19 treats the interface as a **testable reference architecture**, not final pixel placement.
 
@@ -1894,20 +1894,20 @@ Conceptual hierarchy:
 
 ### Global Status Header
 
-Keep only universally important information permanently visible.
+Keep only universally important **current-state information** permanently visible. The header does not own next-month forecast deltas; forecasting belongs to tooltips and the Right Inspector.
 
-Current candidates:
+Current hierarchy:
 
-- current date / month / season;
-- AP;
-- population;
-- Food;
-- Coin;
-- Unrest;
-- Legitimacy;
-- Challenge Tier.
+- **top-left anchor:** current date / month / season and AP, always visible;
+- **central settlement strip:** Population and currently unlocked strategic resources such as Food, Wood, Coin, and later resources;
+- **right political context:** Unrest and Legitimacy;
+- **top-right external context:** Climate Outlook and Challenge Tier.
 
-Less universal information belongs in tooltips, contextual panels, or dedicated views.
+Resources appear only after their systems are unlocked and may later be grouped into categories if the roster becomes too dense.
+
+Header values show current state only. They do not permanently display forecast `+/-` values and do not glow when planning changes alter projections.
+
+Less universal information belongs in hover tooltips, contextual panels, the Live Forecast, or dedicated views.
 
 The header must resist gradual clutter as new systems unlock.
 
@@ -2015,16 +2015,13 @@ System 19 should be revised based on observed player behavior rather than treate
 
 ### Current open questions for System 19
 
-- Exact top-level navigation domains.
-- Which resources/statuses deserve permanent header space.
-- Exact density of the right inspector.
-- How Events/Decisions are surfaced without dominating the screen.
-- How much of the central town remains visible while deep management panels are open.
-- Mobile/alternative-resolution concerns are not currently a primary design target, but scaling behavior should not be painted into a corner.
+- System 19A remains proposed: exact top-level navigation domains and final grouping still need deliberate acceptance.
+- System 19E must resolve how the central town/map workspace behaves when deep management views are open: replacement, overlay, retained spatial context, and navigation back to Overview.
+- Exact scaling behavior for alternative resolutions should not be painted into a corner, although mobile is not a primary target.
 - Keyboard shortcuts and high-speed interaction should be considered because a future optional Timed/Pressure Mode may exist.
-- Exact transition between first-person chamber interaction and full-screen Map Table.
-- Exact presentation of tooltips, pinned breakdowns, forecasts, and Monthly Outcomes.
-- How much visual animation is allowed before it slows repetitive monthly planning.
+- Exact transition between first-person chamber interaction and the full-screen Map Table remains open.
+- Exact presentation of Monthly Outcomes and any remaining history/summary interactions remains open.
+- Exact visual thresholds, animation timings, forecast promotion thresholds, and inspector dimensions remain prototype-tuning work.
 
 ---
 
@@ -2371,7 +2368,7 @@ At the beginning of progression, the likely visible set is approximately:
 - Wood
 - Coin
 
-Strategic resources show their current amount together with a compact predicted monthly `+/-` value where meaningful.
+Strategic resources show their **current amount only** in the persistent header. Predicted monthly change belongs to hover tooltips and the Right Inspector's Live Forecast rather than being duplicated in the header.
 
 New values appear only when their underlying systems/resources are unlocked. The player should not begin a new profile staring at empty or locked resource slots for Paper, Iron, Medicine, or other later mechanics.
 
@@ -2544,7 +2541,7 @@ The interface follows an **information-preservation rule**: reducing an assistan
 The header uses a stable hierarchy:
 
 - Date/Season and AP remain permanently visible at the top-left;
-- Population and unlocked strategic resources extend rightward with compact current values and predicted `+/-` changes;
+- Population and unlocked strategic resources extend rightward with compact current values only; next-month deltas belong to tooltips and the Live Forecast;
 - resources appear only when unlocked and may later be categorized for density;
 - Unrest and Legitimacy occupy the right-side political context;
 - Climate Outlook and Challenge Tier form the major right-side external-context anchor.
@@ -2563,7 +2560,325 @@ UI settings persist globally at the player-profile level. Temporary panel, overl
 
 Exact option names, preset defaults, warning thresholds, animation timings, and final layout behavior remain implementation/prototype work.
 
+
 ---
+
+### System 19D — Right Inspector, Forecasts, Events & Decision Presentation
+
+**Status: Mostly settled at the principle level. Exact thresholds, dimensions, audiovisual severity treatment, forecast promotion rules, and final prototype tuning remain open.**
+
+System 19D defines how the persistent Right Inspector prioritizes risk, explains current planning consequences, exposes forecasts, and keeps unresolved events accessible without turning the right side of the screen into a permanent vertical stack of unrelated panels.
+
+#### Core inspector structure
+
+The Right Inspector uses three conceptual layers:
+
+> **Attention Strip → Context Body → Hybrid Live Forecast / Consequences**
+
+The inspector is persistent, but the middle Context Body changes according to what the player is currently examining. The interface should remember outstanding problems without insisting on displaying every warning, forecast, selected object, and event simultaneously.
+
+#### Attention Strip
+
+The top of the inspector contains a compact **Attention Strip** that remains visible regardless of the current Context Body.
+
+It summarizes important unresolved states through compact severity/category counts, for example:
+
+```text
+ATTENTION
+🔴 1 Critical   ⚠ 2 Warnings   ◆ 2 Events
+```
+
+The strip answers:
+
+> **Is there anything important that currently deserves attention?**
+
+It should remain useful even while the player is inspecting a resource, project, building, policy, or other contextual subject.
+
+Clicking the Attention Strip returns the Context Body to the default **Planning Overview**.
+
+Visual severity should remain restrained enough that warnings preserve meaning. Routine opportunities and optimization suggestions should not inflate the warning count.
+
+#### Needs Attention is risk triage, not optimization advice
+
+Needs Attention primarily surfaces:
+
+- **Critical conditions** — serious immediate or predicted failures, crisis escalation, or similarly urgent states;
+- **Warnings** — strategically meaningful elevated risk or deterioration that is not yet immediate catastrophe;
+- **unresolved Events**;
+- other genuinely consequential unresolved decisions where appropriate.
+
+Routine opportunities such as `Tax policy can be changed this season`, `New research is available`, or `A slightly more efficient worker assignment exists` should normally remain inside their relevant management domain rather than appearing as warnings.
+
+The system must not train the player to clear notifications as if they were objectives.
+
+A warning means:
+
+> **This condition may deserve deliberate attention.**
+
+It does not mean:
+
+> **The game has identified the optimal action and expects you to fix this before advancing.**
+
+Players may deliberately accept low reserves, import dependence, understaffing, high taxation, risky infrastructure, unused AP, or other weaknesses as part of a valid strategy.
+
+#### Default Context Body — Planning Overview
+
+When nothing else is selected, the Context Body defaults to a focused **Planning Overview** rather than another general settlement-statistics dashboard.
+
+It expands the current Attention states into actionable entries, for example:
+
+```text
+PLANNING OVERVIEW
+
+CRITICAL
+South Levee failure likely
+
+UNRESOLVED
+Merchant Guild Complaint
+Refugee Petition
+
+WARNING
+Quarry Expansion understaffed
+Food reserve below winter target
+```
+
+Clicking an attention item routes directly to the appropriate management/context view or reopens its event dialogue.
+
+Examples:
+
+- Food warning → Economy / Food;
+- Quarry warning → Development / Quarry Expansion;
+- unresolved event → reopen that NPC event dialogue.
+
+When no meaningful attention items exist, the Context Body should say so explicitly rather than inventing filler statistics, for example:
+
+```text
+No critical issues.
+No unanswered events.
+The settlement is ready to advance.
+```
+
+This is an **all-clear for warning criteria**, not a declaration that the current plan is optimal.
+
+#### Context selection and return behavior
+
+The Context Body displays one primary subject at a time.
+
+Possible subjects include:
+
+- Planning Overview;
+- selected resource;
+- selected building or project;
+- selected political/system value;
+- contextual explanation or `Why?` breakdown;
+- other selected management subjects.
+
+Selecting something on the map, header, or management interface changes the Context Body to that subject.
+
+Closing or deselecting the subject returns the Context Body to Planning Overview.
+
+Opening an event temporarily supersedes normal Map Table interaction with the event dialogue. Closing the event returns the player to the context they were inspecting before the event opened.
+
+Clicking the Attention Strip always provides a predictable route back to Planning Overview.
+
+#### Header interaction and forecast ownership
+
+The global header owns **current state only**.
+
+Header values do not permanently display forecast deltas and do not glow or animate when pending decisions alter predictions.
+
+For a header value such as Food:
+
+- **hover** shows the normal explanatory tooltip, including the most relevant forecast information;
+- **Shift + hover** may expand the same tooltip into a deeper numerical breakdown;
+- **click** immediately navigates to the relevant management screen;
+- clicking never opens a tooltip.
+
+The expanded-tooltip modifier should be discoverable in the normal tooltip and may later be rebindable.
+
+This produces a clear ownership rule:
+
+> **Header = current state. Live Forecast = future state. Consequences = why the future state changed.**
+
+#### Hybrid Live Forecast
+
+The Live Forecast uses a **hybrid compact + full model**.
+
+The compact persistent forecast promotes only a small number of next-month predictions that are currently most useful.
+
+Promotion priority is broadly:
+
+1. **Critical threshold crossings or immediate predicted failures**;
+2. **values affected by current pending decisions**;
+3. **large or strategically meaningful changes**;
+4. a small number of useful core values if space remains.
+
+Example compact presentation:
+
+```text
+NEXT MONTH
+
+Food       2,520    -320
+Unrest       47%      +8
+Coin       3,315     +65
+Housing      96%      +6
+
++ 5 other projected changes
+[Full Forecast]
+```
+
+The compact forecast may reorder promoted values because its purpose is prioritization.
+
+A **Full Forecast** view exposes all strategically available projected information and groups it into stable categories, such as:
+
+- Population;
+- Resources;
+- Capacity / Infrastructure;
+- Political;
+- External / Regional;
+- other categories introduced by later systems.
+
+Within the Full Forecast, ordering should remain stable enough for experienced players to scan quickly rather than reshuffling every time one value changes.
+
+Only unlocked and legitimately known information appears. The Full Forecast does not bypass the information-permission layer established in Systems 19B–19C.
+
+Automatic forecast prioritization may change **prominence**, never **access** to information the settlement is entitled to know.
+
+#### Consequences and change feedback
+
+Forecast and Consequences have different purposes:
+
+- **Forecast:** what the town is predicted to look like next month;
+- **Consequences:** how the player's current pending choices changed that prediction.
+
+For example, increasing grain imports might produce:
+
+```text
+CONSEQUENCES
+
+Grain Imports +80/month
+
+Food projection     +210
+Coin projection     -115
+Trade Capacity        -8
+```
+
+Affected rows in the Forecast or Consequences presentation may briefly glow/highlight when a planning action changes them. This glow directs attention toward cause and effect before commitment.
+
+The **header itself does not glow or display the forecast change**.
+
+Persistent danger styling and temporary `you changed this` highlighting should use distinguishable visual language.
+
+#### Unified modal event dialogue
+
+All events use the same fundamental **modal NPC-dialogue framework**.
+
+Event severity changes audiovisual emphasis rather than changing the interaction model. A severe epidemic, ordinary petition, religious dispute, or trade complaint should still feel like part of the same learned event system.
+
+Severity may affect presentation through elements such as:
+
+- warning trim;
+- sound cue;
+- NPC tone/presentation;
+- chamber lighting/effects;
+- Attention Strip severity;
+- Lord's Seal warning strength.
+
+It should not require an entirely different event UI.
+
+The intended flow is:
+
+> **NPC/event appears → event dialogue opens → player examines choices → choice becomes provisional → forecasts/consequences update → player may close dialogue and inspect the settlement → player may return and change the response → Advance Month commits the final response.**
+
+The modal presentation gives the event focus when opened, but the player is not trapped into making an immediate irreversible choice before examining the town.
+
+#### Event responses are provisional and reversible
+
+Normal event responses remain **provisional during the planning phase**.
+
+Selecting a response immediately updates predictable effects in the Live Forecast and Consequences layer.
+
+The player may then:
+
+- close the event;
+- inspect resources, housing, workforce, policies, projects, or other systems;
+- make other planning changes;
+- reopen the event;
+- select a different response.
+
+The event response becomes committed when the player advances the month unless a future exceptional mechanic explicitly requires immediate resolution.
+
+Event responses therefore participate naturally in the overall Pending Changes / Undo / Reset planning model.
+
+#### Unresolved events and automatic Ignore / No Response
+
+The Lord's Seal remains usable even when an event has not received an explicit response.
+
+If the player advances the month with an unresolved event, the event automatically resolves through its predefined **Ignore / No Response** outcome.
+
+The Ignore outcome must be visible before commitment through the event interface / hover explanation so the player is not surprised by a hidden default.
+
+The Lord's Seal and Attention Strip continue to warn about unattended events across ordinary UI presets. Guided settings may optionally add an Advance Month confirmation, while experienced players may retain one-click commitment.
+
+#### Subjective-worst Ignore rule
+
+Ignoring an event should normally be the **worst outcome from the event's own subjective perspective**.
+
+This does **not** mean Ignore must be mathematically worst for the settlement as a whole.
+
+Examples:
+
+- refugees may regard being ignored and turned away without audience as worse than an explicit refusal, even if refusing population growth is strategically useful to the town;
+- merchants may regard having their petition ignored as worse than a formal rejection, even if retaining the current tariff policy benefits the treasury;
+- an institution may suffer more from neglect than from a deliberate unfavorable ruling, even when the Lord benefits elsewhere.
+
+The game should not calculate a global utility score and artificially ensure that Ignore has the worst total strategic value.
+
+Instead:
+
+> **Ignoring represents neglect. The affected person, group, institution, or immediate problem should generally fare worse than if the Lord deliberately engaged with it.**
+
+Explicit refusal or inaction may therefore be slightly better for the event subject than being ignored.
+
+There may be cases where Ignore and an explicit negative choice are effectively similar, but skipping event interaction should not systematically grant a special advantage simply because the player refused to engage.
+
+#### Resolved events leave active UI
+
+Once an event resolves, it should leave the active inspector/event queue and become part of the settlement's historical record through the Chronicle and Monthly Outcomes where appropriate.
+
+The active inspector answers:
+
+> **What matters now?**
+
+The Chronicle answers:
+
+> **What happened before?**
+
+#### Decision 019D — Contextual Inspector, Hybrid Forecast & Unified Event Handling
+
+**Status: Mostly settled at the principle level.**
+
+The persistent Right Inspector is structured around a compact **Attention Strip**, a changing **Context Body**, and a **Hybrid Live Forecast / Consequences** layer.
+
+The Attention Strip remains visible across contexts and summarizes Critical conditions, Warnings, and unresolved Events. Its default Planning Overview expands those meaningful items without duplicating general settlement statistics or turning routine opportunities into warning spam.
+
+The header displays current state only. Hover explains, Shift + hover may expand the numerical explanation, and click directly navigates to the relevant management screen. Forecast deltas do not permanently occupy the header and planning changes do not make header values glow.
+
+The Live Forecast owns projected next-month values. Its compact view automatically promotes critical, changed, or strategically important predictions, while an expandable Full Forecast exposes all legitimately known projected information in stable categories.
+
+Consequences explain how current pending decisions changed the forecast. Changed forecast/consequence rows may briefly highlight to teach cause and effect before commitment.
+
+All events use one consistent modal NPC-dialogue framework. Severity changes warning presentation and audiovisual emphasis rather than creating separate interaction systems.
+
+Event choices are normally provisional and reversible during planning, immediately updating predictable forecasts and consequences. The player may close the event, inspect or alter the settlement, return, and change the response before committing the month.
+
+Advancing the month with an unanswered event automatically applies that event's visible **Ignore / No Response** outcome. Ignore normally represents the worst treatment of the event **from the affected party/problem's subjective perspective**, regardless of whether that outcome may incidentally be strategically favorable for the wider settlement.
+
+The Lord's Seal remains pressable with unresolved events while retaining strong visual warning language. Optional confirmation behavior remains a UI-setting concern rather than a universal blocker.
+
+When nothing else is selected, the Context Body defaults to Planning Overview. Clicking the Attention Strip always returns there. When no significant warnings or unresolved events exist, the interface explicitly communicates the all-clear rather than filling the space with redundant statistics.
+
+Exact inspector width, forecast row count, severity thresholds, change-highlight timing, event visual treatment, and final promotion algorithms remain prototype/implementation tuning.
 
 # Parked Future Systems
 
@@ -2600,13 +2915,15 @@ Potentially supports separate scoring, achievements, and records.
 
 # Continuation Point
 
-**Resume design discussion at System 19 — Map Table, UI & Information Architecture.**
+**Resume design discussion at System 19E — Central Workspace & Deep Management Views.**
 
-The structural shell is established. Subsection **19B** (tooltips, information transparency, and commitment safety) and subsection **19C** (UI customization, guidance, confirmations, header hierarchy, and settings persistence) are now **Mostly Settled at the principle level**.
+The persistent Map Table shell is established. Subsections **19B** (tooltips, information transparency, and commitment safety), **19C** (UI customization, guidance, confirmations, header hierarchy, and settings persistence), and **19D** (Right Inspector, hybrid forecasting, consequences, modal events, and unresolved-decision presentation) are now **Mostly Settled at the principle level**.
 
-Subsection **19A — Navigation & Core Planning Workflow** remains proposed rather than accepted and should not be silently promoted.
+Subsection **19A — Navigation & Core Planning Workflow** remains proposed rather than accepted and should not be silently promoted. Its proposed domain grouping can continue to serve as a working reference while 19E is designed.
 
-The next useful design subsection is **System 19D — Right Inspector, Needs Attention, Events & Decision Presentation**. Resolve how the persistent right inspector changes between general overview, warning triage, selected-item detail, forecasts, events, and unresolved decisions without becoming a vertical junk drawer. After that, return to any remaining 19A questions and other open System 19 interaction details before marking the overall system Mostly Settled.
+The next active subsection, **19E**, should resolve how deep management screens use the central workspace: how much of the town/map remains visible, whether management views replace or overlay the map, how spatial/contextual continuity is preserved, how the player returns to Overview, and how dense management tables coexist with the persistent header, inspector, and commitment bar.
+
+After 19E, return to any remaining 19A questions and other open System 19 interaction details before marking the overall system Mostly Settled.
 
 Trello is a secondary status tracker only and should be updated **only when the user explicitly asks for a Trello update**.
 
