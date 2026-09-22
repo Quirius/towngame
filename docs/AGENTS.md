@@ -3,11 +3,6 @@
 User instructions take precedence. Complete only the requested work; stop when done.
 Run commands from the `towngame/` checkout root.
 
-## Model and application
-
-Use **DeepSeek models in Copilot Chat only**. The project-root `AGENTS.md`
-permission gate applies to overrides, assignment changes, and workers.
-
 ## Task routing
 
 - Design work: search headings in [TOWNGAME_DESIGN.md](TOWNGAME_DESIGN.md),
@@ -28,4 +23,6 @@ permission gate applies to overrides, assignment changes, and workers.
 - For documentation edits, check links, content, and the diff. For code changes,
   run the narrowest meaningful checks; broaden only for concrete regression risk.
 - Do not commit, tag, push, create branches, or open pull requests unless requested.
+- At an unrelated task switch or long-session handoff, retain only the objective,
+  relevant paths, decisions, checks and next step; do not maintain a transcript.
 - Report results and material limitations briefly.
