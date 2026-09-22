@@ -8,7 +8,7 @@ task; this index does not require loading every linked document.
 | Document | Owns |
 | --- | --- |
 | [Agent workflow](AGENTS.md) | Task routing, context discipline, execution and completion |
-| [Project rules](agent-project-rules.md) | Design direction, non-negotiable behavior, testing, delegation, Git and releases |
+| [Project rules](agent-project-rules.md) | Design direction, non-negotiable behavior, testing, response style, delegation, Git and releases |
 | [Design index](DESIGN_INDEX.md) | Section locator, system status, supersede log and known numbering hazards |
 | [Targeted checks](checks.md) | What to verify for a given change |
 | [Status](status.md) | Recorded baseline and current design state |

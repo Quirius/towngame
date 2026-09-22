@@ -60,6 +60,16 @@ release rules govern publication for this repository.
 - Standing authorization to commit and push verified task changes remains in effect
   unless the user says otherwise; see
   [Git and releases](agent-project-rules.md#git-and-releases).
+- **Be as concise as possible.** Report what changed, what was verified and any
+  material limitation in the fewest lines that carry the information. Prefer short
+  bullets over paragraphs, one line per item; no preamble, no restating the request,
+  no narrating the steps taken, no closing summary of the summary.
+- State what passed as a count and scope (for example "all 18 targeted tests
+  passed"), never as a per-item walkthrough. Name the commit and branch when a
+  commit was made, on one line.
+- Include a precise next step, and only the caveats that change what the reader does.
+- Expand only when asked, when a failure needs diagnosis, or when the user must make
+  a decision.
 - Report results, checks and material limitations briefly; mention Git actions when
   performed and model changes/fallbacks only when relevant.
 - At an unrelated task switch or long-session handoff, keep only the objective,

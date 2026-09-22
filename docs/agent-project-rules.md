@@ -42,6 +42,23 @@ design work merely because a section exists for them.
 - A check that does not run, or that matches nothing, is not a pass.
 - Report what was checked and what remains unverified.
 
+## Response style
+
+Answers in chat should be **as concise as possible**. This is a standing preference,
+not a per-request setting.
+
+- Lead with the result. No preamble, no restating the request, no narrating the
+  process, no summary of the summary.
+- Short bullets, one line per item. Prefer a count and a scope to a walkthrough:
+  "All 18 targeted tests passed", not a list of each test.
+- Name the commit and branch on one line when a commit was made.
+- Include the next step, and only the caveats that would change what the reader does.
+- Keep reasoning, alternatives and rejected options out unless they are needed for a
+  decision. Offer detail instead of including it.
+- Expand only when asked, when something failed and needs diagnosis, or when the user
+  has to choose.
+- Never pad with restatements of the rules above or of work already reported.
+
 ## Delegation
 
 - Use a subagent only for bounded, genuinely harder work, and use the lowest
