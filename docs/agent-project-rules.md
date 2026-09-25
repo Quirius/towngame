@@ -69,9 +69,9 @@ not a per-request setting.
   owns, the applicable rules and an acceptance check. Avoid overlapping edits, whole
   document copies and recursive delegation. A subagent returns paths, checks and
   blockers briefly.
-- Subagents change thinking effort within the assigned model. They are not a way to
-  change model provider or application, and must not be used to bypass the repository
-  assignment in `AGENTS.md`.
+- Subagents change thinking effort within the assigned model. They still work if the
+  current provider/application differs from the suggested one in `AGENTS.md`; that
+  suggestion is advisory and never a reason to block or refuse a task.
 - Recommend a different model or effort setting only when the coordinator needs it
   throughout the task. Never claim an unverified model, reasoning level or capability.
   Never claim token or cost savings.
