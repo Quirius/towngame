@@ -61,20 +61,21 @@ not a per-request setting.
 
 ## Delegation
 
-- Use a subagent only for bounded, genuinely harder work, and use the lowest
-  thinking-effort setting that suffices. Preferred escalation, in order: a subagent
-  with increased thinking effort for search, documentation and mechanical work; then
-  for difficult design reasoning or conflict resolution between superseding sections.
-- Prefer one subagent for a small task. Give it a fresh context, the exact sections it
-  owns, the applicable rules and an acceptance check. Avoid overlapping edits, whole
-  document copies and recursive delegation. A subagent returns paths, checks and
-  blockers briefly.
-- Subagents change thinking effort within the assigned model. They still work if the
-  current provider/application differs from the suggested one in `AGENTS.md`; that
-  suggestion is advisory and never a reason to block or refuse a task.
-- Recommend a different model or effort setting only when the coordinator needs it
-  throughout the task. Never claim an unverified model, reasoning level or capability.
-  Never claim token or cost savings.
+- The main GPT-6 Astra agent should use GPT-6 Sol and GPT-6 Luna subagents broadly
+  when applicable skills and task shape make delegation more efficient. Keep trivial,
+  tightly coupled or coordination-heavy work with Astra. Parallelize independent
+  subtasks when that shortens the critical path without creating conflicting edits.
+- Prefer GPT-6 Luna for bounded, straightforward research, source inspection and
+  mechanical documentation tasks. Prefer GPT-6 Sol for coding, debugging and
+  technical review. Astra retains orchestration, integration and hard or ambiguous
+  design decisions. Choose the least effort setting that can complete each scope.
+- Give each agent a fresh, minimal context, the precise task and files or sections it
+  owns, applicable rules, and a clear acceptance check. Keep scopes bounded and
+  nonoverlapping; avoid whole-document copies and recursive delegation. The agent
+  reports its result, paths, checks and blockers briefly for Astra to integrate.
+- Do not invent efficiency gains: delegate when the expected parallel progress or
+  focused expertise outweighs setup and integration overhead. Never claim unverified
+  model, reasoning level or capability.
 
 ## Git and releases
 

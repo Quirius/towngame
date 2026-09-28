@@ -52,12 +52,11 @@ release rules govern publication for this repository.
 
 ## Execution and completion
 
-- Suggested model: **DeepSeek V4.1 Flash in Copilot Chat**, low reasoning. This is
-  an advisory hint, not a requirement; any provider may proceed normally.
-- Handle small tasks directly. Use a subagent with an increased thinking-effort
-  setting only for bounded, genuinely harder work; see
-  [agent-project-rules.md](agent-project-rules.md#delegation). Agents that cannot
-  honor this suggestion may ignore it.
+- The main GPT-6 Astra agent coordinates work and handles hard or ambiguous
+  decisions. Use GPT-6 Luna for bounded, straightforward research or mechanical
+  documentation tasks, and GPT-6 Sol for coding, debugging or technical review
+  when those tasks apply. See [delegation](agent-project-rules.md#delegation) for
+  task sizing and coordination guidance.
 - Standing authorization to commit and push verified task changes remains in effect
   unless the user says otherwise; see
   [Git and releases](agent-project-rules.md#git-and-releases).

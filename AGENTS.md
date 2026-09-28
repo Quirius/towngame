@@ -2,10 +2,14 @@
 
 ## Model and application notes
 
-Preferred: **DeepSeek models in Copilot Chat**. This is an advisory hint, not an
-access restriction. Any agent or provider may work in this repository; if the
-current provider/application differs, just proceed normally. Do not block work,
-ask the user to switch, or refuse a task because of the provider.
+Prefer GPT-6 Astra as the main coordinator. Use GPT-6 Sol and GPT-6 Luna subagents
+extensively when Astra judges their skills applicable and expected usage efficiency
+improves. Delegate bounded subtasks: prefer Luna for straightforward
+research and mechanical documentation work, and Sol for coding, debugging and
+technical review. Astra owns orchestration and difficult or ambiguous decisions.
+Delegate when the applicable skills and task shape make the added coordination
+worthwhile; handle trivial or tightly coupled work directly.
+These preferences do not block work when only other suitable models are available.
 
 Read [docs/AGENTS.md](docs/AGENTS.md) once per session for this repository's
 workflow and task routing. Load only the referenced sections needed for the task;
