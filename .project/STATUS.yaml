@@ -1,0 +1,38 @@
+schema_version: 1
+project_id: "towngame"
+name: "TownGame"
+repository: "Quirius/towngame"
+status: "Planning"
+description: "Design-stage roguelite medieval settlement strategy game governed in monthly turns."
+objective: "Complete the Map Table and information architecture design, beginning with System 19E."
+phase: "System 19 design"
+progress:
+  percent: null
+  basis: "unknown"
+  rationale: "The pushed design records system status but no scoped human assessment of overall project completion."
+next_action: "Design System 19E: central workspace and deep management views."
+updated_at: "2026-10-02T12:53:58Z"
+source:
+  branch: "main"
+  commit: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
+  verified_at: "2026-10-02T12:53:58Z"
+summary:
+  completed:
+    - "The design document records accepted or mostly settled principles through System 19D; these are design decisions, not implemented game features."
+  in_progress:
+    - "System 19 is currently being designed; System 19E is the next active subsection."
+  blockers: []
+  open_questions:
+    - "System 19A navigation remains proposed; its final domain grouping needs acceptance."
+    - "The final collapse trigger in System 07 is reopened."
+    - "The Church–Lord control and legitimacy model in System 18 needs later design."
+evidence:
+  - path: "README.md"
+    ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
+    note: "Repository is design only, with no source, build, or tooling configuration."
+  - path: "docs/DESIGN_INDEX.md"
+    ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
+    note: "System status, current work at 19E, and superseded design rules."
+  - path: "docs/TOWNGAME_DESIGN.md"
+    ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
+    note: "Authoritative design snapshot and continuation point."
