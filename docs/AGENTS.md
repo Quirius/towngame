@@ -52,11 +52,12 @@ release rules govern publication for this repository.
 
 ## Execution and completion
 
-- The main GPT-6 Astra agent coordinates work and handles hard or ambiguous
-  decisions. Use GPT-6 Luna for bounded, straightforward research or mechanical
-  documentation tasks, and GPT-6 Sol for coding, debugging or technical review
-  when those tasks apply. See [delegation](agent-project-rules.md#delegation) for
-  task sizing and coordination guidance.
+- Prefer **GPT-6.1 Sol** or **GPT-6 Astra** as the main coordinator. Use
+  **GPT-6 Luna** subagents for coding, light work, and independent critical review
+  wherever needed to improve token efficiency. The coordinator focuses on broader
+  decisions and especially heavy tasks, and owns integration and final validation.
+  Follow [agent-project-rules.md](agent-project-rules.md#delegation) for bounded delegation.
+  Other available suitable models may proceed without blocking work.
 - Standing authorization to commit and push verified task changes remains in effect
   unless the user says otherwise; see
   [Git and releases](agent-project-rules.md#git-and-releases).

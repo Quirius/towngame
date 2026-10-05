@@ -2,14 +2,18 @@
 
 ## Model and application notes
 
-Prefer GPT-6 Astra as the main coordinator. Use GPT-6 Sol and GPT-6 Luna subagents
-extensively when Astra judges their skills applicable and expected usage efficiency
-improves. Delegate bounded subtasks: prefer Luna for straightforward
-research and mechanical documentation work, and Sol for coding, debugging and
-technical review. Astra owns orchestration and difficult or ambiguous decisions.
-Delegate when the applicable skills and task shape make the added coordination
-worthwhile; handle trivial or tightly coupled work directly.
-These preferences do not block work when only other suitable models are available.
+Prefer **GPT-6.1 Sol** (`gpt-6.1-sol`) or **GPT-6 Astra** (`gpt-6-astra`)
+as the main coordinator. Both should use **GPT-6 Luna** (`gpt-6-luna`)
+subagents for coding, light work, and independent critical review wherever needed
+to improve token efficiency. Keep Luna scopes bounded, with clear ownership,
+minimal context, and concrete acceptance checks. The main coordinator should
+focus on broader decisions and especially heavy tasks, retaining responsibility
+for integration and final validation. Escalate difficult or unresolved work to
+the coordinator. Keep trivial work local only when delegation overhead would
+outweigh the expected savings; never claim unmeasured token savings.
+
+These model preferences do not restrict access or block work when only other
+suitable models are available.
 
 Read [docs/AGENTS.md](docs/AGENTS.md) once per session for this repository's
 workflow and task routing. Load only the referenced sections needed for the task;

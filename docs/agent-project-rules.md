@@ -61,18 +61,21 @@ not a per-request setting.
 
 ## Delegation
 
-- The main GPT-6 Astra agent should use GPT-6 Sol and GPT-6 Luna subagents broadly
-  when applicable skills and task shape make delegation more efficient. Keep trivial,
-  tightly coupled or coordination-heavy work with Astra. Parallelize independent
-  subtasks when that shortens the critical path without creating conflicting edits.
-- Prefer GPT-6 Luna for bounded, straightforward research, source inspection and
-  mechanical documentation tasks. Prefer GPT-6 Sol for coding, debugging and
-  technical review. Astra retains orchestration, integration and hard or ambiguous
-  design decisions. Choose the least effort setting that can complete each scope.
+- Prefer **GPT-6.1 Sol** (`gpt-6.1-sol`) or **GPT-6 Astra** (`gpt-6-astra`)
+  as the main coordinator. Both should use **GPT-6 Luna** (`gpt-6-luna`)
+  subagents for coding, light work, and independent critical review wherever needed
+  to improve token efficiency. Keep Luna scopes bounded, with clear ownership,
+  minimal context, and concrete acceptance checks. The main coordinator should
+  focus on broader decisions and especially heavy tasks, retaining responsibility
+  for integration and final validation. Escalate difficult or unresolved work to
+  the coordinator. Keep trivial work local only when delegation overhead would
+  outweigh the expected savings; never claim unmeasured token savings.
+- Use the lowest sufficient reasoning effort. Parallelize independent work when
+  useful, accounting for setup, context transfer, coordination and review costs.
 - Give each agent a fresh, minimal context, the precise task and files or sections it
   owns, applicable rules, and a clear acceptance check. Keep scopes bounded and
   nonoverlapping; avoid whole-document copies and recursive delegation. The agent
-  reports its result, paths, checks and blockers briefly for Astra to integrate.
+  reports its result, paths, checks and blockers briefly for the coordinator to integrate.
 - Do not invent efficiency gains: delegate when the expected parallel progress or
   focused expertise outweighs setup and integration overhead. Never claim unverified
   model, reasoning level or capability.
