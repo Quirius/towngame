@@ -35,6 +35,8 @@
 > - System 07: the old prototype rule `100% Unrest = immediate Game Over on month resolution` is **reopened**. The current direction is to explore an imminent/probabilistic overthrow state that may interrupt the following planning phase.
 > - System 16 supersedes the older Systems 10–11 LP-conversion direction: **Score → Legacy Points is now linear or near-linear**, while escalating challenge and increasingly expensive Legacy talents provide the long-term progression curve.
 > - Full permanent meta progression is provisionally aimed at roughly **30–50 runs**, subject to actual run length and playtesting.
+> - **System 19E supersedes the earlier notion of a completely fixed Map Table shell.** The header and Lord's Seal stay visible across Map Table navigation; navigation, central workspace, inspector/forecast presentation, and other controls may reorganize for deep management.
+> - System 19E is **currently designing**: navigation, transition and deep-page grammar are agreed in direction, while control-component patterns, precise layouts and final architecture remain open.
 
 
 > Living design document. This file records accepted design decisions and important unresolved ideas.
@@ -1858,13 +1860,13 @@ Advanced religious systems should unlock gradually to avoid early-game feature b
 
 ## System 19 — Map Table, UI & Information Architecture
 
-**Status: CURRENTLY DESIGNING. The reference hierarchy is defined. System 19 is being refined through focused subsections. 19A (Navigation & Core Planning Workflow) remains proposed. 19B (Tooltips, Information Transparency & Commitment Safety), 19C (UI Customization, Guidance & Confirmations), and 19D (Right Inspector, Forecasts, Events & Decision Presentation) are now mostly settled at the principle level. 19E (Central Workspace & Deep Management Views) is the next active design subsection. Exact density, grouping, component sizing, and workflows must still be validated in prototype playtests.**
+**Status: CURRENTLY DESIGNING.** The reference architecture remains a testable direction rather than final pixel layout. **19A** (Navigation & Core Planning Workflow) remains proposed, even though some navigation principles were further refined in 19E. **19B** (Tooltips), **19C** (Customization) and **19D** (Inspector, Forecasts & Events) are Mostly Settled at the principle level. **19E** (Central Workspace & Deep Management Views) is currently designing, with agreed direction for adaptive screens, Escape hierarchy, subnavigation, the always-available Seal, fast transitions and common deep-page structure. Its next unresolved area is interaction components and density (19E-4).**
 
 System 19 treats the interface as a **testable reference architecture**, not final pixel placement.
 
 ### Full-screen Map Table shell
 
-The Map Table uses one persistent full-screen shell:
+The Map Table uses a common full-screen **reference layout**, especially on Overview, comprising:
 
 1. **Global Status Header**
 2. **Left Navigation Rail**
@@ -1891,6 +1893,8 @@ Conceptual hierarchy:
 │ Pending Changes | Undo | Reset | LORD'S SEAL / NEXT │
 └──────────────────────────────────────────────────────┘
 ```
+
+**Later 19E superseding clarification:** this diagram describes the **Overview/reference arrangement**, not a rule that each region must remain fixed in every management screen. **Only the Global Header and Lord's Seal must remain visibly accessible throughout Map Table navigation.** Other parts may change position, size or presentation depending on the active task; their known information and functionality must remain accessible.
 
 ### Global Status Header
 
@@ -1931,7 +1935,7 @@ Other management domains may replace or overlay parts of this workspace while ke
 
 The town itself remains a major progress indicator and should eventually support contextual overlays.
 
-### Persistent Right Inspector
+### Right Inspector (Overview/reference position; adaptive placement in deep management)
 
 The right inspector provides context for whatever the player is doing.
 
@@ -1959,14 +1963,14 @@ Event decisions and AP interventions should immediately feed into the live forec
 
 ### Bottom Commitment Bar
 
-The lower area permanently groups:
+On the Overview/reference layout the lower area groups:
 
 - Pending Changes
 - Undo
 - Reset
 - the Lord's Seal / Advance Month action
 
-The player should always understand whether their current plan differs from the month's starting state before committing.
+The player should always understand whether their current plan differs from the month's starting state before committing. **19E later clarifies that the Lord's Seal itself stays visible/usable in all Map Table views; other bottom controls may reorganize according to workspace.**
 
 ### Information depth
 
@@ -2016,7 +2020,7 @@ System 19 should be revised based on observed player behavior rather than treate
 ### Current open questions for System 19
 
 - System 19A remains proposed: exact top-level navigation domains and final grouping still need deliberate acceptance.
-- System 19E must resolve how the central town/map workspace behaves when deep management views are open: replacement, overlay, retained spatial context, and navigation back to Overview.
+- System 19E has established the adaptive central-workspace direction, top-level/subpage navigation, Escape hierarchy, Seal persistence and deep-page grammar. Still open: exact interaction components (19E-4), density, responsive sizing, detailed transitions and edge-case navigation.
 - Exact scaling behavior for alternative resolutions should not be painted into a corner, although mobile is not a primary target.
 - Keyboard shortcuts and high-speed interaction should be considered because a future optional Timed/Pressure Mode may exist.
 - Exact transition between first-person chamber interaction and the full-screen Map Table remains open.
@@ -2880,6 +2884,215 @@ When nothing else is selected, the Context Body defaults to Planning Overview. C
 
 Exact inspector width, forecast row count, severity thresholds, change-highlight timing, event visual treatment, and final promotion algorithms remain prototype/implementation tuning.
 
+---
+
+### System 19E — Central Workspace, Navigation & Deep Management Views
+
+**Status: CURRENTLY DESIGNING.** Subsections 19E-1 through 19E-3 record the user's agreed direction and refinements; they do **not** imply final acceptance of all of System 19E. The exact catalogue of interaction components (19E-4), responsive layout, control density, some special-case navigation and prototype validation remain open. The proposed seven top-level domains inherited from 19A remain **provisional** until 19A itself is explicitly resolved.
+
+#### Problem and design purpose
+
+Overview should reward players by showing the settlement and its changing physical condition. Deep management, however, will increasingly need legible tables, controls, lists, comparisons and precise breakdowns. Keeping the town always on-screen could cripple those screens; removing every physical cue might turn the game into a generic spreadsheet UI.
+
+The guiding direction is **a shared Map Table identity with a task-adaptive workspace**. Maintain orientation and quick access to current-state information and the monthly commitment action, but do not make dense management sacrifice space merely to preserve a decorative view of the town.
+
+#### 19E-1 — Adaptive workspace and domain ownership (agreed direction)
+
+- **Overview** is the default monthly strategic home, with the town/map serving as its primary visual content and as a navigation surface. It communicates settlement growth, geography, buildings, prosperity, damage, seasons and other visible conditions as later art systems permit.
+- **Deep management domains** may partly or fully replace the visual town in the central workspace. A permanent mini-map is **not required** in deep views.
+- Different domains may use task-suited surfaces: data tables, ledgers, project lists, architectural plans, cards, maps, diagrams, timelines or chronicle documents. They need a coherent overall look rather than an identical content template.
+- Overview map objects are **contextual entry points**, not manual placement tools. Hover explains and click enters the relevant management screen. For example, clicking a Quarry can open its Development detail, and clicking a Food header value goes directly to Economy's Food management.
+- Spatially meaningful domains may offer **Map / List** or suitable alternative views. Town overlays (e.g. housing, infrastructure, production, risk) should primarily **display information and route the player** rather than duplicate full management functionality.
+- **One underlying planning state** must back every representation of an editable quantity: worker allocation shown in People and Development, for example, cannot become two separately synchronized versions of the same decision.
+
+Illustrative domain surfaces, not an approved final catalogue:
+
+| Domain | Illustrative central workspace |
+|---|---|
+| Overview | Town/map view, spatial labels and overlays |
+| People | Census, demographics and workforce controls |
+| Economy | Resources, production, trade and treasury tables/ledgers |
+| Development | Project lists, plans, contextual town/map overlay |
+| Governance | Policies, laws, decrees and institutional cards |
+| Region | Geographic map, routes and market connections |
+| Chronicle | Records, history, monthly outcomes and documents |
+
+These domain names and groups are the **19A proposal**, not a new acceptance of 19A.
+
+#### 19E-1 — What remains fixed (user refinement; supersedes earlier shell rigidity)
+
+The **Global Status Header** is the only whole interface *region* guaranteed to preserve its structural position while navigating. It shows the established current-state hierarchy (Date/Season + AP; Population and unlocked resources; Unrest/Legitimacy; Climate Outlook and Challenge Tier). It shows **current state only** and does not glow or display changes when forecasts move.
+
+The header may have an **optional expanded detailed current-status view** for secondary known resources or status information; its exact interaction control/layout remains to be designed. A click on a header resource still deep-links to management; it must not simply pop up a tooltip. Hover explains; Shift+hover can reveal an expanded non-interactive tooltip. Expanding the header should not create a competing forecast table.
+
+**The Lord's Seal is the additional exceptional persistent control**. It must be **visible, hoverable and usable from every Map Table screen**; the player never needs to return to Overview to advance a month. Its particular anchoring/presentation can coexist with reflowing deep pages, but its access is never hidden behind menu navigation.
+
+Other regions—navigation, selected-item detail, Attention Strip, forecast/consequences, undo/reset/pending summaries—may **reorganize in size and placement** to suit the active management view. Their underlying known information and actions must remain accessible consistent with Systems 19B–19D. The Right Inspector's tripartite conceptual structure remains valid for its normal Overview presentation but is not required to occupy a fixed-width column on every dense management page.
+
+Seal visual risk language carries across views and normal UI presets. It can glow for unattended events, serious predictable danger, unused AP or other relevant risks; hovering explains the reason. One-click commitment remains available by default, subject only to optional player-configured confirmations. Neither unanswered events nor a deep menu blocks the Seal. If the player seals with unanswered events, the established visible Ignore outcomes apply.
+
+#### 19E-1 — Left navigation and subpages
+
+- The left side carries a small, stable set of top-level **domains** (names remain proposed under 19A).
+- Clicking/entering a domain reveals its major subpages **beneath that domain in the left rail**.
+- Prefer that only the active domain's subpages are expanded. Hide systems that have not yet unlocked.
+- Keep the left rail **shallow**: domain → major subpage. Deeper context (specific resource, item, project, import order) appears **inside the central workspace**, not as indefinitely nested flyout navigation.
+- Breadcrumbs clarify where the player is, especially after direct links from headers, warnings, map objects and cross-domain references. Several entry paths should lead to the **same canonical management page** rather than separate copies of Food or Quarry management.
+
+Illustrative active navigation (groupings not yet finally approved):
+
+```text
+Overview
+People
+Economy                    ← active
+    Overview
+    Resources
+    Production
+    Trade
+    Treasury
+Development
+Governance
+Region
+Chronicle
+```
+
+In Economy > Resources, Food/Wood/Stone/Coin may be central-workspace tabs, rows or selected detail instead of another permanently nested left-rail level. Exact presentation of deeper content remains open.
+
+#### 19E-1 — Escape hierarchy and navigation reset
+
+**Escape is a consistent 'move one level outward' command**, not merely a browser-style history button:
+
+```text
+Event / modal open   --Esc--> close modal without deciding (event remains accessible)
+Detail open          --Esc--> parent subpage
+Major subpage        --Esc--> domain landing view
+Top-level domain     --Esc--> Overview town/map
+Overview             --Esc--> exit Map Table into first-person ruling chamber
+```
+
+The exact behavior of minor selection panels/overlays will be specified during interaction design. Escape should not silently discard provisional planning decisions. A separate back control/history affordance may assist navigation, but Escape follows **semantic depth** rather than the precise trail of visited links.
+
+**Initial behavior is reset-on-return.** If the player leaves Economy > Trade for Development and later re-enters Economy, Economy opens at its default landing view, rather than silently restoring Trade. Remembering the last subpage is **deferred, not rejected**; revisit after testing whether repeated cross-domain navigation becomes tedious. This resets navigation/view selection, **not** the simulation's current provisional planning changes.
+
+#### 19E-2 — Fast thematic workspace transitions (agreed direction)
+
+The Map Table should feel like a single physical place in which the Lord examines different representations, without imposing slow theatre on repeated management.
+
+- **Ruling Chamber ↔ Map Table** may use an atmospheric physical move/zoom/interaction.
+- **Overview ↔ top-level domain** may use a very short thematic fade, change of material, parchment/ledger transformation or comparable subdued cue.
+- **Major subpage ↔ subpage** should be near-instant.
+- **Item/detail navigation** should be instant in feeling.
+- Animation length/pacing is a **settings** concern under 19C; reduced/instant modes must be supported.
+- Transitions **must not block input**. Rapid clicks, subpage changes and keyboard actions should still be accepted while a decorative transition is finishing.
+
+The intent is not to force everything into one parchment template. An Economy ledger, People census roll, Development plan, Governance decree, regional chart and Chronicle manuscript may look different while remaining consistent with the same visual language.
+
+#### 19E-3 — Shared deep-management page grammar (agreed direction; implementation open)
+
+Pages should share a **recognizable information and action hierarchy**, while selecting the right presentation for each domain:
+
+```text
+┌─────────────────────────────────────────────────────┐
+│ PAGE HEADER / BREADCRUMB                            │
+│ Economy > Resources > Food                          │
+├─────────────────────────────────────────────────────┤
+│ SMALL LOCAL SUMMARY                                │
+│ Current | Capacity | Status | Main constraint      │
+├──────────────────────────────┬──────────────────────┤
+│ PRIMARY MANAGEMENT SURFACE   │ OPTIONAL LOCAL       │
+│                              │ SELECTED-ITEM DETAIL │
+│ tables / controls / list     │ item information     │
+│ cards / maps / diagrams      │ relevant controls    │
+│                              │ secondary actions    │
+└──────────────────────────────┴──────────────────────┘
+```
+
+This is a **central-workspace grammar**, not a rule that its panes must occupy exactly those sizes or positions. The global status header and persistent Lord's Seal remain outside the local page content.
+
+**Page header/breadcrumb:** clearly identifies domain, subpage and chosen detail, e.g. `Economy > Resources > Food` or `Development > Projects > South Levee`. Local view-mode switches may live here where useful, but avoid needless rows of nested tabs.
+
+**Small local summary:** expose the handful of **system-specific** quantities that help make the immediate decision (illustrative aim ~4–6, not a hard requirement). Example Food: stockpile, storage capacity, months of reserves, status. Example workforce: available, assigned, unassigned and specialists. Example project: progress, workers, expected monthly material use, ETA. These summaries must not become duplicate general dashboards.
+
+**Primary management surface:** should own the controls and comparative data that answer the subpage's one main management question. Choose tables for frequent row-by-row comparison; cards for discrete policy/research choices; maps where spatial distinctions matter; timelines when history matters; diagrams only when relationships benefit from visualization.
+
+**Optional local selected-item detail:** selecting a row/project may reveal status, controls and actions within the central workspace, without navigating unnecessarily. This is a **local management detail**, **not** an additional global forecasting inspector.
+
+Conceptual responsibility split:
+
+> **Header = current settlement state. Central workspace = management. Local detail = manage this selected object. Forecast/Consequences = what may change and why.**
+
+A forecast/attention surface may be integrated into the adaptive page rather than always occupying a right-hand column. The critical rule from 19D remains intact: forecast predictions and temporary changed-value glow belong to forecast/consequence presentations, **not** the persistent header.
+
+#### 19E-3 — Controls, density and information depth
+
+- **Put frequently used controls next to the value or object they change.** Examples: Quarry workforce `[-] 11 [+]`, Grain import amount `[-] 80 [+]`, Tax stance `Low | Moderate | High`.
+- Visually differentiate **status (read-only)**, **control (editable)** and **warning (risk)**. Do not require guesswork about whether a displayed number can be changed.
+- Routine controls should be **directly visible** where practical rather than hidden in `...` overflow menus. Overflow remains appropriate for infrequent secondary actions.
+- Use **progressive density**: show common values and primary actions first; use row expansion, deeper detail, Shift+hover explanation, and full forecasts for detail that does not belong on the main surface.
+- One major subpage should answer **one primary management question**, rather than collecting five unrelated tools into a dashboard. Example: Economy > Resources explains stockpiles and drivers; Economy > Trade manages imports/exports; People > Workforce manages allocations; Development > Projects manages progress, staffing and priorities.
+- Avoid decorative chart proliferation ('dashboarditis'). Charts should communicate meaningful change/trend (e.g. population history, prices, Unrest), not merely restate a handful of figures as pie charts.
+- Illustrative default density: a few prominent local summary metrics, one principal task surface, an optional selected-detail pane, and access to forecast/consequence explanation. Exact numbers and layout remain for prototype testing.
+
+Examples are **illustrative UI content, not adopted simulation balance**:
+
+```text
+Economy > Resources > Food
+Stockpile 2,840 | Capacity 4,000 | Reserve 4.1 months
+
+Production: Farms +480 | Foraging +72 | Other +60
+Consumption: Population -560 | Winter -180 | Institutions -96
+Trade: Imports +80 [-][+] | Exports -40 [-][+]
+
+Selected Farms:
+Workers 84/100 | Output +480 | Efficiency 91%
+Primary constraint: Late-autumn productivity
+```
+
+```text
+Development > Projects
+[List] [Map]
+South Levee       71% | High priority
+Aqueduct          43% | Normal
+Quarry Expansion  18% | Normal
+Market Hall       Planned
+
+Selected Quarry Expansion:
+Workers 11/20 [-][+] | Priority Normal [v]
+Progress 18% | Expected +7% this month | ETA ~8 months
+[Pause] [Cancel Project]
+```
+
+```text
+Governance > Policies
+Taxation: current stance Moderate
+[Low] [Moderate] [High]
+Changes provisionally update the Live Forecast/Consequences;
+no confirmation is required for an ordinarily reversible planning choice.
+```
+
+#### 19E safeguards and unresolved design
+
+- The visible town should remain a meaningful monthly return point, not an ornamental screen ignored after onboarding. But visual persistence must not compromise functional management density.
+- Multiple routes into a value must not cause multiple copies of its planning state, and cross-links must not strand the player in obscure navigation.
+- Avoid over-nesting in the left rail. Use deep links, breadcrumbs and an Escape ladder; measure unexpected navigation churn in prototypes.
+- Keep warning triage and consequential forecasting available in deep views even though fixed Right Inspector geometry is no longer compulsory.
+- Do not confuse 'no critical issues' in Attention with 'optimal planning'.
+- Exact typography, maximum page-summary metrics, pane sizing and stacking, narrow-window behavior, keyboard/mouse shortcuts, chart choices and whether particular views use list/map are **not yet locked**.
+- UI settings should alter visibility and pace, not simulation knowledge. The header never becomes a forecast-delta strip.
+- The Seal remains available with warning glow and hover from **all** Map Table views, including deeply nested ones. Undo and Reset remain core planning capabilities, though their exact deep-view placement may vary.
+
+#### Decision 019E — Adaptive Workspace, Navigation & Deep-Page Grammar
+
+**Status: Currently designing; agreed direction through 19E-3, final subsection not yet marked Mostly Settled.**
+
+Towngame's Map Table uses a task-adaptive central workspace. Overview centers the visible town, while management domains may replace or overlay the map with usable specialized interfaces. A small domain navigation rail expands one set of major subpages at a time; deeper selections are managed in the central workspace, with canonical deep links and breadcrumbs. Escape moves semantically outward until it closes the Map Table and returns the Lord to the ruling chamber. Re-entering a domain initially resets to its landing page.
+
+The **Global Header** remains the single structurally fixed UI region, showing current state only, potentially with an expanded current-status view. The **Lord's Seal** remains persistently visible, hoverable, warning-capable and usable from any Map Table screen. Other layout components may reorganize based on task while preserving access to their known information. Deep navigation uses brief thematic but non-blocking transitions, with pacing options.
+
+Deep management pages use a common conceptual structure—page header/breadcrumb, small local summary, primary management surface and optional selected-item detail—with controls near their affected objects, status/control/warning visual distinction, progressive density and minimal redundant dashboards.
+
+**Next active item: 19E-4 — Control Patterns, Interaction Density & Component Selection.** Resolve when to prefer tables, lists and cards; when to use stepper, slider, toggle, segmented stance, dropdown, multi-select and bulk edit; how edits show pending/undo feedback; keyboard efficiency; and cross-domain consistency. Then revisit any remaining 19E architecture conflicts and outstanding 19A questions before marking overall System 19 Mostly Settled.
+
 # Parked Future Systems
 
 These are roadmap placeholders rather than accepted designs.
@@ -2915,16 +3128,14 @@ Potentially supports separate scoring, achievements, and records.
 
 # Continuation Point
 
-**Resume design discussion at System 19E — Central Workspace & Deep Management Views.**
+**Resume design at System 19E-4 — Control Patterns, Interaction Density & Component Selection.**
 
-The persistent Map Table shell is established. Subsections **19B** (tooltips, information transparency, and commitment safety), **19C** (UI customization, guidance, confirmations, header hierarchy, and settings persistence), and **19D** (Right Inspector, hybrid forecasting, consequences, modal events, and unresolved-decision presentation) are now **Mostly Settled at the principle level**.
+The rolling document now includes the previously accepted Systems 1–17, System 18's deliberate Needs Revisit status, and the System 19 reference architecture. **19B**, **19C** and **19D** are **Mostly Settled at the principle level**; **19E** remains **Currently Designing** despite its agreed 19E-1–3 direction. **19A remains proposed**, including its illustrative final top-level domain grouping.
 
-Subsection **19A — Navigation & Core Planning Workflow** remains proposed rather than accepted and should not be silently promoted. Its proposed domain grouping can continue to serve as a working reference while 19E is designed.
+Key current 19E refinements: only the **header** is structurally fixed across Map Table navigation; the **Lord's Seal** additionally remains visible, hoverable and usable throughout; other workspace and explanatory UI can adapt. Header = current values only; forecast/consequence changes are highlighted only in their own presentation. Left-rail subpages appear under the active domain; Escape climbs outward to the ruling chamber; domain views initially reset on return; navigation transitions stay quick and non-blocking; deep management pages follow the shared local header/summary/management/detail grammar.
 
-The next active subsection, **19E**, should resolve how deep management screens use the central workspace: how much of the town/map remains visible, whether management views replace or overlay the map, how spatial/contextual continuity is preserved, how the player returns to Overview, and how dense management tables coexist with the persistent header, inspector, and commitment bar.
+Next discuss control selection and input density, then complete 19E and return to remaining 19A and other System 19 questions. Exact balance values in UI examples are illustrative, not simulation rules. Keep simulation independent from presentation; record further decisions only after the user accepts them.
 
-After 19E, return to any remaining 19A questions and other open System 19 interaction details before marking the overall system Mostly Settled.
+**Trello is secondary and should be updated only when the user explicitly asks**, as they have done for this checkpoint. Do not update it automatically during future design discussions.
 
-Trello is a secondary status tracker only and should be updated **only when the user explicitly asks for a Trello update**.
-
-When this file is supplied to a new ChatGPT conversation, treat it as the authoritative Towngame design context. Do not restart from System 12 or assume every older proposal remains current when a later revision above supersedes it.
+When supplied to a new conversation, this is the authoritative Towngame design context; do not restart from earlier systems or silently promote proposals to accepted decisions.
