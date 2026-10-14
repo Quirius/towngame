@@ -1,7 +1,7 @@
 # Towngame — Game Design
 
 
-> **AUTHORITATIVE CURRENT SNAPSHOT — through System 19**
+> **AUTHORITATIVE CURRENT SNAPSHOT — through System 21**
 >
 > This file supersedes earlier Towngame rolling design snapshots.
 > When older sections conflict with a later explicitly marked revision, the later revision wins.
@@ -29,6 +29,9 @@
 > | 17 | Starting Geography, Regions & Settlement Conditions | Mostly settled |
 > | 18 | Religion, Social Institutions & Cultural Life | **Needs revisit later** |
 > | 19 | Map Table, UI & Information Architecture | **Mostly settled — structural UI decisions accepted** |
+> | 20 | Town Visualization & Modular Presentation | **Mostly settled — passive, representative visual system** |
+> | 21 | Banking, Credit & Monetary Control | **Mostly settled — optional strategic finance and institutions** |
+> | 22 | Warfare, Armies & Regional Politics | **Currently designing — only initial options proposed** |
 >
 > **Important superseding revisions**
 >
@@ -39,6 +42,9 @@
 > - System 19A–19E, and System 19 overall, are **Mostly Settled at the architectural level**. Precise dimensions, artwork, timing, keyboard mappings, forecast thresholds and numerical balance remain for prototype testing.
 > - System 19E supersedes the earlier fixed-shell requirement. Attention and forecasts remain accessible in deep views, but their positioning is task-adaptive. The compact header remains current-state-only; only forecast/consequence displays emphasize changing predictions.
 > - System 19E-4 supersedes earlier example steppers: numerical management uses **one slider with an exact number field**; unassignable capacity is a red section of the same slider track.
+> - System 20A–20H supersede the former System 20 placeholder: the town on Overview is a **passive, non-interactive, regionally varied, representative-scale visualization**, showing the **entire town** plus immediate countryside. It grows with the simulation, displays natural changes only at month boundaries, has subtle ambient animation and no artificial highlights or cinematics. Its exact 2D/3D rendering technology remains open.
+> - System 21A–21F supersede the former System 21 placeholder: **credit is optional**, loans and political contracts have enforceable consequences but are **always breakable**, routine repayments are automatic with manual prioritization during shortages, bank independence/control can vary, and financial institutions may **fail completely**. No full currency-issuance/inflation simulator is accepted.
+> - System 22 is **not settled**. Strategic warfare and limited territorial expansion were presented as options, not approved directions.
 
 
 > Living design document. This file records accepted design decisions and important unresolved ideas.
@@ -3147,34 +3153,175 @@ The Attention Strip, hybrid forecast, detailed Full Forecast and Pending Changes
 
 > **Header = current state. Forecast = next-month predicted state. Consequences = why predictions changed. Central workspace = management. Attention = risk triage and unresolved governance. Overview's Lord's Seal = irreversible month commitment.**
 
-**Still open only for prototype/tuning:** exact layout and spacing, accessibility, font/tooltip/animation treatment, forecast promotion/severity criteria, domain subpage naming, UI resolutions and performance. System 07's collapse trigger and System 18's institutional relationship remain deliberately unresolved; System 20 town-visualization technology has **not** yet been designed or accepted.
+**Still open only for prototype/tuning:** exact layout and spacing, accessibility, font/tooltip/animation treatment, forecast promotion/severity criteria, domain subpage naming, UI resolutions and performance. System 07's collapse trigger and System 18's institutional relationship remain deliberately unresolved; System 20 visual principles are settled, but the exact rendering technology remains open.
 
 ---
 
 
-# Parked Future Systems
-
-These are roadmap placeholders rather than accepted designs.
-
 ## System 20 — Town Visualization & Modular Presentation
 
-Need a composable presentation system that can reflect population, specialization, infrastructure, prosperity, season, damage, and unrest without handcrafted images for every combination.
+**Status: MOSTLY SETTLED at design-principle level (20A–20H).** Specific art style, technology, assets, resolution-dependent readability and generation algorithms remain for prototyping.
 
-Candidate directions include modular 2D layers, pre-rendered districts, procedural sprites/meshes, low-detail 3D, or a hybrid.
+### Design role and relationship to System 19
 
-Simulation logic must remain independent of presentation.
+The settlement is a visual consequence of the simulation, not a second management game. It appears within **Overview's main town/map view** on the physical Map Table. It reflects real settlement conditions and developments but does **not** expose building-by-building commands. The Lord's Seal is always visible on that Overview view, and only there (System 19 final). Menus, Attention, Pending Changes and Forecast remain the routes to management and decision information.
+
+The player never needs to click or hover buildings, manually place ordinary houses or roads, rotate or pan the camera, or simulate individual households. No requirement to zoom or inspect structures. The wider geography and external regions belong in the Region interface. Presentation must remain decoupled from simulation rules; it reads established state, rather than inventing independent outcomes.
+
+### 20A — Passive, modular visual foundation
+
+**Status: MOSTLY SETTLED.** The town is a **passive living representation** with reusable modular components, rather than an interactive construction interface. A modular 3D miniature with a fixed/controlled camera was a preferred exploratory direction, but its rendering technology is **not** a settled constraint: layered 2D, pre-rendered 3D/districts, real-time 3D and hybrid implementations may be compared in prototypes. A low-cost content pipeline and deterministic consistency matter more than technical prestige.
+
+> Final 20A correction: earlier System 19 sketches sometimes assumed buildings on the map could be clicked for deep links. That behavior is **superseded** for the visual town. Navigation remains available through established UI controls, not through individual town models.
+
+### 20B — Hybrid growth
+
+**Status: MOSTLY SETTLED.** Settlement appearance changes in two complementary ways:
+
+- **Gradual organic growth:** population, development and economic conditions produce proportionate increases in residential density, roads, activity or productive landscape over many months.
+- **Visible milestones:** major construction, infrastructure or institutional development can noticeably change architecture, skyline, functionality and district identity, without a mandated celebratory sequence.
+
+Population, prosperity and commissioned development are independent inputs: two towns of identical population can look substantially different. Changes to actual settlement state are applied **at month resolution** and reflected when the next month begins; provisional planning does not pre-build houses or landmarks visually.
+
+### 20C — Layered identity and regional variation
+
+**Status: MOSTLY SETTLED.** Compose settlement visuals from seven broad, simulation-driven layers:
+
+1. **Geography:** region archetype, terrain, waterways, hills, forests and usable land.
+2. **Organic settlement:** housing and population represented by clusters, density and quality.
+3. **Functional buildings:** visual traces of genuinely developed productive and institutional capacity.
+4. **Infrastructure:** roads, bridges, sanitation/water systems, fortifications and similar projects when present.
+5. **Specialization:** distinguish agriculture, mining, commerce, religion, scholarship and other accepted run identities through actual development.
+6. **Prosperity and condition:** maintenance, affluence, neglect, disaster damage and recovery.
+7. **Environment and activity:** season, weather, ambient activity, public order and related atmosphere.
+
+A region archetype has **a few controlled starting layout templates**, not a single fixed map. Templates can vary river bends, settlement centers, routes and the relative positions of farming/woodland/extraction areas; controlled procedural details make runs distinct. These are **starting geography templates, not predetermined final towns**. Each run retains a persistent deterministic layout, so existing roads, town centers and major landmarks stay recognizable unless the simulation changes them. Repeated reloads must not rearrange the settlement.
+
+Regional identity is broadly persistent (geography/materials/architectural character), whereas developed identity evolves from projects, economic activity, specialization, population, infrastructure and historical setbacks. Visual structures can show construction or damage states when economical, but there is no commitment to expensive multi-stage animation for every project.
+
+### 20D — Representative scale and adaptive camera
+
+**Status: MOSTLY SETTLED.** The visual town is **representative rather than one inhabitant or simulated home per rendered structure**. Growth is conveyed through outward expansion, increasing density and architectural transformation; these can overlap. Functional developments and major milestones influence the visible cityscape appropriately.
+
+The camera uses a generally consistent view angle but **adapts framing gradually as needed to keep the entire developed town visible even in late game**. It is not a player-controlled inspection camera. More distant or less important small buildings may be visually simplified; prominent landmarks should remain recognizable. The surrounding countryside can be partially cropped to preserve whole-town readability. Development should not cause endless literal map expansion simply to represent each additional citizen.
+
+### 20E — Ambient atmosphere and condition
+
+**Status: MOSTLY SETTLED.** Prefer **subtle animation** rather than a continuously simulated population. Appropriate examples are chimney smoke, water flow, swaying vegetation, slow windmills, occasional ambient crowds/motion and seasonal/weather effects. Do not require routine citizen pathfinding, large numbers of moving agents or cart traffic. Animation intensity respects System 19 UI/motion preferences.
+
+Distinguish **persistent state** (unrepaired damage, construction, infrastructure, neglect, established landmarks and districts) from **temporary atmosphere** (snow, rain, seasonal vegetation, incidental activity and context-appropriate unrest cues). Visual signs of crises must be grounded in actual game state: a fire is not portrayed unless relevant damage or an event warrants it; unrest appearance does not mechanically generate Unrest by itself. Ambient animations may run during viewing, while substantive town state changes occur at monthly boundaries.
+
+### 20F — Natural presentation of monthly changes
+
+**Status: MOSTLY SETTLED.** **No artificial highlights, camera-guided celebrations, forced cinematics, milestone callouts or special emphasis** around completed buildings, disasters or other visual changes. The town simply appears in its new state after month advancement. The player may notice an improvement immediately or discover it later, either is acceptable. Monthly Outcomes and Chronicle already document meaningful developments.
+
+Automatic camera adaptation from 20D is for whole-town framing only, **not** for drawing attention to change. Natural ambient animation from 20E continues, with no transition that blocks input.
+
+### 20G — Representative buildings and landmarks
+
+**Status: MOSTLY SETTLED.** Use three visual classes:
+
+- **Organic structures** (homes, sheds, small incidental shops): clusters represent housing and population; they do not need individual simulation records.
+- **Ordinary functional buildings** (workshops, farms, extraction and production facilities): representative **groups or quarters** reflect actual developed capacity. For example, many simulated workshops can appear as one increasingly substantial artisan district. Exact visual building counts need not match simulated counts.
+- **Major landmarks** (cathedrals, universities, exceptional public buildings, fortifications and similar projects): generally receive individually recognizable visual manifestations that affect the skyline or settlement identity.
+
+The management system—not the drawing—is authoritative for exact capacities, workforce, building counts and condition. Representative compression is an intentional scalability feature, not an excuse to show non-existent facilities.
+
+### 20H — Entire town and immediate productive surroundings
+
+**Status: MOSTLY SETTLED.** The composition includes the **entire developed town** and enough of its **immediate surroundings** to convey agricultural fields, adjacent forest, river, quarry, approach roads and other locally relevant activity. It does **not** attempt to show the complete regional territory, satellite holdings or remote political geography. Nearby productive landscape changes in response to actual development and specialization; representative grouping applies outside the town as well.
+
+### Decision 020 — Consolidated Town Visualization
+
+**Status: SYSTEM 20 MOSTLY SETTLED.** Use a passive, compositionally modular, seeded and persistent town visualization with controlled regional templates and procedural variation. Build appearance from geography, population, developed structures, infrastructure, specialization, prosperity/condition and atmosphere. Grow organically with occasional meaningful architectural transformations, using a representative scale and an adaptive camera that always fits the complete town. Render ordinary functional capacity in grouped districts, with distinct major landmarks and immediate productive surroundings. Keep ambient animation subtle; show monthly state changes **naturally**, without artificial highlights or cinematics. Rendering technology is a later engineering/art decision. The simulation remains the sole authority over outcomes.
+
+**Implementation/prototype questions only:** 2D/pre-rendered/real-time 3D/hybrid pipeline, asset kit sizes, generator rules and seeds, camera bounds, performance/LOD, regional art variety, weather effects, asset prioritization and exact thresholds for visible growth.
+
+---
 
 ## System 21 — Banking, Credit & Monetary Control
 
-Banking/credit belongs partly to the base game and partly to Administration / Trading-Crafting.
+**Status: MOSTLY SETTLED at design-principle level (21A–21F).** The exact loan amounts, interest structure/rates, schedules, credit formulas, institutional parameters and incident probabilities need balancing. This system extends the existing Economy, Governance, Events, AP and Region systems, not a separate financial simulator.
 
-Topics include borrowing, interest, default risk, liquidity, deposits, public debt, coinage/minting, merchant finance, and anti-exploit rules preventing credit from trivializing scarcity.
+### 21A — Financial philosophy and scope
+
+**Status: MOSTLY SETTLED.** Develop a **meaningful but optional** credit and financial-institution system. Successful runs must remain possible without loans or a bank. Borrowing can finance development, emergencies or temporary treasury shortfalls; larger and commercially sophisticated settlements may find it more useful, but should not be forced to borrow.
+
+Favor a **developed financial system** (loans, lenders, reputation, institutions, political obligations and default) over either bare basic debt or a full monetary-policy simulation. **Currency issuance, inflation, complete private-deposit simulation and detailed money markets are not accepted as mandatory mechanics**. They may be reconsidered only through later explicit design. No mechanism should let the Lord create unrestricted Coin from controlled banks or repeated loan offers.
+
+Debt is primarily the exchange of **current flexibility for future obligations and reduced freedom of choice**.
+
+### 21B — Lenders, contracts and repayment
+
+**Status: MOSTLY SETTLED.** Potential lender classes include private moneylenders (small, costly, early), merchant guilds (trade-linked larger credit), nobles/political patrons (finance with political influence), and banks/advanced institutions (structured loans and larger facilities). Additional institutional lenders such as religious bodies may be considered where justified by System 18; the base four classes do not require separate mechanical subsystems for every example.
+
+Contracts clearly display:
+
+- Borrowed principal and usable Coin received.
+- Total repayment and cost, including the applicable interest/fees.
+- Time to maturity and any monthly installment schedule.
+- Collateral, privileges, policies, political concessions and special conditions if any.
+- Consequences for lateness, default and voluntary early repayment where permitted.
+
+Support **monthly installments** and **lump-sum repayment at maturity** as basic forms. Scheduled repayments are handled automatically at month resolution. Early repayment may be offered where the contract allows it. New credit depends on lender capacity, existing obligations, treasury conditions and the Lord's history/relationships. Default does not produce an immediate, arbitrary Game Over.
+
+Illustrative examples (e.g. 1,000 Coin borrowed, 1,200 total, 12 monthly installments) **are not final balance values**.
+
+### 21C — Political loans and breakable obligations
+
+**Status: MOSTLY SETTLED.** Lenders may attach specified **political or economic concessions** to favorable financing: trade tariff exemptions, noble tax privileges, patronage, support commitments, charity funding, guaranteed market access or related policies. Such agreements have concrete disclosed terms, often lasting a stated duration, and are tracked through the established Economy/Governance systems rather than a separate politics minigame.
+
+**Every contract may be broken deliberately.** The player is never hard-locked out of changing a policy simply because a lender required it. Instead, breaking the agreement can trigger contractual penalties, relationship loss, credit impairment, retaliation, Legitimacy/Unrest changes or events. A breach may be strategically justified but potentially disastrous.
+
+Active obligations appear on Loans and their relevant canonical policy screens; tooltips, Pending Changes, Attention and Forecast expose the known direct costs and credible risks. Lender-specific credit limits and reputation constraints prevent infinite borrowing, but **no universal arbitrary debt ceiling** forbids a sufficiently risky special offer supported by actual lender interests. Optional refinancing and replacement credit can exist, with costs and risks.
+
+### 21D — Creditworthiness, default, restructuring and hybrid payment priority
+
+**Status: MOSTLY SETTLED.** Lenders respond gradually to worsening conditions: reliable repayment can improve terms; strained treasury and mounting exposure make new offers less attractive; missed obligations create penalties and lender pressure; repeated or serious nonpayment can result in default, restructuring demands, reduced access to credit and political/economic fallout. A wider financial crisis may follow multiple defaults, but no fixed 'three missed payments = defeat' rule is imposed.
+
+Distinguish **general credit reputation** (repayment history, available funds, debt load, economic stability) and **relationships with specific lenders** (trust, patronage, betrayal and past dealings). Qualitative lender assessments such as *Trusted*, *Uncertain* or *High Risk*, supported by tooltips, are preferred to an obligatory prominent numerical credit score.
+
+Players may seek refinancing, negotiated term extensions, higher-cost replacement debt, non-monetary political restructuring or voluntary default. Lenders need not agree to restructuring, and terms can become progressively less generous.
+
+**Repayment is hybrid:** normal scheduled payments are automated in a predictable **configurable priority order**. When Coin is insufficient, players may intervene before month resolution to prioritize specific creditors or direct partial payments **where contracts allow**. Failing to intervene lets the known default order operate, and shortages generate their specified consequences. This must remain compatible with the month-start provisional plan, Pending Changes and Full Forecast rather than requiring a separate payment minigame each month.
+
+### 21E — Financial institutions and variable political control
+
+**Status: MOSTLY SETTLED.** Financial institutions emerge progressively with economic/commercial and institutional development, not only through raw population milestones. A Lord may charter, support, regulate, influence and, when conditions permit, effectively control a bank. Banks are **abstract independent or semi-independent institutions**, not player-operated teller desks or an individual depositor/transaction simulation.
+
+Use **variable institutional control**, potentially changing during the run:
+
+- **Independent bank:** stronger autonomy and potentially greater market/external creditor confidence; less automatically willing to support high-risk government projects.
+- **Politically influenced bank:** can be steered toward preferred investments or negotiated favorable government financing, at some credibility or independence cost.
+- **Lord-controlled bank:** greater direction over credit priorities, but concentrated financial risk, interference and potentially reduced market confidence.
+
+Influence can develop through laws, appointments, ownership relationships, public assistance and other established governance methods, without requiring a fully separate management system. A bank may become a recognizable landmark (System 20). Banking can improve access to finance and broader commercial productivity/investment through transparent aggregate modifiers; **do not simulate private retail banking** in detail. Even controlled institutions face limited financing capacity and obligations; no free Coin creation.
+
+### 21F — Financial crises, bailouts and complete bank failure
+
+**Status: MOSTLY SETTLED.** Financial institutions may become strained from losses, excessive lending, poor conditions, political interference and events. Prefer readable underlying condition, confidence, political exposure and importance to the economy; no detailed account-by-account bank balance sheet is required.
+
+Possible Lord responses include **financial support/bailout**, **guarantees** (potential future liabilities), **institutional reforms**, **increased control**, **negotiated restructuring** or **deliberate non-intervention**. These are expressed through existing decisions, events, policies, projects and AP as appropriate. Bailouts are **never mandatory**.
+
+**Banks may fail completely and disappear as operating institutions.** Failure ends their financial services and can severely disrupt trade, credit supply, confidence, development and related political/economic conditions according to the bank's actual importance and the Lord's exposure. Failure is **not** an immediate automatic Game Over. Establishing a new bank later may be possible, but lost credibility and damage may persist for years. A settlement without a bank cannot suffer a fictitious bank failure merely because it reached a certain difficulty tier.
+
+### Decision 021 — Consolidated Banking, Credit & Monetary Control
+
+**Status: SYSTEM 21 MOSTLY SETTLED.** Banking and borrowing are optional strategic tools, not required milestones or a full monetary simulation. Lenders vary in interests and capacity; loans have transparent financial and sometimes political obligations, all voluntarily breakable for consequences. Missed payments and broken agreements cause escalating, context-specific reputational, fiscal and political problems rather than an arbitrary game-over threshold. Automatic scheduled repayments use a configurable priority, with optional manual redistribution/partial payments during shortages. General credit reputation and lender-specific relationships govern offers and restructuring. Institutions can be independent, influenced or controlled, and may enter crisis or **fail completely**; rescue is a strategic choice, not a forced obligation. Preserve integration with Economy, Governance, Attention, Forecast, Events, the monthly plan and the roguelite commitment rules.
+
+**Balance/prototype questions:** specific loan sources and unlocks; rates, installment maths, penalties and interest compounding; lender lending-capacity model; interaction with insolvency and revenue; UI details; nonfinancial promises and breach severity; bank confidence and contagion model; rescue pricing and credit-recovery times. **Monetary issuance and inflation remain outside the accepted initial scope.**
+
+---
+
+# Parked Future Systems
+
+Systems 20 and 21 have been designed and settled above. Remaining entries are roadmap placeholders or currently open proposals.
 
 ## System 22 — Warfare, Armies & Regional Politics
 
-Possible future system covering defense, forces, logistics, fortifications, neighboring powers, raids, alliances, embargoes, tribute, and external military pressure.
+**Status: CURRENTLY DESIGNING — no direction accepted yet.** The first conversation (22A) compared abstract warfare, strategic warfare (recruitment, supply, defense, diplomacy and automatic battle resolution), and tactical warfare. **Strategic warfare was recommended, not yet approved**. Likewise, settlement-focused defense/expeditions versus optional limited territorial expansion with abstractly administered holdings was presented as a choice, **not yet decided**.
 
-It must not turn the core game into a grand-strategy title.
+Potential topics include levies/professional forces, military upkeep, fortifications, raids, terrain, logistics, alliances, neighboring powers, tribute, sanctions and politically consequential warfare. Keep the Lord focused on governing a settlement; do not silently add a full tactical game or mandatory grand-strategy conquest.
 
 ## System 23 — Timed / Pressure Mode
 
@@ -3187,14 +3334,16 @@ Potentially supports separate scoring, achievements, and records.
 
 # Continuation Point
 
-**Resume at System 20 — Town Visualization & Modular Presentation.** System 19A–19E and System 19 overall are **MOSTLY SETTLED at design-principle level**. Do **not** reopen settled interface behaviors (including the final overview-only Seal placement) without explicit user request.
+**Resume at System 22A — The Role of Warfare / Territorial Expansion.** Systems 19, 20 (A–H) and 21 (A–F) are **MOSTLY SETTLED at design-principle level**. Systems 07 (final collapse) and 18 (Church–Lord relationship) remain deliberately Needs Revisit. Exact numeric balance and implementation technology stay open.
 
-System 20's starting problem: design a feasible **composable town visual system** that conveys actual growth, regional character, specialization, prosperity, season, infrastructure, damage and unrest without requiring handmade renderings for every possible simulation state. The visual system must remain decoupled from the simulation. Compare viable 2D layered, pre-rendered district, low-poly/low-detail 3D and hybrid approaches; do not assume a final art/tech pipeline before discussing choices with the user. Distinguish illustrative concepts from accepted decisions.
+The next substantive question asked was whether warfare should stay **settlement-focused** (defense, alliances, limited expeditions) or support **optional limited territorial conquest/holdings managed abstractly through Region**, not an additional city-building simulation. The assistant recommended strategic warfare with abstract battle resolution and optional limited territorial expansion, but **the user has not chosen either option yet**. Do not promote these recommendations to accepted design without approval.
 
-Authoritative superseding UI rules: **Global Header current-state only on all Map Table screens**; **Attention/Forecast/Pending remain accessible throughout management**; **Lord's Seal only visible and usable while Overview's town/map view is active**, always visible there. Seven-domain navigation, Escape hierarchy, adaptive deep management, one capacity-aware slider with exact numeric field, reversible planning with three levels of Undo/Reset, unified modal NPC events and subjective-worst Ignore outcomes are Mostly Settled. **No separate Review Month and no manual Save**. Month-end Seal permanently commits, resolves month and autosaves next month's baseline. Leaving to chamber retains provisional planning; exiting the game discards it and reloads current month's saved beginning.
+Preserve final System 19 rules: fixed header with current state only; attention/forecast accessible in deep pages; **Lord's Seal only on Overview main map view**; hierarchical Escape; one slider with green available/red unavailable track and exact number input; Undo/Reset controls; no Review Month or manual Save; autosave next-month state after irreversible Seal and reload saved current-month beginning on quitting planning.
 
-System 07 (final collapse), System 18 (Church–Lord model), and exact balance remain deliberately unresolved. Do not silently promote later-system proposals to accepted mechanics.
+Preserve System 20's **noninteractive representative town** and natural no-highlight/no-cinematic growth presentation. The entire built-up town stays visible via adaptive camera; immediate surrounding fields, forests, roads, rivers and extraction areas may be represented, not the entire Region. Exact rendering technology remains open.
 
-**Trello board is secondary; update only when the user explicitly requests it.** The user requested a Trello update at this System 19 final checkpoint. Do not continue automatic Trello updates during the System 20 discussion.
+Preserve System 21's optional finance model: always-breakable loans/political contracts, hybrid payment priorities, lender reputation, banks with variable independence/control and possible complete failure. No full currency/inflation simulation is accepted.
 
-This is the authoritative Towngame rolling design document. Preserve previous systems, statuses, explicit superseding revisions, unresolved issues, and parked ideas when writing future versions.
+**Trello roadmap is secondary and should be updated only when the user explicitly requests it.** The user requested an update at this System 21 checkpoint. Do not silently synchronize on later design turns.
+
+This is the authoritative Towngame rolling document. Future snapshots should retain all earlier decisions, superseding revisions, statuses, unresolved issues and historical design context.
