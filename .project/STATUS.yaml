@@ -4,26 +4,28 @@ name: "TownGame"
 repository: "Quirius/towngame"
 status: "Planning"
 description: "Design-stage roguelite medieval settlement strategy game governed in monthly turns."
-objective: "Complete the Map Table and information architecture design, beginning with System 19E."
-phase: "System 19 design"
+objective: "Complete the remaining Towngame design, currently System 22 warfare and territorial options, while preserving the mostly settled Systems 19–21."
+phase: "System 22 design — warfare and regional politics"
 progress:
   percent: null
   basis: "unknown"
   rationale: "The pushed design records system status but no scoped human assessment of overall project completion."
-next_action: "Design System 19E: central workspace and deep management views."
-updated_at: "2026-10-02T12:53:58Z"
+next_action: "Resolve the open System 22A choices: settlement-focused defense versus optional limited territorial expansion; strategic warfare remains a proposal, not an accepted decision."
+updated_at: "2026-10-16T12:51:59.731Z"
 source:
   branch: "main"
-  commit: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-  verified_at: "2026-10-02T12:53:58Z"
+  commit: "ed4f667c37eb0fa192b5800be6cac8367985df6b"
+  verified_at: "2026-10-16T12:51:59.731Z"
 summary:
   completed:
-    - "The design document records accepted or mostly settled principles through System 19D; these are design decisions, not implemented game features."
+    - "Systems 19A–19E, including the final Map Table/UI consolidation, are mostly settled at design-principle level."
+    - "System 20 passive representative town visualization and System 21 optional banking and credit are mostly settled at design-principle level."
+    - "These are design decisions, not implemented or tested game features."
   in_progress:
-    - "System 19 is currently being designed; System 19E is the next active subsection."
+    - "System 22 warfare, armies and regional politics is currently being designed; neither recommended strategic warfare nor limited territorial expansion is yet accepted."
   blockers: []
   open_questions:
-    - "System 19A navigation remains proposed; its final domain grouping needs acceptance."
+    - "System 22A warfare and territorial-expansion scope is awaiting a decision."
     - "The final collapse trigger in System 07 is reopened."
     - "The Church–Lord control and legitimacy model in System 18 needs later design."
 evidence:
@@ -31,8 +33,8 @@ evidence:
     ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
     note: "Repository is design only, with no source, build, or tooling configuration."
   - path: "docs/DESIGN_INDEX.md"
-    ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-    note: "System status, current work at 19E, and superseded design rules."
+    ref: "ed4f667c37eb0fa192b5800be6cac8367985df6b"
+    note: "Updated system status through 22 and current continuation point."
   - path: "docs/TOWNGAME_DESIGN.md"
-    ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-    note: "Authoritative design snapshot and continuation point."
+    ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+    note: "Authoritative design through 21 and open 22A options."
