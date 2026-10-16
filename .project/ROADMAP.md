@@ -4,12 +4,12 @@ project_id: "towngame"
 plans:
   - id: "towngame-plan-001"
     title: "Design System 19E central workspace and deep management views"
-    state: "planned"
+    state: "completed"
     window: "Backlog"
     priority: "medium"
     due_date: null
     completed_at: null
-    details: "The documented next active design subsection must resolve map visibility, replacement versus overlay, spatial continuity, return to Overview, and dense management views within the persistent shell."
+    details: "System 19E and final System 19 consolidation are mostly settled at principle level. Overview keeps the town/map, and deep management uses a task-adaptive workspace. Exact layout remains prototype work."
     acceptance_criteria:
       - "The authoritative design document records an explicit System 19E resolution for the central workspace and deep management views."
       - "The design index and system status reflect that resolution."
@@ -17,15 +17,15 @@ plans:
     evidence:
       - path: "docs/TOWNGAME_DESIGN.md"
         ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-        note: "Continuation Point identifies 19E and its unresolved questions."
+        note: "Earlier continuation identified 19E as open, superseded by final System 19 at c05fd8a853baa56dd9c6902ef0a5df67cba51159."
   - id: "towngame-plan-002"
     title: "Resolve remaining System 19A navigation and planning workflow questions"
-    state: "planned"
+    state: "completed"
     window: "Backlog"
     priority: "medium"
     due_date: null
     completed_at: null
-    details: "System 19A is proposed, not accepted. Revisit its top-level domain grouping and planning workflow after 19E."
+    details: "The final System 19 consolidation mostly settles seven top-level domains and the planning/navigation workflow; exact prototype refinements remain open."
     acceptance_criteria:
       - "The authoritative design document explicitly accepts or revises the navigation and workflow proposal."
       - "The System 19 status and design index distinguish the resulting accepted rules from remaining open questions."
@@ -34,7 +34,7 @@ plans:
     evidence:
       - path: "docs/TOWNGAME_DESIGN.md"
         ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-        note: "System 19A is proposed and the continuation point says to return after 19E."
+        note: "Earlier 19A proposal was consolidated by final System 19 at c05fd8a853baa56dd9c6902ef0a5df67cba51159."
   - id: "towngame-plan-003"
     title: "Resolve the final collapse trigger"
     state: "planned"
@@ -67,6 +67,22 @@ plans:
       - path: "docs/TOWNGAME_DESIGN.md"
         ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
         note: "System 18 marks this model for a later revisit."
+  - id: "towngame-plan-005"
+    title: "Resolve System 22A warfare and territorial expansion scope"
+    state: "planned"
+    window: "Backlog"
+    priority: "medium"
+    due_date: null
+    completed_at: null
+    details: "The currently active System 22A presents strategic non-tactical warfare and a choice between settlement-focused defense or optional limited territorial expansion. Neither choice is yet accepted."
+    acceptance_criteria:
+      - "The owner chooses a warfare-control scope and whether optional limited territorial holdings belong in the design."
+      - "The authoritative design and index record the accepted direction and remaining detailed questions."
+    blocked_by: []
+    evidence:
+      - path: "docs/TOWNGAME_DESIGN.md"
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "System 22A continuation point leaves both scope decisions open."
 milestones: []
 ---
 
@@ -74,4 +90,4 @@ milestones: []
 
 The front matter is the reporting list. [The living design](../docs/TOWNGAME_DESIGN.md) owns the detailed proposals and accepted rules; [the design index](../docs/DESIGN_INDEX.md) locates their current status. These entries track design work only. They do not claim game implementation.
 
-No owner deadline, near-term window, or explicit project milestone was verified at the selected pushed revision. The `Backlog` and `medium` values are reporting defaults described in [the contract](README.md), not owner commitments. Parked Systems 20–23 remain parked in the design document and are not promoted to active plans here.
+No owner deadline or near-term commitment is documented. The `Backlog` and `medium` values are reporting defaults, not commitments. Systems 19–21 are mostly settled at design level; System 22 is the active proposal and System 23 remains parked.
