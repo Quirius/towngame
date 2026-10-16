@@ -117,14 +117,54 @@ decisions:
         note: "System 18 explicitly needs revisit later."
   - id: "towngame-decision-012"
     title: "System 19A navigation domains"
-    context: "The proposed top-level domains and monthly planning workflow are a working reference only."
-    state: "open"
-    resolution: null
+    context: "Previously proposed top-level domains and monthly planning workflow were consolidated by final System 19."
+    state: "resolved"
+    resolution: "Use seven mostly settled top-level domains: Overview, People, Economy, Development, Governance, Region and Chronicle. The Lord's Seal is on Overview."
     decided_at: null
     evidence:
       - path: "docs/TOWNGAME_DESIGN.md"
-        ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
-        note: "System 19A is explicitly proposed and not yet accepted."
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "Decision 019-FINAL supersedes the earlier proposed System 19A status."
+  - id: "towngame-decision-013"
+    title: "System 19 adaptive workspace and navigation consolidation"
+    context: "Earlier plans left System 19E and System 19A navigation outstanding."
+    state: "resolved"
+    resolution: "Systems 19A–19E are mostly settled at principle level: Overview remains the town/map planning hub, while deep-management screens use an adaptive workspace."
+    decided_at: null
+    evidence:
+      - path: "docs/TOWNGAME_DESIGN.md"
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "Decision 019-FINAL consolidates the UI principles."
+  - id: "towngame-decision-014"
+    title: "Passive representative town visualization"
+    context: "System 20 chooses the visual representation of settlement development."
+    state: "resolved"
+    resolution: "Use a passive representative and seeded town view showing organic growth, grouped ordinary buildings, key landmarks and natural monthly visual updates."
+    decided_at: null
+    evidence:
+      - path: "docs/TOWNGAME_DESIGN.md"
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "Decision 020 consolidates System 20."
+  - id: "towngame-decision-015"
+    title: "Optional loans and financial institutions"
+    context: "System 21 considers credit and financial institutions as part of settlement strategy."
+    state: "resolved"
+    resolution: "Use optional strategic credit with transparent obligations, reputation, political consequences, variable bank control and possible failure; do not require currency issuance or private retail banking."
+    decided_at: null
+    evidence:
+      - path: "docs/TOWNGAME_DESIGN.md"
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "Decision 021 consolidates System 21."
+  - id: "towngame-decision-016"
+    title: "System 22 warfare and territorial scope"
+    context: "System 22A proposes but does not approve strategic warfare and optional limited territorial holdings."
+    state: "open"
+    decided_at: null
+    evidence:
+      - path: "docs/TOWNGAME_DESIGN.md"
+        ref: "c05fd8a853baa56dd9c6902ef0a5df67cba51159"
+        note: "The System 22A continuation leaves warfare and territory scope open."
+
 ---
 
 # TownGame decisions
