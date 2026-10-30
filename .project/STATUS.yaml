@@ -11,13 +11,14 @@ progress:
   basis: "unknown"
   rationale: "The pushed design records system status but no scoped human assessment of overall project completion."
 next_action: "Resolve the open System 22A choices: settlement-focused defense versus optional limited territorial expansion; strategic warfare remains a proposal, not an accepted decision."
-updated_at: "2026-10-16T12:51:59.731Z"
+updated_at: "2026-10-30T23:18:43Z"
 source:
   branch: "main"
-  commit: "ed4f667c37eb0fa192b5800be6cac8367985df6b"
-  verified_at: "2026-10-16T12:51:59.731Z"
+  commit: "4e4a6f1707558524cd418e8d2716f1be8ab18e90"
+  verified_at: "2026-10-30T23:18:43Z"
 summary:
   completed:
+    - "Design index line references and status notes were corrected and agent instructions consolidated; no design decision changed."
     - "Systems 19A–19E, including the final Map Table/UI consolidation, are mostly settled at design-principle level."
     - "System 20 passive representative town visualization and System 21 optional banking and credit are mostly settled at design-principle level."
     - "These are design decisions, not implemented or tested game features."
@@ -29,6 +30,9 @@ summary:
     - "The final collapse trigger in System 07 is reopened."
     - "The Church–Lord control and legitimacy model in System 18 needs later design."
 evidence:
+  - path: "docs/DESIGN_INDEX.md"
+    ref: "4e4a6f1707558524cd418e8d2716f1be8ab18e90"
+    note: "Corrected numbering-hazard line references; system status unchanged."
   - path: "README.md"
     ref: "f63e24b9fafe0bd52788beaf3790bc90bae4d3c5"
     note: "Repository is design only, with no source, build, or tooling configuration."
