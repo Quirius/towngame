@@ -13,7 +13,7 @@ passing checks without a relevant change.
 | `TOWNGAME_DESIGN.md` | Confirm links, and confirm the section names cited in `DESIGN_INDEX.md` still resolve |
 | `DESIGN_INDEX.md` | Re-verify every cited line number against a real heading, and refresh stale line numbers |
 | Supersede log | Confirm each logged supersession matches the marked revision in the design document |
-| `docs/AGENTS.md`, task routes | Confirm each route and line reference points at the intended section |
+| `AGENTS.md` task routes | Confirm each route and section name points at the intended section |
 | Documentation only (default) | The three checks above; there is no application suite |
 
 ```sh

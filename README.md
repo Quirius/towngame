@@ -14,7 +14,8 @@ per-system status.
 
 ## Documentation
 
-- [docs/AGENTS.md](docs/AGENTS.md) — agent workflow, context and task routing.
+- [AGENTS.md](AGENTS.md) - shared agent instructions and task routing (Claude Code
+  loads it through `CLAUDE.md`).
 - [docs/agent-project-rules.md](docs/agent-project-rules.md) — project rules,
   delegation, Git and releases.
 - [docs/DESIGN_INDEX.md](docs/DESIGN_INDEX.md) — section locator, system status,

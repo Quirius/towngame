@@ -4,7 +4,7 @@ Locator for [TOWNGAME_DESIGN.md](TOWNGAME_DESIGN.md). **This index holds no desi
 facts and no status promises.** It maps section names to line numbers so a task can
 open the few sections it needs instead of reading the 3,350-line document.
 
-Read it under the task routes in [AGENTS.md](AGENTS.md) and the project rules in
+Read it under the task routes in [AGENTS.md](../AGENTS.md) and the project rules in
 [agent-project-rules.md](agent-project-rules.md).
 
 ## How to use this index
@@ -117,13 +117,14 @@ These are documentation defects, not design decisions. This index works around t
 by using section names. They are recorded here so a reader is not misled by the
 numbers in the design document.
 
-- **Duplicate `## 5`.** Line 201 is `5. Open Questions`; line 228 is
-  `5. Decision 005 — Resources and Economy`.
-- **Out-of-order Decision numbering.** `5. Decision 005` (218) precedes
-  `6. Decision 004` (259).
-- **Decision 011 appears twice.** Line 1239 is `System 11 — Meta Progression
-  Structure` (a bare placeholder); line 1267 is `Decision 011` with the real content.
-  Line 1251 states the Decision is authoritative.
+- **Duplicate `## 5`.** Line 211 is `5. Open Questions`; line 228 is
+  `5. Decision 005 - Resources and Economy`.
+- **Out-of-order Decision numbering.** `5. Decision 005` (228) precedes
+  `6. Decision 004` (269).
+- **System 11 appears three times.** `### System 11 - Meta Progression Structure`
+  (line 1232, under `## Next Design System`) and `## System 11 - Meta Progression
+  Structure` (line 1249) are topic lists; line 1267 is `Decision 011` with the real
+  content. Line 1251 states the Decision is authoritative.
 - **Several unnumbered `##` sections.** Decisions 006–017 and Systems 18–19 carry no
   number in their heading, while Decisions 001–005 do.
 - **Heading levels migrate within one family.** The Decision/System family is nested
@@ -131,13 +132,12 @@ numbers in the design document.
   `## Decision 019B`-style content sits inside `## System 19` rather than beside it.
 - **`19B` is ambiguous.** `### System 19B` (line 2087) and `#### Decision 019B`
   (line 2269) both exist. `19A` has no `#### Decision 019A` counterpart.
-- **`# Later Design Systems` (line 1342)** is an unnumbered top-level tier between
+- **`# Later Design Systems` (line 1352)** is an unnumbered top-level tier between
   `##` sections and is not in the status snapshot.
 - **System 23 is parked and absent from the top status snapshot**; System 22 is
-  the active proposal and Systems 20–21 have settled design principles.
-- **Line wrapping inside headings.** `#### Decision 019D — Contextual Inspector,
-  Hybrid Forecast & Unified Event Handling` (line 2871) is broken across two source
-  lines and will not match a single-line search.
+  the active proposal and Systems 20-21 have settled design principles.
+- **Resolved:** the `#### Decision 019D` heading (line 2871) used to wrap across two
+  source lines; it is now a single line.
 
 ## Maintenance
 

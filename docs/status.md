@@ -1,27 +1,30 @@
-# Recorded baseline
+# Current state
 
-Load when assessing current work or a matching problem. This is a factual snapshot,
-not a fresh verification. Check the current documents before relying on it; do not
-dismiss a current issue solely because something similar appears here.
+Load when assessing current work or a matching problem. Reviewed 2026-10-30 against
+the repository; per-system design status lives only in the
+[system table](DESIGN_INDEX.md#system-table) and is not repeated here.
 
-- Branch: `main`, remote `origin`. No tags. The repository holds design documentation
-  only; there is no source, build, dependency manifest or continuous integration.
+- Branch `main`, remote `origin`; no tags. The repository holds design documentation
+  only: no source, build, dependency manifest or application tests. The only
+  automation is the Project HQ freshness check (`scripts/check_project_hq_freshness.py`,
+  run by `.github/workflows/project-hq-freshness.yml`, tested in `.github/tests/`).
 
-- Documentation set: `README.md`, `docs/AGENTS.md` (workflow and task routes),
-  `docs/agent-project-rules.md` (project rules, delegation, Git and releases),
-  `docs/checks.md` (targeted checks), `docs/DESIGN_INDEX.md` (locator for the design
-  document), `docs/INITIAL_SETUP.md` (why the documentation is structured this way),
-  `docs/TOWNGAME_DESIGN.md` (the authoritative design), and this file.
+- Design progress: Systems 01-21 are mostly settled at design-principle level, with
+  07 (final collapse trigger) and 18 (Church-Lord balance) flagged for revisit and
+  numeric balancing open throughout. System 22 (warfare, armies, regional politics) is
+  being designed and is not accepted; System 23 is parked. Next step:
+  [Current work](DESIGN_INDEX.md#current-work).
 
-- Design document: nominally through System 19, with Systems 20–23 parked. Status is
-  mixed — Systems 01–06 and 10–11 accepted, 12–17 mostly settled, 07 and 18 flagged for
-  revisit, and 19 currently being designed. System 19A is proposed, 19B–19D mostly
-  settled, and 19E is the next active subsection.
+- Documentation set: root `AGENTS.md` (shared agent instructions; `CLAUDE.md` imports
+  it), `README.md`, `docs/README.md` (documentation map), `docs/agent-project-rules.md`
+  (rules, response style, delegation, Git and releases), `docs/checks.md`,
+  `docs/DESIGN_INDEX.md` (locator for the design document), `docs/INITIAL_SETUP.md`
+  (historical record of the indexing pass), `docs/TOWNGAME_DESIGN.md` (the
+  authoritative design), `.project/` (Project HQ reporting) and this file.
 
-- Known documentation defects, recorded in `DESIGN_INDEX.md` rather than fixed here:
-  a duplicated `## 5`, duplicated Decision 011, thirteen unnumbered `##` sections, a
-  migrating heading level within one family, and an ambiguous `19B`. These are
-  documentation defects, not design decisions.
+- Known documentation defects (duplicate numbering, heading-level drift, ambiguous
+  `19B`) are recorded under [Known numbering hazards](DESIGN_INDEX.md#known-numbering-hazards)
+  rather than fixed in the design document.
 
 Keep test counts, machine-specific results and dated evidence out of always-loaded
-instructions. Update this file when a gate or a structural fact changes.
+instructions. Update this file when a system's status or a structural fact changes.

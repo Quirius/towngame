@@ -1,4 +1,9 @@
-# Initial setup — what changed and why
+# Initial setup - what changed and why
+
+> Historical record of the 2026-09-22 indexing pass. Line counts and line numbers
+> below are as of that pass; current values are in [DESIGN_INDEX.md](DESIGN_INDEX.md).
+> The `docs/AGENTS.md` workflow it describes has since been merged into the root
+> [AGENTS.md](../AGENTS.md).
 
 Setup pass for agent efficiency. Deliberately minimal: only structure that stays
 correct as the design grows. No implementation, tooling, or dependency decisions.
