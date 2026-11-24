@@ -73,7 +73,9 @@ scripts: [docs/checks.md](docs/checks.md). A check that does not run is not a pa
   subscription logins only. Delegation rules:
   [agent-project-rules](docs/agent-project-rules.md#delegation).
 
-## Project HQ reporting
+## Notion reporting
+
+The [Notion Personal Dashboard](https://app.notion.com/p/4216a203213b81c6a5b0c042a1a940cd) imports the published GitHub reports.
 
 `.project/` holds the schema-version-1 status, roadmap and decisions published from
 `main`; [.project/README.md](.project/README.md) owns the contract and the
